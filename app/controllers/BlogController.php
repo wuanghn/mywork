@@ -13,13 +13,14 @@
 			$author = DB::table('header_blog_home as hea')
 			->join('articles as ar', 'hea.id_article','=', 'ar.id')
 			->leftjoin('authors as au','au.id', '=', 'ar.id_author')
+			->select('*','ar.id as id_ar')
 			->get();
 
 			//lấy ra những auhthor mới nhất
-			$expert = DB::table('authors')->orderBy('id','desc')->limit(4)->get();
+			$expert = DB::table('authors')->orderBy('id','desc')->get();
 
 			//lấy ra 4 bài viết mới nhất
-			$last_article = DB::table('articles')->orderBy('id', 'desc')->limit(4)->get();
+			$last_article = DB::table('articles')->orderBy('id', 'desc')->paginate(4);
 
 			return View::make('blog_home',array('last_article' =>$last_article, 'author' =>$author, 'expert' =>$expert));
 		}

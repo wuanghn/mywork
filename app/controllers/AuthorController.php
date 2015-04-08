@@ -125,7 +125,7 @@
 			$input = Input::all();
 			$arr = array(
 				'name' =>$input['name'],
-				'discription' =>$input['discription'],
+				'discription' =>nl2br($input['discription'],ENT_QUOTES),
 				'sectors' =>$input['sectors'],
 				'position' =>$input['position'],
 			);

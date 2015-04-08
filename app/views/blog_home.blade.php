@@ -50,11 +50,11 @@
 					<p>
 						{{neods(strip_tags($val_au->content), 1000)}}
 					</p>
-					<span><a href="#">see more >></a></span>
+					<span><a href="{{asset('detail-blog?id=').$val_au->id_ar}}">see more >></a></span>
 				</div>
 				<div class="col-md-5 da_name_author">
 					<img src="{{$val_au->avatar}}" class="img-circle">
-					<h2>{{mb_convert_case($val_au->name, MB_CASE_UPPER, "UTF-8");}}</h2>
+					<h3>{{mb_convert_case($val_au->name, MB_CASE_UPPER, "UTF-8");}}</h3>
 					<h4>{{$val_au->position}}</h4>
 				</div>
 				@endforeach
@@ -62,11 +62,12 @@
 			<div class="row da_expert_in">
 				<div class="col-md-12 ">
 					<h3>EXPERT IN MAKETINGS</h3>
-
-					<div class="da_slider">
+					<div class="da_slider autoplay">
 						@foreach($expert as $key_ex => $val_ex)
-						<div class="col-md-3 da_avatar_author ">
-							<img src="{{$val_ex->avatar}}" class="img-circle center-block">
+						<div class=" da_avatar_author ">
+							<a href="{{asset('expert-blog?id=').$val_ex->id}}">
+								<img src="{{$val_ex->avatar}}" class="img-circle center-block" title="{{$val_ex->name}}">
+							</a>
 							<h3 class="center-block">{{$val_ex->name}}</h3>
 							<h4>{{$val_ex->position}}</h4>
 						</div>
@@ -83,13 +84,12 @@
 						@foreach($last_article as $key_l => $val_l)
 						<div class="col-md-6 da_div_article">
 							<div class="da_content_ar">
-								<a href="#">
+								<a href="{{asset('detail-blog?id=').$val_l->id}}">
 									<img src="{{asset($val_l->avatar_article)}}">
 								</a>
-								<h4>{{neods($val_l->title, 63)}}</h4>
+								<h5>{{neods($val_l->title, 63)}}</h5>
 								<p>
-									<span><i class="fa fa-clock-o"> </i>09:30 AM</span>
-									<span class="da_view"> <i class="fa fa-eye"></i>1234</span>
+									<span><i class="fa fa-clock-o"> </i>{{da_date($val_l->updated_at)}}</span>
 								</p>
 								<p>{{neods(strip_tags($val_l->content), 280).'...'}}
 								</p>
@@ -119,12 +119,11 @@
 			</div>
 			<div class="row">
 				<div class="col-md-7 da_pagination">
-					<a href="#"><img src="public/assets/img/btn_back.png"></a>
-					<a href="#">1</a>
-					<a href="#">2</a>
-					<a href="#">3</a>
-					<a href="#">4</a>
-					<a href="#"><img src="public/assets/img/btn_next.png"></a>
+					<!--					<a href="#"><img src="public/assets/img/btn_back.png"></a>-->
+					<?php
+						echo $last_article->links();
+					?>
+					<!--					<a href="#"><img src="public/assets/img/btn_next.png"></a>-->
 
 
 				</div>
@@ -153,12 +152,19 @@
 				if($pos){$string = substr($string,0,$pos);}else{$string = substr($string,0,$len);}
 				return $string;
 			}
+
+			function da_date($updated_at) {
+				$date = new DateTime($updated_at);
+				$t1 = $date->format("g"). ':' .$date->format("i"). ' ' .$date->format("A");
+				return $t1;
+			}
 		?>
 
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 
 		<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.0/slick.min.js"></script>
+		<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
 		<script src="public/assets/js/jquery.resizecrop-1.0.3.min.js"></script>
 		<script src="public/assets/js/slick.js"></script>

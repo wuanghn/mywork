@@ -8,9 +8,10 @@ $(document).ready(function(){
 		vertical:"top"
 	});
 
-	$('.slider').slick({
+	$('.da_slider').slick({
 		slidesToShow: 4,
 		slidesToScroll: 4,
+		arrows:true,
 	});
 
 

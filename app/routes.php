@@ -46,6 +46,13 @@ Route::post('store_banner','BannerController@store');
 
 Route::get('blog','BlogController@index');
 
+Route::get('detail-blog','DetailBlogController@index');
+
+Route::get('expert-blog','ExpertBogController@index');
+
+
+
+
 
 
 

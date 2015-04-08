@@ -24,7 +24,7 @@
 	width: 235px;
 	height: 235px;
 }
-.da_name_author h2{
+.da_name_author h3{
 	color: #4e4ebc;
 }
 .da_about_author{
@@ -43,7 +43,10 @@
 	padding-left: 10px;
 	margin: auto 0px 30px auto;
 }
-.da_div_article .da_content_ar{
+.da_div_article .da_content_ar, .da_content_related{
+	-webkit-box-shadow: 0 10px 6px -6px #777;
+	-moz-box-shadow: 0 10px 6px -6px #777;
+	box-shadow: 0 10px 6px -6px #777;
 
 	border: 1px solid #ccc;
 	border-top:none;
@@ -57,7 +60,7 @@
 .da_article_of h3{
 	margin: 30px auto 30px 30px;
 }
-.da_div_article h4{
+.da_div_article h5{
 	margin: 20px 20px 10px 20px !important;
 }
 .da_pagination{
@@ -98,6 +101,9 @@
 	background-color: #f8f8f8;
 	min-height: 450px;
 }
+.da_content_ar h5{
+	font-weight: bold;
+}
 .da_content_ar .da_view{
 	padding-left: 50px;
 }
@@ -122,23 +128,7 @@
 .da_content_ar .da_question h3{
 	text-align: left;
 }
-.da_search {
-	margin-top: 30px;
-	width: 100%;
-	background-color: #4e4ebc;
-	padding: 10px;
-	border-radius: 4px;
-}
-.da_search input {
-	background-color: #4e4ebc;
-	color: white;
-	border: none;
 
-}
-.da_search .da_input_search{
-	width: 75%;
-	float: left;
-}
 .da_content_related{
 	border: 1px solid #ccc;
 	border-top: none;
@@ -162,14 +152,25 @@
 .da_div_view #da_fb{
 	margin-left: 40px;
 }
+.da_ralate_ar i{
+	padding-right: 10px;
+}
+.da_ralate_ar h5{
+	font-weight: bold;
+}
 
+.slick-prev, .slick-next{
+
+}
 .slick-prev {
+	top:30%  !important;
 	position: absolute;
 	background-image:url(../img/back.png) !important;
 	height: 23px !important;
 	width:23px !important;
 }
 .slick-next{
+	top:30%  !important;
 	position: absolute;
 	background-image:url(../img/next.png) !important;
 	height: 23px !important;
@@ -181,6 +182,55 @@
 .slick-prev:before{
 	content:none !important;
 }
+
+/*csss search*/
+
+.gsc-control-cse {
+	margin-top: 20px !important;
+	width: 100%;
+	background-color: #4e4ebc !important;
+	padding: 10px;
+	border-radius: 4px;
+}
+#gs_tti50 {
+	background-color: #4e4ebc !important;
+	color: white;
+	border: none;
+	border-color:#4e4ebc !important;
+
+}
+.gsc-input{
+	background-color: #4e4ebc !important;
+}
+.gsc-input-box, .gsc-input-box-hover{
+	background-color: #4e4ebc !important;
+	border-color:#4e4ebc !important;
+}
+
+input.gsc-input{
+	border-color:#4e4ebc !important;
+}
+.gsib_a{
+	padding: 0px !important;
+}
+#gs_tti50 input{
+	background-color: #4e4ebc !important;
+	background: none !important;
+}
+.cse input.gsc-search-button, input.gsc-search-button {
+	background: url('http://www.lorriconn.com/GlobalTemplates/AgentTemplates/Remax/Remax_Agent_010/images/search_button.jpg') no-repeat !important;
+	text-indent: -9999em;
+	border: none !important;
+	width: 60px;
+	height: 20px !important;
+}
+.gsc-search-button:before{
+	content: "SEARCH";
+	color:white;
+}
+
+
+
 
 
 
