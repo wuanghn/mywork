@@ -58,11 +58,6 @@ Route::get('expert-blog','ExpertBogController@index');
 
 
 
-//xxxxxxxxxxxxxxxxxxxxxxxx
-Route::get('wa-test',function()
-{
-		dd(display_messages());
-});
 
 
 // ROUTE BY WA 31/3/2015
