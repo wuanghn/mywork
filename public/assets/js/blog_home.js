@@ -33,6 +33,7 @@ $(document).ready(function(){
 
 
 
+
 	//	-------------------banner---------------
 	$('.da_image').click(function(){
 		url = $(this).find('img').attr('src');

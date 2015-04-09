@@ -18,6 +18,8 @@
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
+		{{ HTML::style('public/frontend/css/style.css') }}
+		{{ HTML::style('public/frontend/css/mobile.css') }}
 	</head>
 	<body>
 		<?php
@@ -39,23 +41,7 @@
 			}
 
 		?>
-		<header>
-			<div class="container">
-				<div class="row da_header">
-					<div class="col-md-6">
-						<a href="#">
-							<img src="public/assets/img/logo.png" height="23" width="187" id="img_left">
-						</a>
-					</div>
-					<div class="col-md-6">
-						<a href="#" class="pull-right">
-							<img src="public/assets/img/vietnamwork.png" height="53" width="152">
-						</a>
-					</div>
-				</div>
-			</div>
-
-		</header>
+		@include('layouts.frontend.header')
 		<div class="container">
 			<div class="row da_info_author">
 				<div class="col-md-7 da_about_author">
@@ -112,7 +98,7 @@
 
 				</div>
 
-				<div class="col-md-5 da_question" >
+				<div class="col-md-5 da_question" style="margin-bottom: 50px;">
 					<h3>Do you have questions for marketing experts?</h3>
 					<div class="wa_form_question_author_dub">
 						<h4>What fields are you interested in?</h4>
@@ -130,13 +116,7 @@
 		</div>
 
 
-		<footer>
-			<div class="container">
-			<div class="row da_footer">
-
-				footer
-			</div>
-		</footer>
+		@include('layouts.frontend.footer')
 
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 

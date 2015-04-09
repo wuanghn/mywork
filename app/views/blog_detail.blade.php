@@ -18,6 +18,8 @@
 		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
+			{{ HTML::style('public/frontend/css/style.css') }}
+		{{ HTML::style('public/frontend/css/mobile.css') }}
 	</head>
 	<body>
 
@@ -43,23 +45,7 @@
 
 
 
-		<header>
-			<div class="container">
-				<div class="row da_header">
-					<div class="col-md-6">
-						<a href="#">
-							<img src="public/assets/img/logo.png" height="23" width="187" id="img_left">
-						</a>
-					</div>
-					<div class="col-md-6">
-						<a href="#" class="pull-right">
-							<img src="public/assets/img/vietnamwork.png" height="53" width="152">
-						</a>
-					</div>
-				</div>
-			</div>
-
-		</header>
+	   @include('layouts.frontend.header')
 
 		<div class="container">
 			<div class="row ">
@@ -124,7 +110,7 @@
 							<gcse:search></gcse:search>
 						</div>
 					</div>
-					<div class="row">
+					<div class="row da_row_rela">
 						<div class="col-md-12  da_ralate_ar">
 							@if(count($relates) !=0)
 							<h3>RELATED ARTICLES</h3>
@@ -150,14 +136,14 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="da_other_article">
+						<div class=" col-md-12 da_other_article">
 							@if(count($others) >0)<h3>OTHERS ARTICLES OF THIS EXPERT</h3>  @endif
 							@foreach($others as $key_o => $val_o)
 							<div class="da_content_related">
 								<a href="{{asset('detail-blog?id=').$val_o->id}}"><img src="img/bai-viet.png"></a>
 								<h5>{{neods(strip_tags($key2->title),80)}}</h5>
 								<p>
-								<span><i class="fa fa-clock-o"> </i>{{da_date($key2->updated_at)}}</span>
+								<span><i class="fa fa-clock-o" style="padding-right: 10px;"> </i>{{da_date($key2->updated_at)}}</span>
 								<p>
 									{{neods(strip_tags($key2->content),280)}}...
 								</p>
@@ -172,13 +158,7 @@
 		<div style="clear: both"></div>
 
 
-		<footer>
-			<div class="container">
-			<div class="row da_footer">
-
-				footer
-			</div>
-		</footer>
+		@include('layouts.frontend.footer')
 
 
 
