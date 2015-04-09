@@ -82,7 +82,7 @@
 					<h3>LASTES ARTICLES</h3>
 					<div class="row">
 						@foreach($last_article as $key_l => $val_l)
-						<div class="col-md-6 da_div_article">
+						<div class="col-md-6  da_div_article">
 							<div class="da_content_ar">
 								<a href="{{asset('detail-blog?id=').$val_l->id}}">
 									<img src="{{asset($val_l->avatar_article)}}">
@@ -97,9 +97,19 @@
 						</div>
 						@endforeach
 					</div>
+					<div class="row">
+						<div class="col-md-12 da_pagination">
+							<!--					<a href="#"><img src="public/assets/img/btn_back.png"></a>-->
+							<?php
+								echo $last_article->links();
+							?>
+							<!--					<a href="#"><img src="public/assets/img/btn_next.png"></a>-->
+
+
+						</div>
+					</div>
 
 				</div>
-
 				<div class="col-md-5 da_question" >
 					<h3>Do you have questions for marketing experts?</h3>
 					<div class="wa_form_question_author_dub">
@@ -115,23 +125,7 @@
 					<button class="btn btn-block">SEND QUESTION</button>
 
 				</div>
-
 			</div>
-			<div class="row">
-				<div class="col-md-7 da_pagination">
-					<!--					<a href="#"><img src="public/assets/img/btn_back.png"></a>-->
-					<?php
-						echo $last_article->links();
-					?>
-					<!--					<a href="#"><img src="public/assets/img/btn_next.png"></a>-->
-
-
-				</div>
-
-			</div>
-
-
-
 		</div>
 
 		<footer>

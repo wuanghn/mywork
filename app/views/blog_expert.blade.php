@@ -80,9 +80,9 @@
 
 			<div class="row">
 				<div class="col-md-7 da_article_of">
-				@if(count($article) >0)
+					@if(count($article) >0)
 					<h3>ARTICLE OF EXPERT {{mb_convert_case($name, MB_CASE_UPPER, "UTF-8");}}</h3>
-				@endif
+					@endif
 					<div class="row">
 						@foreach($article as $key_a =>$val_a)
 						<div class="col-md-6 da_div_article">
@@ -97,6 +97,17 @@
 							</div>
 						</div>
 						@endforeach
+					</div>
+					<div class="row">
+						<div class="col-md-7 da_pagination">
+							<!--					<a href="#"><img src="public/assets/img/btn_back.png"></a>-->
+							<?php
+								echo $article->appends(array('id' => $id))->links();
+							?>
+							<!--					<a href="#"><img src="public/assets/img/btn_next.png"></a>-->
+
+
+						</div>
 					</div>
 
 				</div>
@@ -114,25 +125,11 @@
 						<textarea rows="5" class="form-control"></textarea>
 					</div>
 					<button class="btn btn-block">SEND QUESTION</button>
-
 				</div>
-
 			</div>
-			<div class="row">
-				<div class="col-md-7 da_pagination">
-					<!--					<a href="#"><img src="public/assets/img/btn_back.png"></a>-->
-					<?php
-						echo $article->appends(array('id' => $id))->links();
-					?>
-					<!--					<a href="#"><img src="public/assets/img/btn_next.png"></a>-->
-
-
-				</div>
-
-			</div>
-
-
 		</div>
+
+
 		<footer>
 			<div class="container">
 			<div class="row da_footer">
