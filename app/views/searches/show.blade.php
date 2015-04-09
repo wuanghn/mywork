@@ -3,7 +3,7 @@
 						
 						<div class="wa_max_width wa_wrap_search" style="margin-top:0px;">
 								<div class="container wa_block_search">
-										{{ Form::open(array('url' => 'store', 'method' => 'POST', 'class' => 'row')) }}
+										{{ Form::open(array('url' => 'store', 'method' => 'GET', 'class' => 'row')) }}
 
 												<!-- input hidden -->
 												<input name="job_category" value="27" type="hidden">
@@ -76,6 +76,7 @@
 
 
 						<div class="wa_banner_result_search">
+
 							<h3>Featured jobs</h3>
 							<div class="container">
 								<a href="#">
@@ -89,8 +90,8 @@
 						  
 						<div class="container wa_block_result_search">
 							<h3>{{ $result->data->total }} jobs</h3>
-							<div class="row">
-								<div class="col-md-4">
+							<div class="row wa_result_desktop">
+								<div class="col-md-4 wa_parent_job">
 									@foreach($result->data->jobs as $job)
 									<a id="wa_click_{{ $job->job_id }}" class="wa_click_need" href="#">
 										<div class="row wa_box_title_job">
@@ -135,34 +136,60 @@
 								</div>
 								
 								
-								@foreach($details as $job)
-								<div id="wa_show_click_{{ $job->data->job_detail->job_id }}" class="col-md-7 col-md-offset-1 wa_content_job">
-										<div class="title">
-											<div class="col-md-6">
-												<h4 class="wa_h4">{{ $job->data->job_detail->job_title }}</h4>
-											</div>
-											<!-- <div class="col-md-6 wa_btn_apply_block">
-												<a href="#" class="btn btn_apply">Apply</a>
-											</div> -->
-										</div>
-										<div class="col-md-12 wa_nd_job">
-												<!-- <img src="img/avarta_job.png" width="100%"> -->
-												<b>Job Description</b>
-												<p>{{ nl2br($job->data->job_detail->job_description) }}</p>
-												<b>Job Requirement</b>
-												<p>{{ nl2br($job->data->job_detail->job_requirement) }}</p>
-												<div style="text-align:center; margin:20px;">
-													<a href="#" class="btn btn_apply">Apply</a>
-												</div>
-												<b>{{ $job->data->job_company->company_name }}</b>
-												<p>{{ $job->data->job_company->company_address }}</p>
-												
-										</div>
-									
+								
+								<div class="col-md-7 wa_wrap_wa_iframe_content_job col-md-offset-1">
+									<iframe class="wa_iframe_content_job" width="100%" height="550px;" src="{{ url('detail') }}"></iframe>
 								</div>
-								@endforeach
 
 							</div>
+
+
+							<div class="row wa_result_mobile">
+								<div class="col-md-4 wa_parent_job">
+									@foreach($result->data->jobs as $job)
+									<a href="{{url('detail')}}?id_job={{$job->job_id}}">
+										<div class="row wa_box_title_job">
+											<div class="col-md-4">
+												<img src="{{$job->job_logo_url}}" width="100%">
+											</div>
+											<div class="col-md-8">
+												<h4>{{ $job->job_title }}</h4>
+												<p>{{ $job->job_company }}</p>
+												@foreach($locations as $local)
+													@if($local->location_id == $job->job_location)
+														<p><i></i> {{$local->lang_vn}}</p>
+													@endif
+												@endforeach
+											</div>
+										</div>
+									</a>
+									@endforeach
+									
+									<nav class="wa_pagination" style="text-align:center">
+									  <ul class="pagination">
+									    <li>
+									      <a href="#" aria-label="Previous">
+									        <span aria-hidden="true">&laquo;</span>
+									      </a>
+									    </li>
+									    <li><a href="#">1</a></li>
+									    <li><a href="#">2</a></li>
+									    <li><a href="#">3</a></li>
+									    <li><a href="#">4</a></li>
+									    <li><a href="#">5</a></li>
+									    <li>
+									      <a href="#" aria-label="Next">
+									        <span aria-hidden="true">&raquo;</span>
+									      </a>
+									    </li>
+									  </ul>
+									</nav>
+									
+
+									
+								</div>
+
+							</div><!-- MOBILE -->
 						</div>
 
 
@@ -189,7 +216,16 @@
 	{
 
 		$('.wa_content_job').hide();
-		$('.wa_block_result_search .wa_content_job').first().show();
+		// $('.wa_block_result_search .wa_content_job').first().show();
+		var job_id_first = $('.wa_parent_job .wa_click_need').first().attr('id');
+		job_id_first = job_id_first.split('_');
+		job_id_first = job_id_first[2];
+
+
+		var src_first_job = "{{url('detail')}}?id_job="+job_id_first;
+
+		$('.wa_iframe_content_job').attr('src',src_first_job);
+
 		$('.wa_click_need').click(function()
 		{
 			$(this).children('.wa_box_title_job').css({
@@ -207,9 +243,17 @@
 			var id = $(this).attr('id');
 			id = id.split('_');
 			id = id[2];
-			var idshow = '#wa_show_click_'+id;
-			$(idshow).show();
-			$(idshow).siblings('.wa_content_job').hide();
+
+
+			var src = "{{url('detail')}}?id_job="+id;
+
+			$('.wa_iframe_content_job').attr('src',src);
+
+
+
+			// var idshow = '#wa_show_click_'+id;
+			// $(idshow).show();
+			// $(idshow).siblings('.wa_content_job').hide();
 
 			return false;
 		})

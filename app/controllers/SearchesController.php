@@ -43,7 +43,7 @@ class SearchesController extends \BaseController {
 
 
 
-	public function postStore()
+	public function getStore()
 	{
 			$ganeral_configurations = $this->getGeneralConfigurations();
 
@@ -51,13 +51,23 @@ class SearchesController extends \BaseController {
 
 			$result = $this->getResultSearch(Input::except('_token'));
 
-			$details = $this->getDetailJobByJobId($result);
+			//$details = $this->getDetailJobByJobId($result);
 
 			//$this->viewStructure($details);
 
-			return View::make('searches.show',compact('result','locations','details','ganeral_configurations'));
+			return View::make('searches.show',compact('result','locations','ganeral_configurations'));
 			
 			//return $this->viewStructure($result->data->jobs);		
+	}
+
+
+
+
+
+	public function getDetail()
+	{
+			$job = $this->getDetailJobApi(Input::get('id_job'));
+			return View::make('searches.detail',compact('job'));
 	}
 	
 

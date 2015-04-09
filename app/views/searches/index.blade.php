@@ -11,7 +11,6 @@
 								<span>Digital Marketing</span>
 								<i class="fa fa-share-alt-square fa-2x"></i>
 							</a>
-							<!-- <div class="wa_space_right wa_inline_block"></div> -->
 							<a href="#" class="wa_box_catetog wa_inline_block wa_space_right">
 								<span>Content, PR & Marketing Communications</span>
 								<i class="fa fa-share-alt-square fa-2x"></i>
@@ -36,7 +35,7 @@
 
 				<div class="wa_max_width wa_wrap_search">
 						<div class="container wa_block_search">
-								{{ Form::open(array('url' => 'store', 'method' => 'POST', 'class' => 'row')) }}
+								{{ Form::open(array('url' => 'store', 'method' => 'GET', 'class' => 'row')) }}
 
 										<!-- input hidden -->
 										<input name="job_category" value="27" type="hidden">
@@ -115,8 +114,8 @@
 
 					  <!-- Nav tabs -->
 					  <ul class="nav nav-tabs wa_fix_big_table_home" role="tablist">
-					    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab"><h3>HOT JOBS OF THE WEEK</h3></a></li>
-					    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"><h3>THIS WEEK'S MARKETING STORY</h3></a></li>
+					    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab"><h3>HOT JOBS OF THE WEEK</h3><span class="wa_tab_respo">Hot jobs of the week</span></a></li>
+					    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"><h3>THIS WEEK'S MARKETING STORY</h3><span class="wa_tab_respo">This week's marketing story</span></a></li>
 					  </ul>
 
 				  
@@ -126,7 +125,7 @@
 									<div class="row">
 											<div class="col-md-8">
 												<div class="wa_box_author">
-													<img src="{{url('public/frontend/img/avarta_author.png')}}">
+													<img class="img-responsive" src="{{url('public/frontend/img/avarta_author.png')}}">
 													<h2>Smile Nick</h2>
 													<h4>Director of Marketing, VietnamWorks</h4>
 												</div>
