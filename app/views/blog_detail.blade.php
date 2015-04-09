@@ -10,7 +10,7 @@
 		<link href="public/assets/css/bootstrap.min.css" rel="stylesheet">
 		<link href="public/assets/css/blog2.css" rel="stylesheet">
 		<link href="public/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
+			<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -20,6 +20,12 @@
 		<![endif]-->
 			{{ HTML::style('public/frontend/css/style.css') }}
 		{{ HTML::style('public/frontend/css/mobile.css') }}
+
+		<script type="">
+		$(document).ready(function(){
+		$('.da_div_arti img').attr('class','img-responsive');
+		})
+		</script>
 	</head>
 	<body>
 
@@ -57,7 +63,7 @@
 							<div class="col-md-8">
 								<span><i class="fa fa-clock-o"> </i>{{da_date($val_a->updated_at)}}</span>
 							</div>
-							<div class="col-md-4">
+							<div class="col-md-4 da_icon_share">
 								<div class="tw"><a href="https://twitter.com/share" class="twitter-share-button"
 										data-dnt="true"
 										data-count="none"
