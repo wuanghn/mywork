@@ -247,7 +247,7 @@ footer{
 }
 .div_img_avatar{
 	display: inline-block;
-	border: 1px solid #4e4ebc;
+	border: 2px solid #4e4ebc;
 	border-radius: 50%;
 }
 .da_content_info{
@@ -290,7 +290,6 @@ footer{
 
 
 
-
 /*rip cua wang hn question*/
 .da_div_left .da_question{
 	width: auto;
@@ -304,6 +303,7 @@ footer{
 	padding: 35px 20px 35px 20px;
 }
 .da_question h3{
+	font-size: 20px;
 	text-align: center;
 	text-transform: uppercase;
 }
@@ -403,6 +403,9 @@ footer{
 .slick-next, .slick-prev{
 	top:25% !important;
 }
+.slick-next{
+	right: -15px !important;
+}
 .da_content_ar img{
 	width:100%;
 	height: 160px;
@@ -437,10 +440,17 @@ footer{
 
 
 
+
+
+
+
 @media (max-width: 475px){
 	.da_avatar_author img{
 	width: 120px;
 	height: 120px;
+}
+.slick-next{
+	right: -15px !important;
 }
 .da_content_ar img{
 	width:100%;

@@ -9,10 +9,11 @@
 
 		<!-- Bootstrap -->
 		<link href="public/assets/css/bootstrap.min.css" rel="stylesheet">
-		<link href="public/assets/css/blog2.css" rel="stylesheet">
+
 		<link href="public/assets/css/slick.css" rel="stylesheet">
 		<link href="public/assets/css/slick-theme.css" rel="stylesheet">
 		<link href="public/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link href="public/assets/css/blog2.css" rel="stylesheet">
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -46,7 +47,7 @@
 			</div>
 			<div class="row da_expert_in">
 				<div class="col-md-12 ">
-					<h3>EXPERT IN MAKETINGS</h3>
+					<h3>EXPERTS IN MAKETINGS</h3>
 					<div class="da_slider autoplay">
 						@foreach($expert as $key_ex => $val_ex)
 						<div class=" da_avatar_author ">

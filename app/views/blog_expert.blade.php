@@ -73,7 +73,7 @@
 			<div class="row">
 				<div class="col-md-8 da_article_of">
 					@if(count($article) >0)
-					<h3>ARTICLE OF EXPERT {{mb_convert_case($name, MB_CASE_UPPER, "UTF-8");}}</h3>
+					<h3>ARTICLES OF EXPERT {{mb_convert_case($name, MB_CASE_UPPER, "UTF-8");}}</h3>
 					@endif
 					<div class="row">
 						@foreach($article as $key_a =>$val_a)
