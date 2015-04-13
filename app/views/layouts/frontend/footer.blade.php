@@ -13,12 +13,12 @@
  			<div class="wa_wrap_new_footer">
  				<div class="container">
  					<div class="row">
- 						<div class="col-md-3">
+ 						<div class="col-md-4">
  							<img src="{{url('public/frontend/img/logo_footer.png')}}">
  							<p>Copyright © Navigos Group Vietnam Joint Stock Company 
 130 Suong Nguyet Anh Street, Ben Thanh Ward, District 1, Ho Chi Minh City, Vietnam</p>
  						</div>
- 						<div class="col-md-3 wa_hide_footer_respo">
+ 						<div class="col-md-3 col-md-offset-1 wa_hide_footer_respo">
  							<h3>Introduce</h3>
  							<ul class="nav nav-pills nav-stacked">
  							  	<li><a href="#">About Us</a></li>
@@ -29,7 +29,7 @@
 								<li><a href="#">Privacy Statement</a></li>
  							</ul>
  						</div>
- 						<div class="col-md-3 col-md-offset-3 wa_social wa_hide_footer_respo">
+ 						<div class="col-md-3 col-md-offset-1 wa_social wa_hide_footer_respo">
  							<h3>Subscribe to Us</h3>
  							<div class="col-md-6">
  								<a href="#" class="box_social">

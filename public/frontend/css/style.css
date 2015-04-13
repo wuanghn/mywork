@@ -3,7 +3,10 @@
 	AUTHOR: WA
 	DATE: 02-04-2015
 */
-
+body
+{
+	font-family: Roboto, Helvetica, Verdana, Arial, sans-serif;
+}
 .wa_max_width
 {
 	min-width: 100%;
@@ -84,7 +87,7 @@
 	opacity: 0.5;
 	background-color: white;
 }
-.wa_wrap_banner img
+.wa_wrap_banner>img
 {
 	position:absolute;
 	top: 0px;
@@ -95,8 +98,14 @@
 {
 	position: absolute;
 	_top: 0px;
-	left: 7%;
+	_left: 7%;
 	z-index: 3;
+	padding-right: 0px;
+}
+
+.wa_wrap_banner>.container .col-md-2
+{
+	text-align: center;
 }
 
 .wa_wrap_banner .wa_inline_block
@@ -194,6 +203,7 @@
 {
 	margin-top: 40px;
 	padding-right: 0px;
+	background-color: #f8f8f8;
 }
 	
 	.wa_tab_menu .nav a
@@ -204,12 +214,13 @@
 
 	.wa_tab_menu .nav .active a
 	{
-		background-color: #ffffff;
+		background-color: #f8f8f8;
 		color:#4e4ebc;
 		_border: none;
 	}
 	.wa_tab_menu .nav .active a:hover, .wa_tab_menu .nav .active a:focus
 	{
+		background-color: #f8f8f8;
 		color:#4e4ebc;
 	}
 
@@ -259,6 +270,7 @@
 	.wa_content_tab .row .wa_apply
 	{
 		padding-right:15px; 
+		line-height: 89px;
 	}
 
 	.wa_content_tab .row .wa_apply .btn
@@ -269,6 +281,7 @@
 	}
 		.wa_content_tab .row .wa_location h4{
 				color: #999999;
+				line-height: 69px;
 		}
 		.wa_content_tab .row .col-md-8 h4
 		{
@@ -278,7 +291,7 @@
 		.wa_content_tab .row .col-md-8 .wa_info
 		{
 			position: relative;
-			padding-right: 90px;
+			_padding-right: 90px;
 		}
 			.wa_content_tab .row .col-md-8 .col-md-3
 			{
@@ -315,8 +328,8 @@
 
 .wa_author_block .wa_form_question_author
 {
-	padding-top: 35px;
-	padding-bottom: 45px;
+	padding-top: 40px;
+	padding-bottom: 40px;
 }
 	.wa_author_block .wa_form_question_author .btn-block
 	{
@@ -336,7 +349,7 @@
 	.wa_author_block .wa_form_question_author h3
 	{
 		text-align: center;
-		margin-bottom: 100px;
+		margin-bottom: 40px;
 	}
 
 	.wa_author_block .wa_form_question_author h3,.wa_author_block .wa_form_question_author h4
@@ -349,6 +362,11 @@
 		color: #666666;		
 	}
 
+	.wa_author_block .wa_post_author
+	{
+		text-align: center;
+	}
+
 	.wa_author_block .wa_post_author a
 	{
 		color: #4e4ebc;
@@ -359,6 +377,9 @@
 		-webkit-border-radius: 50%;
 		-moz-border-radius: 50%;
 		border-radius: 50%;
+		width: 200px;
+		height: 200px;
+		border: 2px solid #4e4ebc;
 	}
 
 	.wa_author_block .wa_box_author h2
@@ -504,6 +525,7 @@
 .wa_banner_result_search h3
 {
 	text-align: center;
+	margin: 0px;
 	margin-bottom: 10px;
 }
 

@@ -5,10 +5,10 @@
  										<ul class="nav nav-pills">
  										  <li role="presentation">
  										  		<a class="wa_fix_bkg_logo" style="padding-top:0px" href="{{url('/')}}">
- 										  				<img src="{{url('public/frontend/img/logo.png')}}" height="53" width="187">
+ 										  				<img src="{{url('public/frontend/img/logo-vnw2.png')}}">
  										  		</a>
  										  </li>
- 										  <li role="presentation" class="active"><a href="{{url('/')}}">Search</a></li>
+ 										  <li role="presentation"><a href="{{url('/')}}">Search</a></li>
  										  <li role="presentation"><a href="{{ url('blog') }}">Blog</a></li>
  										</ul>
  								</div>

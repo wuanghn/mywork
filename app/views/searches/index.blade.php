@@ -6,31 +6,54 @@
 				<div class="wa_wrap_banner">
 						<img src="{{url('public/frontend/img/background.png')}}" width="100%">
 						<div class="wa_opic"></div>
+						
+
+
 						<div class="container">
-							<a href="#" class="wa_box_catetog wa_inline_block">
-								<span>Digital Marketing</span>
-								<i class="fa fa-share-alt-square fa-2x"></i>
-							</a>
-							<a href="#" class="wa_box_catetog wa_inline_block wa_space_right">
-								<span>Content, PR & Marketing Communications</span>
-								<i class="fa fa-share-alt-square fa-2x"></i>
-							</a>
-							<a href="#" class="wa_box_catetog wa_inline_block wa_space_right">
-								<span>Trade Marketing</span>
-								<i class="fa fa-share-alt-square fa-2x"></i>
-							</a>
-							<a href="#" class="wa_box_catetog wa_inline_block wa_space_right">
-								<span>Account & Planner</span>
-								<i class="fa fa-share-alt-square fa-2x"></i>
-							</a>
-							<a href="#" class="wa_box_catetog wa_inline_block wa_space_right">
-								<span>Creative & Design</span>
-								<i class="fa fa-share-alt-square fa-2x"></i>
-							</a>
-							<div href="#" style="clear:left;"></div>
+							<div class="row">
+								<a href="#" class="col-md-2">
+									<div class="wa_catetogary_feedback hvr-hollow">
+										<h4>Digital Marketing</h4>
+										<img class="center-block" src="{{url('public/frontend/img')}}/digital-marketing.png" style="width:80px; height:80px;">
+									</div>
+								</a>
+								<a href="#" class="col-md-2">
+									<div class="wa_catetogary_feedback hvr-hollow">
+										<h4>Content Communications</h4>
+										<img class="center-block" src="{{url('public/frontend/img')}}/Content-writer.png" style="width:80px; height:80px;">
+									</div>
+								</a>
+								<a href="#" class="col-md-2">
+									<div class="wa_catetogary_feedback hvr-hollow">
+										<h4>Trade Marketing</h4>
+										<img class="center-block" src="{{url('public/frontend/img')}}/trade-marketing.png" style="width:80px; height:80px;">
+									</div>
+								</a>
+								<a href="#" class="col-md-2">
+									<div class="wa_catetogary_feedback hvr-hollow">
+										<h4>Account & Planner</h4>
+										<img class="center-block" src="{{url('public/frontend/img')}}/account-marketing.png" style="width:80px; height:80px;">
+									</div>
+								</a>
+								<a href="#" class="col-md-2">
+									<div class="wa_catetogary_feedback hvr-hollow">
+										<h4>Creative & Design</h4>
+										<img class="center-block" src="{{url('public/frontend/img')}}/creative (1).png" style="width:80px; height:80px;">
+									</div>
+								</a>
+								<a href="#" class="col-md-2">
+									<div class="wa_catetogary_feedback hvr-hollow">
+										<h4>PR & Marketing Communications</h4>
+										<img class="center-block" src="{{url('public/frontend/img')}}/event.png" style="width:80px; height:80px;">
+									</div>
+								</a>
+							</div>
 						</div>
+
 				</div><!-- BANNER -->
 
+
+				
 
 
 				<div class="wa_max_width wa_wrap_search">
@@ -68,15 +91,15 @@
 													</div>
 													<div class="col-md-3 left-inner-addon">
 															<i class="fa fa-usd"></i>
-															<input  id="wa_id_salary" type="text"
+															<input name="min_salary"  type="number" min="0" step="50" tabindex="105" maxlength="6"
 													           class="form-control" 
 													           placeholder="Salary" />
-													        <input type="hidden" name="min_salary">
+													       <!--  <input type="hidden" name="min_salary">
 													        <select id="wa_sel_salary" class="form-control">
 													        		<option>Salary</option>
 													        		<option value="50-50$">50$</option>
 													        		<option value="100-100$">100$</option>
-													        </select>
+													        </select> -->
 													</div>
 													<div class="col-md-3 wa_input_job_level left-inner-addon">
 															<i class="fa fa-book"></i>
@@ -108,7 +131,7 @@
 
 
 
-				
+				<div class="wa_wrap_tab_menu">
 
 				<div role="tabpanel" class="container wa_tab_menu">
 
@@ -123,18 +146,18 @@
 					<div class="tab-content">
 							<div role="tabpanel" id="profile" class="container wa_author_block tab-pane">
 									<div class="row">
-											<div class="col-md-8">
+											<div class="col-md-6">
 												<div class="wa_box_author">
-													<img class="img-responsive" src="{{url('public/frontend/img/avarta_author.png')}}">
+													<img  src="https://scontent-sea.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10991202_10152515940881377_2906181066353481572_n.jpg?oh=a728cbb8f227cda4ad2dcd3429d4806a&oe=55AA639A">
 													<h2>Smile Nick</h2>
 													<h4>Director of Marketing, VietnamWorks</h4>
 												</div>
 												<div class="wa_post_author">
 													<h3>Biggest reasons why employees in Vietnam leave</h3>
-													<h4>I was a little bit nervous when we launched this survey back in January to 12,000 professionals here in Vietnam. Partly because I knew that after Lunar New Year, staff turn-over is expected to rise and my team members are no exception. Furthermore, that this research might expose my team to other reasons why people decide to leave a company. <a href="#">Read more...</a></h4>
+													<h4>I was a little bit nervous when we launched this survey back in January to 12,000 professionals here in Vietnam.Partly because I knew that after Lunar New Year, staff turn-over is expected to rise and my team members are no exception. Furthermore, that this research might expose my team to other reasons why people decide. Partly because I knew that after Lunar New Year, staff turn-over is expected to rise and my team members are no exception. Furthermore, that this research might expose my team to other reasons why people decide to leave a company. <a href="#">Read more...</a></h4>
 												</div>
 											</div>
-											<div class="col-md-4 wa_form_question_author" style="background-color:#4e4ebc">
+											<div class="col-md-5 col-md-offset-1 wa_form_question_author" style="background-color:#4e4ebc">
 													<h3>Do you have questions for marketing experts?</h3>
 
 													<div class="wa_form_question_author_dub">
@@ -160,12 +183,13 @@
 
 							<div role="tabpanel" id="home" class="tab-pane active container wa_content_tab">
 									@foreach($new_job->data->jobs as $job)
-									<div class="row">
+									<div style="position:relative" class="row">
 											<div class="col-md-8">
-												<div class="col-md-3">
-													<img src="{{$job->job_logo_url}}" height="41" width="133">
+												<div class="col-md-3" >
+													<img src="{{$job->job_logo_url}}" style="width:100%">
+													<img src="{{url('public/frontend/img/urgent-badge.png')}}" style="position:absolute;top:-30px;left:-15px; width:100px; height:100px;">
 												</div>
-												<div class="col-md-9 wa_info">
+												<div class="col-md-8 wa_info col-md-offset-1">
 													<h4>{{ $job->job_title }}</h4>
 													<p>{{ $job->job_company }}</p>
 													<!-- <img src="{{url('public/frontend/img/urgent.png')}}" height="92" width="93"> -->
@@ -200,6 +224,8 @@
 							</div><!-- block content tab -->
 					</div>
 				</div><!-- end tab content -->
+
+		</div><!-- end wrap tab content -->
 @stop
 
 @section('script')
@@ -217,9 +243,14 @@
 
 	$(document).ready(function()
 	{
+		var margin = parseInt($('.wa_header').css('marginLeft'));
+
+		$('.wa_wrap_banner>.container').css('left',margin)
+
+
 		var sum = $('.wa_opic').outerHeight( true );
 		var sumpx = sum + 'px';
-		$('.wa_wrap_banner img').height(sum);
+		$('.wa_wrap_banner>img').height(sum);
 
 		var has = $('.wa_wrap_banner').outerHeight( true );
 
