@@ -162,6 +162,7 @@
 				'id_author' => $input['id_author'],
 				'title' => $input['title'],
 				'related' => $input['id_acticles'],
+				'article_description' => $input['article_description'],
 			);
 			return $arr;
 		}

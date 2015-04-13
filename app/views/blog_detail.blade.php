@@ -8,7 +8,7 @@
 		@foreach($article as $k1 =>$val1)
 		<!-- Schema.org markup for Google+ -->
 		<meta itemprop="name" content="{{$val1->title}}">
-		<meta itemprop="description" content="{{neods(strip_tags($val1->content),300)}}">
+		<meta itemprop="description" content="{{$val1->article_description}}">
 		<meta itemprop="image" content="{{$val1->avatar_article}}">
 
 		<!-- Open Graph data -->
@@ -16,7 +16,7 @@
 		<meta property="og:type" content="article" />
 		<meta property="og:url" content="{{URL::full();}}"/>
 		<meta property="og:image" content="{{$val1->avatar_article}}" />
-		<meta property="og:description" content="{{neods(strip_tags($val1->content),300)}}" />
+		<meta property="og:description" content="{{$val1->article_description}}" />
 		<meta property="og:site_name" content="Viet Nam Work" />
 
 		@endforeach
@@ -29,6 +29,7 @@
 		<link href="public/assets/css/blog2.css" rel="stylesheet">
 		<link href="public/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -89,14 +90,18 @@
 						<div class=" row da_div_view">
 							<div class="col-md-7">
 								<span><i class="fa fa-clock-o"> </i>{{da_date($val_a->updated_at)}}</span><span> | </span>
-								<span><a href="#" style="color:#989898">{{$val_a->name}}</a></span>
+								<span><a href="{{asset('expert-blog?id=').$val_a->id_author}}" style="color:#989898">{{$val_a->name}}</a></span>
 							</div>
 							<div class="col-md-5 da_icon_share">
 								<div class="g-plus" data-action="share" data-annotation="bubble"></div>
 								<div class="fb-like" data-href="{{URL::full();}}" data-layout="button_count" data-action="like" data-show-faces="true" data-share="true"></div>
-
 							</div>
 
+						</div>
+						<div class=" row da_article_description">
+							<div class="col-md-12">
+								<p>{{$val_a->article_description}}</p>
+							</div>
 						</div>
 						<div class=" row da_content_arti">
 							<div class="col-md-12">
@@ -158,7 +163,7 @@
 									<p>
 										<span><i class="fa fa-clock-o"> </i>{{da_date($key2->updated_at)}}</span></p>
 									<p>
-										{{neods(strip_tags($key2->content),280)}}
+										{{$key2->article_description}}
 									</p>
 								</div>
 							</div>
@@ -174,14 +179,14 @@
 							@if(count($others) >0)<h3>OTHERS ARTICLES OF THIS EXPERT</h3>  @endif
 							@foreach($others as $key_o => $val_o)
 							<div class="da_content_related">
-								<a href="{{asset('detail-blog?id=').$val_o->id}}"><img src="img/bai-viet.png"></a>
+								<a href="{{asset('detail-blog?id=').$val_o->id}}"><img src="{{$val_o->avatar_article}}"></a>
 								<div class="da_content_info">
-									<p><a href="{{asset('detail-blog?id=').$val_o->id}}">{{neods(strip_tags($key2->title),80)}}</a></p>
+									<p><a href="{{asset('detail-blog?id=').$val_o->id}}">{{neods(strip_tags($val_o->title),80)}}</a></p>
 									<p>
-										<span><i class="fa fa-clock-o" style="padding-right: 10px;"> </i>{{da_date($key2->updated_at)}}</span>
+										<span><i class="fa fa-clock-o" style="padding-right: 10px;"> </i>{{da_date($val_o->updated_at)}}</span>
 									</p>
 									<p>
-										{{neods(strip_tags($key2->content),280)}}...
+										{{$val_o->article_description}}
 									</p>
 								</div>
 							</div>

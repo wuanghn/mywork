@@ -188,7 +188,11 @@
 											<input name="id_author" type="hidden" id="id_author">
 										</div>
 										<div class="form-group">
-											<label>Avatar</label>
+											<label>Mô tả (250 ký tự)</label>
+											<textarea name="article_description" type="text" class="form-control article_description"></textarea>
+										</div>
+										<div class="form-group">
+											<label>Avatar (tỉ lệ 16:9 - ex: 370x208 px)</label>
 											<div>
 												<img src="" id="img_avatar_ar"  class="img_avatar_ar">
 											</div>
@@ -237,7 +241,11 @@
 											<input name="id_author" type="hidden" id="id_author_up">
 										</div>
 										<div class="form-group">
-											<label>Avatar</label>
+											<label>Mô tả (250 ký tự)</label>
+											<textarea name="article_description" type="text" class="form-control " id="article_description_up"></textarea>
+										</div>
+										<div class="form-group">
+											<label>Avatar (tỉ lệ 16:9)</label>
 											<div>
 												<img src="" id="img_avatar_ar_up"  class="img_avatar_ar">
 											</div>
@@ -304,6 +312,7 @@
 											<td class="hidden td_id_article">{{$val->id_article}}</td>
 											<td class="hidden td_related">{{$val->related}}</td>
 											<td class="hidden td_avatar_article">{{$val->avatar_article}}</td>
+											<td class="hidden td_article_description">{{$val->article_description}}</td>
 											<td class="hidden td_name_title_relate">
 												@foreach($title as $key2 =>$val2)
 

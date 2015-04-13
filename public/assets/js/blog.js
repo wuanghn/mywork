@@ -25,7 +25,7 @@ $(document).ready(function(){
 		$('#img_avatar_up').attr('src',avatar);
 		$('#id_up').val(id);
 		$('#location_up option[value='+location+']').attr('selected','selected');
-		
+
 	})
 
 
@@ -216,6 +216,7 @@ $(document).ready(function(){
 		td_related = $(this).parent().parent().find('td.td_related').text();
 		title_relate1 = $.trim($(this).parent().parent().find('td.td_name_title_relate').text());
 		avatar_article = $.trim($(this).parent().parent().find('td.td_avatar_article').text());
+		article_description = $.trim($(this).parent().parent().find('td.td_article_description').text());
 
 		if(title_relate1 !="")
 			title_relate = $.parseJSON(title_relate1);
@@ -229,6 +230,7 @@ $(document).ready(function(){
 		$('#autocomplete_name_up').val(name_author);
 		$('#id_author_up').val(id_author);
 		$('#img_avatar_ar_up').attr('src',avatar_article);
+		$('#article_description_up').val(article_description);
 
 		arr_id_relate = td_related.split(',');
 		$('.alert-info').remove(); //delete div relate

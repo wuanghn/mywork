@@ -28,7 +28,7 @@
 			//lấy ra other articel cua author
 			$id_author = $article[0]->id_author;
 			$arr_other = array();
-			$other = DB::table('articles')->where('id',$id_author)
+			$other = DB::table('articles')->where('id_author',$id_author)
 			->orderBy('id', 'desc')
 			->limit(2)
 			->get();

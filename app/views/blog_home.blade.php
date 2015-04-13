@@ -77,7 +77,7 @@
 									<p>
 										<span><i class="fa fa-clock-o"> </i>{{da_date($val_l->updated_at)}}</span>
 									</p>
-									<p>{{neods(strip_tags($val_l->content), 280).'...'}}
+									<p>{{$val_l->article_description}}
 									</p>
 								</div>
 							</div>
@@ -139,6 +139,7 @@
 
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
 		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 		<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.0/slick.min.js"></script>
 		<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>

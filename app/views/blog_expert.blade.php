@@ -10,6 +10,8 @@
 		<link href="public/assets/css/bootstrap.min.css" rel="stylesheet">
 		<link href="public/assets/css/blog2.css" rel="stylesheet">
 		<link href="public/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -83,7 +85,7 @@
 									<p>
 									<span><i class="fa fa-clock-o"> </i>{{da_date($val_a->updated_at)}}</span>
 									<p>
-										{{neods(strip_tags($val_a->content),280)}}
+										{{$val_a->article_description}}
 									</p>
 								</div>
 							</div>
@@ -130,6 +132,5 @@
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="js/bootstrap.min.js"></script>
 	</body>
   </html>
