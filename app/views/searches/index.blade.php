@@ -187,7 +187,7 @@
 											<div class="col-md-8">
 												<div class="col-md-3" >
 													<img src="{{$job->job_logo_url}}" style="width:100%">
-													<img src="{{url('public/frontend/img/urgent-badge.png')}}" style="position:absolute;top:-30px;left:-15px; width:100px; height:100px;">
+													<!-- <img src="{{url('public/frontend/img/urgent-badge.png')}}" style="position:absolute;top:-30px;left:-15px; width:100px; height:100px;"> -->
 												</div>
 												<div class="col-md-8 wa_info col-md-offset-1">
 													<h4>{{ $job->job_title }}</h4>
