@@ -19,7 +19,7 @@
 130 Suong Nguyet Anh Street, Ben Thanh Ward, District 1, Ho Chi Minh City, Vietnam</p>
  						</div>
  						<div class="col-md-3 col-md-offset-1 wa_hide_footer_respo">
- 							<h3>Introduce</h3>
+ 							<h3>Introduction</h3>
  							<ul class="nav nav-pills nav-stacked">
  							  	<li><a href="#">About Us</a></li>
 								<li><a href="#">Contact Us</a></li>

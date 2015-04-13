@@ -72,7 +72,7 @@ body
 		}
 		.wa_header .row .left .nav
 		{
-			line-height: 100px;
+			line-height: 65px;
 		}
 /*****END HEADER******/
 .wa_wrap_banner
@@ -357,6 +357,7 @@ body
 	{
 		text-align: center;
 		margin-bottom: 40px;
+		text-transform: uppercase;
 	}
 
 	.wa_author_block .wa_form_question_author h3,.wa_author_block .wa_form_question_author h4
