@@ -36,15 +36,15 @@ CKEDITOR.editorConfig = function( config ) {
 	// Simplify the dialog windows.
 	config.removeDialogTabs = 'image:advanced;link:advanced';
 
-	config.filebrowserBrowseUrl = 'http://localhost/vietnam/public/ckfinder/ckfinder.html';
+	config.filebrowserBrowseUrl = '/public/ckfinder/ckfinder.html';
 
-	config.filebrowserImageBrowseUrl = 'http://localhost/vietnam/public/ckfinder/ckfinder.html?type=Images';
+	config.filebrowserImageBrowseUrl = '/public/ckfinder/ckfinder.html?type=Images';
 
-	config.filebrowserFlashBrowseUrl = 'http://localhost/vietnam/public/ckfinder/ckfinder.html?type=Flash';
+	config.filebrowserFlashBrowseUrl = '/public/ckfinder/ckfinder.html?type=Flash';
 
-	config.filebrowserUploadUrl = 'http://localhost/vietnam/public/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files';
+	config.filebrowserUploadUrl = '/public/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files';
 
-	config.filebrowserImageUploadUrl = 'http://localhost/vietnam/public/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images';
+	config.filebrowserImageUploadUrl = '/public/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images';
 
-	config.filebrowserFlashUploadUrl = 'http://localhost/vietnam/public/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash';
+	config.filebrowserFlashUploadUrl = '/ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash';
 };
