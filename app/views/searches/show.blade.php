@@ -92,24 +92,32 @@
 							<h3>{{ $result->data->total }} jobs</h3>
 							<div class="row wa_result_desktop">
 								<div class="col-md-4 wa_parent_job">
-									@foreach($result->data->jobs as $job)
-									<a id="wa_click_{{ $job->job_id }}" class="wa_click_need" href="#">
-										<div class="row wa_box_title_job">
-											<div class="col-md-4">
-												<img src="{{$job->job_logo_url}}" width="100%">
-											</div>
-											<div class="col-md-8">
-												<h4>{{ $job->job_title }}</h4>
-												<p>{{ $job->job_company }}</p>
-												@foreach($locations as $local)
-													@if($local->location_id == $job->job_location)
-														<p><i></i> {{$local->lang_vn}}</p>
-													@endif
-												@endforeach
-											</div>
-										</div>
-									</a>
-									@endforeach
+									<div class="scroll" style="
+										height: 500px;
+										width: 100%;
+										overflow: auto;
+										_background-color: #ccc;
+										padding: 8px;
+									">
+											@foreach($result->data->jobs as $job)
+											<a id="wa_click_{{ $job->job_id }}" class="wa_click_need" href="#">
+												<div class="row wa_box_title_job">
+													<div class="col-md-4">
+														<img src="{{$job->job_logo_url}}" width="100%">
+													</div>
+													<div class="col-md-8">
+														<h4>{{ $job->job_title }}</h4>
+														<p>{{ $job->job_company }}</p>
+														@foreach($locations as $local)
+															@if($local->location_id == $job->job_location)
+																<p><i></i> {{$local->lang_vn}}</p>
+															@endif
+														@endforeach
+													</div>
+												</div>
+											</a>
+											@endforeach
+									</div>
 									
 									<nav class="wa_pagination" style="text-align:center">
 									  <ul class="pagination">
@@ -137,7 +145,7 @@
 								
 								
 								
-								<div class="col-md-7 wa_wrap_wa_iframe_content_job col-md-offset-1">
+								<div class="col-md-8 wa_wrap_wa_iframe_content_job">
 									<iframe class="wa_iframe_content_job" width="100%" height="550px;" src="{{ url('detail') }}"></iframe>
 								</div>
 
