@@ -11,7 +11,7 @@
 	background-color: #f8f8f8;
 }
 .da_div_arti i{
-	padding-right: 10px;
+	padding-right: 5px;
 }
 
 .da_header #img_left{
@@ -121,9 +121,7 @@
 .da_content_ar p{
 	padding: 0px 20px 0px 20px;
 }
-.da_div_view a{
-	padding-left: 10px;
-}
+
 .da_content_arti{
 	margin: 30px auto auto auto;
 }
