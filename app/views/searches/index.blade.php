@@ -154,7 +154,7 @@
 												</div>
 												<div class="wa_post_author">
 													<h3>Biggest reasons why employees in Vietnam leave</h3>
-													<h4>I was a little bit nervous when we launched this survey back in January to 12,000 professionals here in Vietnam.Partly because I knew that after Lunar New Year, staff turn-over is expected to rise and my team members are no exception. Furthermore, that this research might expose my team to other reasons why people decide. Partly because I knew that after Lunar New Year, staff turn-over is expected to rise and my team members are no exception. Furthermore, that this research might expose my team to other reasons why people decide to leave a company. <a href="#">Read more...</a></h4>
+													<h4>I was a little bit nervous when we launched this survey back in January to 12,000 professionals here in Vietnam.Partly because I knew that after Lunar New Year, staff turn-over is expected to rise and my team members are no exception. Furthermore, that this research might expose my team to other reasons why people decide. Partly because I knew that after Lunar New Year <a href="#">Read more...</a></h4>
 												</div>
 											</div>
 											<div class="col-md-5 col-md-offset-1 wa_form_question_author" style="background-color:#4e4ebc">
@@ -168,7 +168,7 @@
 													</div>
 
 													<div class="wa_form_question_author_dub">
-														<h4>What fields are you interested in?</h4>
+														<h4>Your question</h4>
 														<textarea rows="5" class="form-control"></textarea>
 													</div>
 													<button class="btn btn-block">SEND QUESTION</button>

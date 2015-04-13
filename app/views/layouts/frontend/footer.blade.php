@@ -14,7 +14,7 @@
  				<div class="container">
  					<div class="row">
  						<div class="col-md-4">
- 							<img src="{{url('public/frontend/img/logo_footer.png')}}">
+ 							<img style="margin:20px 0px;" src="{{url('public/frontend/img/footer-logo.png')}}">
  							<p>Copyright © Navigos Group Vietnam Joint Stock Company 
 130 Suong Nguyet Anh Street, Ben Thanh Ward, District 1, Ho Chi Minh City, Vietnam</p>
  						</div>
