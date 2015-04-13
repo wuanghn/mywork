@@ -36,15 +36,15 @@
 															</div>
 															<div class="col-md-3 left-inner-addon">
 																	<i class="fa fa-usd"></i>
-																	<input  id="wa_id_salary" type="text"
+																	<input name="min_salary"  type="number" min="0" step="50" tabindex="105" maxlength="6"
 															           class="form-control" 
 															           placeholder="Salary" />
-															        <input type="hidden" name="min_salary">
+															       <!--  <input type="hidden" name="min_salary">
 															        <select id="wa_sel_salary" class="form-control">
 															        		<option>Salary</option>
 															        		<option value="50-50$">50$</option>
 															        		<option value="100-100$">100$</option>
-															        </select>
+															        </select> -->
 															</div>
 															<div class="col-md-3 wa_input_job_level left-inner-addon">
 																	<i class="fa fa-book"></i>

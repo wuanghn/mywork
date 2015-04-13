@@ -38,13 +38,13 @@
 								<a href="#" class="col-md-2">
 									<div class="wa_catetogary_feedback hvr-hollow">
 										<h4>Creative & Design</h4>
-										<img class="center-block" src="{{url('public/frontend/img')}}/creative (1).png" style="width:80px; height:80px;">
+										<img class="center-block" src="{{url('public/frontend/img')}}/creative (1).png" style="width:60px; height:80px;">
 									</div>
 								</a>
 								<a href="#" class="col-md-2">
 									<div class="wa_catetogary_feedback hvr-hollow">
 										<h4>PR & Marketing Communications</h4>
-										<img class="center-block" src="{{url('public/frontend/img')}}/event.png" style="width:80px; height:80px;">
+										<img class="center-block" src="{{url('public/frontend/img')}}/event.png" style="width:60px; height:80px;">
 									</div>
 								</a>
 							</div>

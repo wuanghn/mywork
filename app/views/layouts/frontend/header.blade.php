@@ -15,7 +15,7 @@
 
  								<div class="col-md-6">
  										<a href="http://www.vietnamworks.com/">
- 												<img src="{{url('public/frontend/img/vietnamwork.png')}}" height="53" width="152">
+ 												<img src="{{url('public/frontend/img/vnw_logo.png')}}">
  										</a>
  								</div>	
  						</div>
