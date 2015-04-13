@@ -11,7 +11,7 @@ $(document).ready(function(){
 			slidesToScroll: 4,
 			arrows:true,
 		});
-	}else if(width_wd >=320){
+	}else if(width_wd >=475){
 		$('.da_slider').slick({
 			slidesToShow: 3,
 			slidesToScroll: 3,
