@@ -10,7 +10,8 @@
 		public function index()
 		{
 			$au = DB::table('authors')->orderBy('id', 'desc')->paginate(20);
-			return View::make('author',array('au' =>$au));
+			$city = DB::table('cities')->get();
+			return View::make('author',array('au' =>$au, 'city' => $city));
 		}
 
 
@@ -128,6 +129,7 @@
 				'discription' =>nl2br($input['discription'],ENT_QUOTES),
 				'sectors' =>$input['sectors'],
 				'position' =>$input['position'],
+				'location' =>$input['location'],
 			);
 			return $arr;
 		}

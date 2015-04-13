@@ -218,6 +218,7 @@
 									<td class="td_avatar hidden">{{$val->avatar}}</td>
 									<td class="td_sectors hidden">{{$val->sectors}}</td>
 									<td class="td_position hidden">{{$val->position}}</td>
+									<td class="td_location hidden">{{$val->location}}</td>
 									<td><a href="#" data-toggle="modal" data-target="#myModal_update" class="a_update">Sửa</a> |
 										<a style="color: red;" href="{{asset('sys_delete_author?id=').$val->id}}" onclick="return confirm('Bạn thực sự muốn xóa?')" >Xóa</a>
 									</td>
@@ -262,6 +263,14 @@
 								<div class="form-group">
 									<label>Lĩnh vực</label>
 									<input name="sectors" type="text" class="form-control">
+								</div>
+								<div class="form-group">
+									<label>Nơi ở</label>
+									<select name="location" class="form-control">
+									@foreach($city as $ci =>$val_ci)
+										<option value="{{$val_ci->region_id}}">{{$val_ci->region_name}}</option>
+										@endforeach
+									</select>
 								</div>
 								<div class="form-group">
 									<label>Mô tả</label>
@@ -310,6 +319,14 @@
 								<div class="form-group">
 									<label>Lĩnh vực</label>
 									<input name="sectors" type="text" class="form-control" id="sectors_up">
+								</div>
+								<div class="form-group">
+									<label>Nơi ở</label>
+									<select name="location" class="form-control" id="location_up">
+									@foreach($city as $ci =>$val_ci)
+										<option value="{{$val_ci->region_id}}">{{$val_ci->region_name}}</option>
+										@endforeach
+									</select>
 								</div>
 								<div class="form-group">
 									<label>Mô tả</label>

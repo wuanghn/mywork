@@ -10,7 +10,10 @@
 		public function index()
 		{
 			$id = Input::get('id');
-			$article = DB::table('articles as ar')->where('id',$id)->get();
+			$article = DB::table('articles as ar')
+			->leftjoin('authors as au', 'au.id', '=', 'ar.id_author')
+			->select('*', 'au.id as id_au', 'au.id as id_au')
+			->where('ar.id',$id)->get();
 
 			//relate
 			$arr_relate = array();

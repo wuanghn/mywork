@@ -28,7 +28,7 @@
 	background-color:#f8f8f8;
 }
 .da_name_author{
-	padding-top: 35px;
+	padding-top: 20px;
 	text-align: center;
 }
 .da_name_author img{
@@ -48,19 +48,17 @@
 }
 .da_name_author h4{
 	color: #797575;
+	margin-bottom: 20px;
 }
 .da_div_article{
 	padding-right:10px;
 	padding-left: 10px;
 	margin: auto 0px 30px auto;
 }
-.da_div_article .da_content_ar, .da_content_related{
+.da_content_ar:hover, .da_content_related:hover{
 	-webkit-box-shadow: 0 10px 6px -6px #777;
 	-moz-box-shadow: 0 10px 6px -6px #777;
 	box-shadow: 0 10px 6px -6px #777;
-
-	border: 1px solid #ccc;
-	border-top:none;
 }
 .da_div_article img{
 	width: 100%;
@@ -69,7 +67,7 @@
 
 }
 .da_article_of h3{
-	margin: 30px auto 30px 30px;
+	margin: 30px auto 30px 20px;
 }
 .da_div_article h5{
 	margin: 20px 20px 10px 20px !important;
@@ -82,7 +80,7 @@
 	margin-left: 15px;
 }
 .da_expert_in h3{
-	margin: 30px auto 30px auto;
+	margin: 30px auto 30px 20px;
 
 }
 .da_avatar_author img{
@@ -109,8 +107,7 @@
 	padding-left: 100%;
 }
 .da_content_ar{
-	background-color: #f8f8f8;
-	height: 400px;
+
 }
 .da_content_ar h5{
 	font-weight: bold;
@@ -141,15 +138,22 @@
 }
 
 .da_content_related{
-	border: 1px solid #ccc;
-	border-top: none;
 	margin-bottom: 30px;
 }
 .da_content_related img{
 	width: 100%;
-	height: 200px;
+	height: 202px;
 	margin-top: -1px;
 
+}
+.da_content_related p:first-child{
+	font-size: 14px;
+
+}
+.da_content_related a{
+	color: #333;
+	font-weight: bold;
+	padding-top: 15px;
 }
 .da_ralate_ar h3, .da_other_article h3{
 	margin: 30px auto 30px auto;
@@ -238,26 +242,67 @@ footer{
 .row da_question{
 	clear:both;
 }
-
+.div_img_avatar{
+	display: inline-block;
+	border: 1px solid #4e4ebc;
+	border-radius: 50%;
+}
+.da_content_info{
+	border:1px solid #4e4ebc;
+	border-top: none;
+	height: 200px;
+}
+.da_content_info p:first-child{
+	font-size: 14px;
+	font-weight: bold;
+	padding-top:15px;
+}
+.da_content_info a{
+	color:#333;
+}
+.da_div_view{
+	background-image: url(../img/2line.png);
+	background-repeat: repeat-x;
+	background-position: 0px 30px;
+	padding: 10px 0px;
+	color: #989898;
+}
+.da_about_author .da_location{
+	padding-left: 30px;
+}
+.da_about_author span i{
+	margin-right: 10px;
+}
+.da_about_author span{
+	color: #989898;
+}
+.fb_iframe_widget{
+	vertical-align: top !important;
+	float: right !important;
+}
+#___plus_0{
+	margin-left: 20px !important;
+	float: right !important;
+}
 
 
 
 
 /*rip cua wang hn question*/
 .da_div_left .da_question{
-	width: 95%;
-	margin: 30px 20px 50px 20px;
+	width: auto;
+	margin: 20px 20px 50px 20px;
 	padding-top: 35px;
 	padding-bottom: 35px;
 }
 .da_question {
-	width: 40%;
-	margin: 30px auto 50px 10px;
-	padding-top: 35px;
-	padding-bottom: 35px;
+	width: 100%;
+	margin: 85px 0px 50px 0px;
+	padding: 35px 20px 35px 20px;
 }
 .da_question h3{
 	text-align: center;
+	text-transform: uppercase;
 }
 .da_question h3,.da_question h4 {
 	color: white;
@@ -275,9 +320,15 @@ footer{
 	height: 34px;
 	line-height: 25%;
 }
-.fb-comments span{
+.fb-comments{
 	width: 100%;
+}
+.fb-comments span{
+	width: 100% !important;
 	display: inline-block;
+}
+.fb_iframe_widget iframe{
+	width: 100% !important;
 }
 .slick-prev, .slick-next{
 
@@ -303,7 +354,7 @@ footer{
 	content:none !important;
 }
 .da_content_ar img{
-	height: 180px;
+	height: 208px;
 }
 .da_div_arti h3{
 	margin-top: 0px;
@@ -317,8 +368,12 @@ footer{
 	.da_search{
 	display: none;
 }
-.da_content_ar{
-	height: 370px;
+.da_div_view{
+	background-position: 0px 32px;
+	margin: 0px 15px 0px 15px;
+}
+.da_div_arti h3{
+	margin-left: 15px;
 }
 .da_content_arti img{
 	width: auto;
@@ -370,8 +425,13 @@ footer{
 .da_content_arti{
 	margin-top: 20px;
 }
+.da_div_left .da_question{
+	margin-bottom: 20px;
+}
 
 }
+
+
 
 
 
@@ -381,11 +441,33 @@ footer{
 	width: 110px;
 	height: 110px;
 }
+#___plus_0{
+	margin:0px !important;
+}
+.da_about_author p{
+	text-overflow: ellipsis;
+	word-wrap: break-word;
+	overflow: hidden;
+	max-height: 7.2em;
+	line-height: 1.8em;
+}
+
+.da_div_view{
+	background-position: 0px 60px;
+
+}
+
+.da_div_view .col-md-7 span, .da_div_view .col-md-7 span a{
+	font-size: 13px;
+}
 .da_content_arti{
 	margin-top: 0px;
 }
 .da_div_left .da_question{
-	width: 86%;
+	width: 90%;
+	margin-left:15px ;
+	margin-right: 15px;
+	padding:20px 0px 20px 0px;
 }
 .da_content_arti img{
 	width: auto;
@@ -444,11 +526,15 @@ p{
 }
 
 .da_question{
-	width: 90%;
-	margin: auto 15px auto 15px;
+	width: auto;
+	margin: auto 0px auto 0px;
 }
 .da_icon_share{
-	margin-top: 10px;
+	margin-top: 5px;
+	padding-left: 0px;
+}
+.fb_iframe_widget span{
+	margin-right: 10px !important;
 }
 
 

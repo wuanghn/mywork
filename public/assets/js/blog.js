@@ -16,6 +16,7 @@ $(document).ready(function(){
 		var avatar = $(this).parent().parent().find('td.td_avatar').text();
 		var sectors = $(this).parent().parent().find('td.td_sectors').text();
 		var position = $(this).parent().parent().find('td.td_position').text();
+		var location = $(this).parent().parent().find('td.td_location').text();
 
 		$('#name_up').val(name);
 		$('#discription_up').val(discription);
@@ -23,6 +24,8 @@ $(document).ready(function(){
 		$('#sectors_up').val(sectors);
 		$('#img_avatar_up').attr('src',avatar);
 		$('#id_up').val(id);
+		$('#location_up option[value='+location+']').attr('selected','selected');
+		
 	})
 
 

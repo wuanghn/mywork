@@ -51,13 +51,17 @@
 						$name = $val->name;
 					?>
 					<h3>ABOUT EXPERT {{mb_convert_case($val->name, MB_CASE_UPPER, "UTF-8");}}</h3>
+					<span><i class="fa fa-briefcase"></i>{{$val->sectors}}</span>
+					<span class="da_location"><i class="fa fa-map-marker"></i>{{$val->region_name}}</span>
 					<p>
 						{{htmlspecialchars_decode($val->discription,ENT_QUOTES)}}
 					</p>
-					<p>{{$val->sectors}}</p>
+
 				</div>
 				<div class="col-md-5 da_name_author">
-					<img src="{{$val->avatar}}" class="img-circle">
+					<div class="div_img_avatar">
+						<img src="{{$val->avatar}}" class="img-circle">
+					</div>
 					<h3>{{mb_convert_case($val->name, MB_CASE_UPPER, "UTF-8");}}</h3>
 					<h4>{{$val->position}}</h4>
 				</div>
@@ -65,7 +69,7 @@
 			</div>
 
 			<div class="row">
-				<div class="col-md-7 da_article_of">
+				<div class="col-md-8 da_article_of">
 					@if(count($article) >0)
 					<h3>ARTICLE OF EXPERT {{mb_convert_case($name, MB_CASE_UPPER, "UTF-8");}}</h3>
 					@endif
@@ -74,18 +78,20 @@
 						<div class="col-md-6 da_div_article">
 							<div class="da_content_ar">
 								<a href="{{asset('detail-blog?id=').$val_a->id}}"><img src="{{$val_a->avatar_article}}"> </a>
-								<h5>{{neods(strip_tags($val_a->title),80)}}</h5>
-								<p>
-								<span><i class="fa fa-clock-o"> </i>{{da_date($val_a->updated_at)}}</span>
-								<p>
-									{{neods(strip_tags($val_a->content),280)}}
-								</p>
+								<div class="da_content_info">
+									<p><a href="{{asset('detail-blog?id=').$val_a->id}}">{{neods(strip_tags($val_a->title),80)}}</a></p>
+									<p>
+									<span><i class="fa fa-clock-o"> </i>{{da_date($val_a->updated_at)}}</span>
+									<p>
+										{{neods(strip_tags($val_a->content),280)}}
+									</p>
+								</div>
 							</div>
 						</div>
 						@endforeach
 					</div>
 					<div class="row">
-						<div class="col-md-7 da_pagination">
+						<div class="col-md-12 da_pagination">
 							<!--					<a href="#"><img src="public/assets/img/btn_back.png"></a>-->
 							<?php
 								echo $article->appends(array('id' => $id))->links();
@@ -98,19 +104,22 @@
 
 				</div>
 
-				<div class="col-md-5 da_question" style="margin-bottom: 50px;">
-					<h3>Do you have questions for marketing experts?</h3>
-					<div class="wa_form_question_author_dub">
-						<h4>What fields are you interested in?</h4>
-						<select class="form-control">
-							<option></option>
-						</select>
+				<div class="col-md-4 " style="margin-bottom: 50px;">
+					<div class="da_question">
+						<h3>Do you have questions for</br> marketing experts?</h3>
+						<div class="wa_form_question_author_dub">
+							<h4>What fields are you interested in?</h4>
+							<select class="form-control">
+								<option></option>
+							</select>
+						</div>
+						<div class="wa_form_question_author_dub">
+							<h4>Your question?</h4>
+							<textarea rows="5" class="form-control"></textarea>
+						</div>
+						<button class="btn btn-block">SEND QUESTION</button>
+
 					</div>
-					<div class="wa_form_question_author_dub">
-						<h4>What fields are you interested in?</h4>
-						<textarea rows="5" class="form-control"></textarea>
-					</div>
-					<button class="btn btn-block">SEND QUESTION</button>
 				</div>
 			</div>
 		</div>

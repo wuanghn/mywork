@@ -10,7 +10,9 @@
 		public function index()
 		{
 			$id = Input::get('id');
-			$author = DB::table('authors')->where('id', $id)->get();
+			$author = DB::table('authors as au')
+			->leftjoin('cities as ci', 'au.location','=','ci.region_id')
+			->where('au.id', $id)->get();
 
 			//bài viết của author
 			$id_author = $author[0]->id;

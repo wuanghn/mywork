@@ -33,10 +33,12 @@
 					<p>
 						{{neods(strip_tags($val_au->content), 1000)}}
 					</p>
-					<span><a href="{{asset('detail-blog?id=').$val_au->id_ar}}">see more >></a></span>
+					<span><a href="{{asset('detail-blog?id=').$val_au->id_ar}}"><i>see more >></i></a></span>
 				</div>
 				<div class="col-md-5 da_name_author">
-					<img src="{{$val_au->avatar}}" class="img-circle">
+					<div class="div_img_avatar">
+						<img src="{{$val_au->avatar}}" class="img-circle">
+					</div>
 					<h3>{{mb_convert_case($val_au->name, MB_CASE_UPPER, "UTF-8");}}</h3>
 					<h4>{{$val_au->position}}</h4>
 				</div>
@@ -48,7 +50,7 @@
 					<div class="da_slider autoplay">
 						@foreach($expert as $key_ex => $val_ex)
 						<div class=" da_avatar_author ">
-							<a href="{{asset('expert-blog?id=').$val_ex->id}}">
+							<a href="{{asset('expert-blog?id=').$val_ex->id}}"  class="div_img_avatar">
 								<img src="{{$val_ex->avatar}}" class="img-circle center-block" title="{{$val_ex->name}}">
 							</a>
 							<h3 class="center-block">{{$val_ex->name}}</h3>
@@ -61,7 +63,7 @@
 			</div>
 
 			<div class="row">
-				<div class="col-md-7 da_article_of">
+				<div class="col-md-8 da_article_of">
 					<h3>LASTES ARTICLES</h3>
 					<div class="row">
 						@foreach($last_article as $key_l => $val_l)
@@ -70,12 +72,14 @@
 								<a href="{{asset('detail-blog?id=').$val_l->id}}">
 									<img src="{{asset($val_l->avatar_article)}}">
 								</a>
-								<h5>{{neods($val_l->title, 63)}}</h5>
-								<p>
-									<span><i class="fa fa-clock-o"> </i>{{da_date($val_l->updated_at)}}</span>
-								</p>
-								<p>{{neods(strip_tags($val_l->content), 280).'...'}}
-								</p>
+								<div class="da_content_info">
+									<p><a href="{{asset('detail-blog?id=').$val_l->id}}">{{neods($val_l->title, 63)}}</a></p>
+									<p>
+										<span><i class="fa fa-clock-o"> </i>{{da_date($val_l->updated_at)}}</span>
+									</p>
+									<p>{{neods(strip_tags($val_l->content), 280).'...'}}
+									</p>
+								</div>
 							</div>
 						</div>
 						@endforeach
@@ -93,20 +97,22 @@
 					</div>
 
 				</div>
-				<div class="col-md-5 da_question" style="margin-bottom: 50px;">
-					<h3>Do you have questions for marketing experts?</h3>
-					<div class="wa_form_question_author_dub">
-						<h4>What fields are you interested in?</h4>
-						<select class="form-control">
-							<option></option>
-						</select>
-					</div>
-					<div class="wa_form_question_author_dub">
-						<h4>What fields are you interested in?</h4>
-						<textarea rows="5" class="form-control"></textarea>
-					</div>
-					<button class="btn btn-block">SEND QUESTION</button>
+				<div class="col-md-4 " style="margin-bottom: 50px;">
+					<div class="da_question">
+						<h3>Do you have questions for</br> marketing experts?</h3>
+						<div class="wa_form_question_author_dub">
+							<h4>What fields are you interested in?</h4>
+							<select class="form-control">
+								<option></option>
+							</select>
+						</div>
+						<div class="wa_form_question_author_dub">
+							<h4>Your question?</h4>
+							<textarea rows="5" class="form-control"></textarea>
+						</div>
+						<button class="btn btn-block">SEND QUESTION</button>
 
+					</div>
 				</div>
 			</div>
 		</div>
