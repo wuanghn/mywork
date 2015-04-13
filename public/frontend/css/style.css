@@ -70,6 +70,10 @@ body
 		{
 			text-align: left;
 		}
+		.wa_header .row .left .nav
+		{
+			line-height: 100px;
+		}
 /*****END HEADER******/
 .wa_wrap_banner
 {
@@ -278,6 +282,8 @@ body
 		border-color: #4e4ebc;
 		color: #4e4ebc;
 		background-color: white;
+		text-transform: uppercase;
+		font-weight: bold;
 	}
 		.wa_content_tab .row .wa_location h4{
 				color: #999999;
@@ -286,6 +292,7 @@ body
 		.wa_content_tab .row .col-md-8 h4
 		{
 			margin-top: 0px;
+			text-transform: uppercase;
 		}
 
 		.wa_content_tab .row .col-md-8 .wa_info
@@ -364,7 +371,10 @@ body
 
 	.wa_author_block .wa_post_author
 	{
-		text-align: center;
+		_text-align: center;
+	}
+	.wa_author_block .wa_post_author h3{
+		text-transform: uppercase;
 	}
 
 	.wa_author_block .wa_post_author a
@@ -457,6 +467,12 @@ body
 	padding: 30px 0px;
 	border-bottom: 1px solid #dedede;
 	_display: block;
+}
+
+
+.wa_block_result_search .wa_box_title_job>.col-md-8>h4
+{
+	text-transform: uppercase;
 }
 	
 	.wa_block_result_search .wa_content_job

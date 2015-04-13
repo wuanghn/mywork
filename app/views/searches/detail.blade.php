@@ -27,6 +27,8 @@
 			color: #4e4ebc;
 			background-color: white;
 			padding: 10px 35px;
+			text-transform: uppercase;
+			font-weight: bold;
 		}
 	</style>
 
@@ -40,7 +42,7 @@
 			<div id="wa_show_click_" class="col-md-7 col-md-offset-1 wa_content_job">
 					<div class="title">
 						<div class="col-md-6">
-							<h4 style="margin-bottom:30px" class="wa_h4">{{ $job->data->job_detail->job_title }}<a href="#" style="float:right" class="btn btn_apply">Apply</a></h4>
+							<h4 style="margin-bottom:30px; text-transform: uppercase;" class="wa_h4">{{ $job->data->job_detail->job_title }}<a href="#" style="float:right" class="btn btn_apply">Apply</a></h4>
 							
 						</div>
 						
@@ -60,6 +62,7 @@
 							</div>
 							<b>{{ $job->data->job_company->company_name }}</b>
 							<p>{{ $job->data->job_company->company_address }}</p>
+							<p>{{ nl2br($job->data->job_company->company_profile) }}</p>
 							
 					</div>
 				
