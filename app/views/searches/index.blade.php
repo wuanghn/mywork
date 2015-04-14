@@ -198,7 +198,7 @@
 											<div class="col-md-2 wa_location">
 												@foreach($locations as $local)
 													@if($local->location_id == $job->job_location)
-														<h4>{{$local->lang_vn}}</h4>
+														<h4><i class="fa fa-map-marker"></i> {{$local->lang_vn}}</h4>
 													@endif
 												@endforeach
 											</div>
@@ -318,6 +318,8 @@
 		}
 
 	})
+
+	
 </script>
 @stop
 

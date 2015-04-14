@@ -57,6 +57,38 @@
 {
 	margin-right: 0px;
 }
+
+.wa_fix_panel
+{
+	border: 1px solid #4e4ebc;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	margin-top: 30px;
+}
+
+.wa_fix_panel .panel-heading
+{
+	background-color: #4e4ebc;
+	color: #ffffff;
+}
+.wa_fix_panel .btn-lg
+{
+	border: 1px solid #4e4ebc;
+	background-color: #ffffff;
+	text-transform: uppercase;
+	color: #4e4ebc;
+	font-weight: bold;
+}
+
+#login-vnw {
+  margin-left: 17.2%;
+  margin-right: 5px;
+  padding: 10px 0 10px 5px;
+  background: #ddd;
+  position: relative;
+}
+
 @media screen and (max-width: 750px	){
 	.wa_menu_respon{display: block; margin-bottom: 0px;}
 	.wa_menu_desktop{display: none;}

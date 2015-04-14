@@ -26,6 +26,37 @@ class UsersController extends \BaseController {
 
 
 
+	    public function getProccessLogin() {
+
+	        $email = Input::get('email');
+	        $password = Input::get('password');
+	        // call login api
+
+	        $criteria = array('user_email' => $email, 'user_password' => $password);
+	        $ch = curl_init();
+	        curl_setopt($ch, CURLOPT_URL, 'https://api.vietnamworks.com/users/login');
+	        curl_setopt($ch, CURLOPT_POST, 1);
+	        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($criteria));
+	        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+	        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	        curl_setopt($ch, CURLOPT_HTTPHEADER, array('CONTENT-MD5: 4c443c7e2c515d6b4b4d693c2f63434a7773226a614846733c4c4d4348', 'Content-Type: application/JSON', 'Content-Type: application/JSON'));
+	        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 0);
+	        curl_setopt($ch, CURLOPT_TIMEOUT, 36000); //timeout in seconds
+
+	        $results = curl_exec($ch);
+	        $results = json_decode($results);
+
+	        if ($results->meta->code == 200 && $results->meta->message == 'OK') {
+	            echo 'true';
+	        } else {
+	// print to screen: login faile
+	            echo 'false';
+	        }
+	    }
+
+
+
+
 	public function getLogin()
 	{
 			$results = $this->callApiLogin();
@@ -107,6 +138,35 @@ class UsersController extends \BaseController {
 	public function postProRegis()
 	{
 			// proccess register
+	}
+
+
+
+
+	public function getCheckEmailExist()
+	{
+			$email = Input::get('email');
+			$url = 'https://api.vietnamworks.com/users/account-status/email' . '/' . urlencode($email);
+			$ch = curl_init();
+			curl_setopt($ch, CURLOPT_URL, $url);
+
+			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+			    'CONTENT-MD5: 4c443c7e2c515d6b4b4d693c2f63434a7773226a614846733c4c4d4348', 'Content-Type: application/JSON', 'Accept: application/JSON'));
+			curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 0);
+			curl_setopt($ch, CURLOPT_TIMEOUT, 36000); //timeout in seconds
+
+			$results = curl_exec($ch);
+			$results = json_decode($results);
+
+			$ret = '';
+			if (isset($results->data)) {
+			    $ret = $results->data->accountStatus;
+			}
+
+			$ret = json_encode($ret);
+			echo $ret;
 	}
 
 }

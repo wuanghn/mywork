@@ -93,7 +93,7 @@
 							<div class="row wa_result_desktop">
 								<div class="col-md-4 wa_parent_job">
 									<div class="scroll" style="
-										height: 500px;
+										height: 970px;
 										width: 100%;
 										overflow: auto;
 										_background-color: #ccc;
@@ -110,7 +110,7 @@
 														<p>{{ $job->job_company }}</p>
 														@foreach($locations as $local)
 															@if($local->location_id == $job->job_location)
-																<p><i></i> {{$local->lang_vn}}</p>
+																<p><i class="fa fa-map-marker"></i> {{$local->lang_vn}}</p>
 															@endif
 														@endforeach
 													</div>
@@ -147,6 +147,107 @@
 								
 								<div class="col-md-8 wa_wrap_wa_iframe_content_job">
 									<iframe class="wa_iframe_content_job" width="100%" height="550px;" src="{{ url('detail') }}"></iframe>
+									<div class="panel wa_fix_panel">
+
+
+									    <!-- Form -->
+									    <a name="applyForm" id="applyForm"></a>
+									    <div class="panel-heading"><h2>Apply to VietNamWork!</h2></div>
+									    <div class="panel-body">
+									        <div align="right" class="img-vnw"><span class="small">Supported by </span><img src="http://www.japan.vietnamworks.com/static/img/vnw_logo_small.png" width="36%" alt=""></div>
+									        <div class="clear"></div>
+									        <br>
+									        <form id="frmSignUp" class="form-horizontal" role="form" onsubmit="return vaidateBeforeSubmit(event)" novalidate="novalidate" enctype="multipart/form-data">
+									            <div class="form-group ">
+
+									                <label for="inputFirstName" class="col-sm-2 control-label">*Full name</label>
+									                <div class="col-sm-5 input-container">
+									                    <input type="text" rel="requiredField" class="form-control" id="inputFirstName" name="inputFirstName" placeholder="First Name">
+									                    <div class="has-error"></div>
+									                </div>
+									                <div class="col-sm-5 input-container">
+									                    <input type="text" rel="requiredField" class="form-control" id="inputLastName" name="inputLastName" placeholder="Last Name">
+									                    <div class="has-error"></div>
+									                </div>
+
+									            </div>
+
+									            <div class="form-group ">
+
+									                <label for="inputEmail" class="col-sm-2 control-label">*E-mail</label>
+									                <div class="col-sm-5 input-container">
+									                                            <input type="text" rel="requiredField" class="form-control" onkeyup="checkEmailExistVNW()" id="inputEmail" name="inputEmail" placeholder="E-mail">
+									                    <div class="has-error"></div>
+									                </div>
+									                <!--                    <div class="col-sm-5 input-container">
+									                                        <input type="text" rel="requiredField" class="form-control"  id="inputPhone" name="inputPhone" placeholder="Your  phone number"
+									                                               value="">
+									                                        <div class="has-error"></div>
+									                                    </div>   -->
+
+									            </div>
+
+									            <div style="position: relative; bottom: 42px; left: 430px; margin-bottom: -21px"><img id="passLoading" style="display: none" alt="" src="http://www.japan.vietnamworks.com/static/img/ajax_loading.gif">&nbsp;</div>
+
+									            <div class="form-group " id="loadData" style="display: none">
+									                <div id="login-vnw">
+									                    <div class="tooltip-arrow"></div>
+									                    <label class="col-sm-10" id="forget-text"></label>
+									                    <div class="col-sm-12 input-container">
+									                        <div class="col-sm-6">
+									                            <input style="display:none">
+									                            <input type="password" rel="requiredField" class="form-control" onkeyup="checkPasswordVNW()" id="inputPassword" name="inputPassword" placeholder="Mật khẩu" value="">
+									                        </div>
+									                    </div>
+									                    <div class="clearfix"></div>
+									                    <input type="hidden" data-toggle="modal" data-target="#myModal" id="myButtonForgot">
+
+									                    <div id="forgotPass" style="display:none;color:blue !important;text-align: right;margin-right:20px;"><a style="color:blue !important;cursor:pointer" onclick="forgotPassword(event)">Quên mật khẩu</a></div>
+									                </div>
+									            </div>
+
+									            <div class="form-group " id="attachCV" style="">
+									                <label for="inputResume" class="col-sm-2 control-label">*Attack CV</label>
+
+									                <div class="col-sm-10 input-container">
+
+									                                            <input type="hidden" name="maxFileSize" value="524288">
+									                        <input type="file" class="left" rel="requiredField" id="inputFile" name="inputFile" placeholder="Your resume">
+
+
+									                        <span class="small">(type .doc, .docx, .pdf maximum 512KB)</span>
+									                        <div class="has-error"></div>
+
+
+									                                    </div>
+
+									            </div>
+									            
+
+
+
+
+									            <br>
+
+
+
+									            <input type="hidden" id="checkPassword" name="checkPassword" value="0">
+									            <input type="hidden" name="checkOption" class="check-option" value="false">
+									            <input type="hidden" name="checkActiveEmail" id="checkActiveEmail" value="">
+									            <div class="form-group">
+									                <div class="col-sm-offset-2 col-sm-10">
+									                    <input type="hidden" id="isSent" name="isSent" value="OK">
+									                    <button id="applyButton" value="upload" class="btn btn-lg" style="min-width:40%" data-original-title="" title="">Apply</button>&nbsp;&nbsp;&nbsp;
+
+									                </div>
+									                
+									            </div>
+
+									        </form>
+
+									    </div>
+									    <!-- /Form -->
+									</div>
 								</div>
 
 							</div>
@@ -208,6 +309,8 @@
 
 
 @section('script')
+<script language="javascript" type="text/javascript" src="http://www.japan.vietnamworks.com/static/js/jquery.validate.js"></script>
+
 <script type="text/javascript">
 
 	function getSelname(input)
@@ -318,6 +421,243 @@
 			
 		}
 
+
+
+
+		// SCRIPT FOR FORM APPLY
+		$("#frmSignUp").validate({
+		                            rules: {
+		                                inputFirstName: {
+		                                    required: true
+		                                },
+		                                inputLastName: {
+		                                    required: true
+		                                },
+		                                inputEmail: {
+		                                    required: true,
+		                                    customemail: true
+		                                },
+		                                inputPassword: {
+		                                    required: true,
+		                                    minlength: 4,
+		                                    maxlength: 20,
+		                                    custompassword: true
+		                                }, inputFile: {
+		                                    required: true,
+		                                    extension: "pdf|doc|docx",
+		                                    filesize: true
+		                                },
+		                                inputPhone: {
+		                                    required: false,
+		                                    customephone: false
+		                                },
+		                                itExp: {
+		                                    required: false
+		                                },
+		                                jpLevel: {
+		                                    required: false
+		                                },
+		                                managerExp: {
+		                                    required: false
+		                                }
+		                            },
+		                            messages: {
+		                                inputFirstName: {
+		                                    required: "Vui lòng nhập Họ."
+		                                },
+		                                inputLastName: {
+		                                    required: "Vui lòng nhập Tên."
+		                                },
+		                                inputEmail: {
+		                                    required: "Vui lòng nhập email."
+		                                },
+		                                inputPassword: {
+		                                    required: "Vui lòng nhập password.",
+		                                    minlength: "Mật khẩu phải từ 4 đến 20 kí tự.",
+		                                    maxlength: "Mật khẩu phải từ 4 đến 20 kí tự."
+		                                },
+		                                inputPhone: {
+		                                    required: "Vui lòng nhập số điện thoại."
+		                                },
+		                                inputFile: {
+		                                    required: "Vui lòng đính kèm hồ sơ.",
+		                                    extension: "Định dạng file không hỗ trợ."
+		                                },
+		                                itExp: {
+		                                    required: "Please choose it experience."
+		                                },
+		                                jpLevel: {
+		                                    required: "Please choose japan level."
+		                                },
+		                                managerExp: {
+		                                    required: "Please ch0ose managerment."
+		                                }
+		                            },
+		                            errorClass: "has-error-load",
+		                            errorElement: "span",
+		                            errorPlacement: function (error, element) {
+		                                element.parents("div.input-container").find(".has-error").append(error);
+		                            }
+		                        });
+
+
+
+
+		$('#inputEmail').on('input', function () {
+            checkEmailExistVNW();
+        });
+
 	})
+
+
+
+	function vaidateBeforeSubmit(e) {
+
+            e.preventDefault();
+            if (typeof (def) != "undefined") {
+
+                console.log($("#checkActiveEmail").val());
+                def.done(function (result) {
+                    var activeEmail = $("#checkActiveEmail").val();
+                    console.log(activeEmail + " done");
+                    if (((activeEmail == 1 && $("#checkPassword").val() == 1) || activeEmail != 1) && $("#frmSignUp").valid() == true) {
+                        savePassword();
+                        fixSubmit();
+                    }
+                });
+            } // end of undefined
+            else {
+
+                if ($("#checkOldCV").val() == "false"
+                        && ($("input[name='resumeApply']:checked").val() == "currentResume")) {
+                }
+                else {
+
+                    if ($("#frmSignUp").valid() == true) {
+
+                        fixSubmit();
+                    }
+                }
+            }
+
+        }
+
+
+    function fixSubmit() {
+        var form = $("#frmSignUp");
+        form.removeAttr('onsubmit');
+        form.submit();
+        $('#applyButton').attr('disabled', 'disabled');
+    }
+
+	function checkPasswordVNW(msg) {
+			var passTimeout;
+
+            if ($("#checkActiveEmail").val() == "1" && $("#inputPassword").val() !== "") {
+                $('#passLoading').show();
+                $('#applyButton').attr('disabled', 'disabled');
+                clearTimeout(passTimeout);
+                passTimeout = setTimeout(function () {
+                    $.ajax({
+                        url: "{{url('users/proccess-login')}}",
+                        type: 'GET',
+                        data: {'email': $("#inputEmail").val(), 'password': $("#inputPassword").val()},
+                        dataType: "json",
+                        success: function (response) {
+
+                            if (response == true) { //if login is correct
+                                $("#forgotPass").hide();
+                                $("#checkPassword").val(1);
+                                $("#loadData").find(".has-error").empty();
+                                $("#loadData").find(".has-error").append("<img alt='tick' src='http://www.japan.vietnamworks.com/static/img/tick.png' style='width: 15px' /><span class='textPass' style='color: #555 !important; margin-left: 5px !important'>Đúng mật khẩu</span>");
+                            } else { //login not correct
+                                $("#forgotPass").show();
+                                $("#checkPassword").val(0);
+                                $("#loadData").find(".has-error").empty();
+                                var email = $("#inputEmail").val();
+                                if (typeof (msg) !== "undefined") {
+                                    $("#loadData").find(".has-error").append("<img alt='error' src='http://www.japan.vietnamworks.com/static/img/error.png' style='width: 15px' /><span class='textPass' style='margin-left: 5px !important'>" + msg + "</span>");
+                                    delete local[email];
+                                    localStorage.jpw = JSON.stringify(local);
+                                } else {
+                                    if ($("#inputPassword").valid() === true)
+                                        $("#loadData").find(".has-error").append("<img alt='error' src='http://www.japan.vietnamworks.com/static/img/error.png' style='width: 15px' /><span class='textPass' style='margin-left: 5px !important'>Sai mật khẩu. </span>");
+                                }
+                            }
+
+                            $('#passLoading').hide();
+                            $('#applyButton').removeAttr('disabled');
+                        }
+                    }); //end load ajax
+                }, 1000);
+            }
+            else {
+                $("#loadData").find(".has-error").empty();
+                clearTimeout(passTimeout);
+                $('#passLoading').hide();
+                $('#applyButton').removeAttr('disabled');
+            }
+        }
+
+
+	function checkEmailExistVNW() {
+			var emailTimeout;
+            var forgetText = $("#forget-text");
+
+            var newMessage = "Vui lòng thiết lập mật khẩu để nộp đơn.<br />Bạn sẽ đăng ký tài khoản ở JapanWorks và VietnamWorks.";
+            var existMessage = "Bạn có tài khoản ở Vietnamwork!<br />Nhập mật khẩu VietnamWorks của bạn.";
+
+
+
+            if ($("#inputEmail").val() != "" && $("#inputEmail").valid() === true) {
+                $('#passLoading').show();
+                $('#applyButton').attr('disabled', 'disabled');
+                clearTimeout(emailTimeout);
+                emailTimeout = setTimeout(function () {
+                    def = $.Deferred();
+                    def.promise();
+                    $.ajax({
+                        url: "{{url('users/check-email-exist')}}",
+                        type: 'get', data: {'email': $("#inputEmail").val()},
+                        dataType: "json",
+                        success: function (response) {
+                            //show form password
+                            $("#loadData").show();
+                            if (response == "ACTIVATED") {
+                                $("#checkActiveEmail").val(1);
+                                forgetText.html(existMessage);
+                                $("#forgotPass").show();
+                            } else if (response == "NON_ACTIVATED") {
+                                $("#forgotPass").hide();
+                                $("#checkActiveEmail").val(3);
+                                forgetText.html(existMessage);
+                            } else {
+                                $("#forgotPass").hide();
+                                $("#checkActiveEmail").val(0);
+                                forgetText.html(newMessage);
+                            }
+
+                            $('#passLoading').hide();
+                            $('#applyButton').removeAttr('disabled');
+                            def.resolve($("#checkActiveEmail").val());
+                            currentEmail = $("#inputEmail").val();
+                        }
+                    });
+                }, 1000);
+            } else if ($("#inputEmail").val() != currentEmail) {
+                //hide form password
+                $("#loadData").hide();
+                $("#inputPassword").val('');
+                $("#loadData").find(".has-error").empty();
+                $("#forgotPass").hide();
+                $("#checkPassword").val(0);
+                forgetText.html("");
+                clearTimeout(emailTimeout);
+                $('#passLoading').hide();
+                $('#applyButton').removeAttr('disabled');
+                currentEmail = null;
+            }
+
+        }
 </script>
 @stop
