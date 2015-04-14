@@ -44,7 +44,11 @@
 
 		<script type="">
 			$(document).ready(function(){
-				$('.da_div_arti img').attr('class','img-responsive');
+				$('.da_div_arti img').each(function(){
+					$(this).attr('class','img-responsive');
+					$(this).css('height','auto');
+				});
+				$('#da_content_article').children().css('width','100%')
 			})
 		</script>
 	</head>
@@ -104,7 +108,7 @@
 							</div>
 						</div>
 						<div class=" row da_content_arti">
-							<div class="col-md-12">
+							<div class="col-md-12" id="da_content_article">
 								{{$val_a->content}}
 							</div>
 						</div>
@@ -217,5 +221,6 @@
 				s.parentNode.insertBefore(gcse, s);
 			})();
 		</script>
+
 	</body>
 </html>

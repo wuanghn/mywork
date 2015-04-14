@@ -377,6 +377,7 @@ footer{
 
 
 
+
 @media (max-width: 640px){
 	.da_search{
 	display: none;
@@ -583,6 +584,15 @@ p{
 .fb_iframe_widget span{
 	margin-right: 10px !important;
 }
+.da_content_ar img{
+	height: 160px;
+}
+.da_icon_share{
+	float: left;
+	margin-left: 15px;
+}
+
+
 }
 
 

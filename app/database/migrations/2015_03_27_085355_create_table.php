@@ -29,10 +29,20 @@
 			$table->string('related');
 			$table->timestamps();
 			});*/
-			Schema::create('banners', function($table)
+		   //	Schema::create('banners', function($table)
+//				{
+//					$table->increments('id');
+//					$table->string('link');
+//					$table->timestamps();
+//			});
+	Schema::create('questions', function($table)
 				{
 					$table->increments('id');
-					$table->string('link');
+					$table->string('id_user');
+					$table->string('type');
+					$table->string('question');
+					$table->string('answer');
+					$table->string('status')->default(0);
 					$table->timestamps();
 			});
 		}

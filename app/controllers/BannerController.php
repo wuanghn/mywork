@@ -92,9 +92,15 @@
 		* @param  int  $id
 		* @return Response
 		*/
-		public function destroy($id)
+		public function destroy()
 		{
-			//
+			$basedir = "public/uploads/banner";
+			$file_to_delete = $_REQUEST["file"];
+
+			$path = $basedir."/".$file_to_delete;
+			unlink($path);
+
+			return Redirect::to('sys_banner');
 		}
 
 		function upload(){

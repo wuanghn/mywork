@@ -1,5 +1,3 @@
-@extends('layouts.master')
-@extends('layouts.master')
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +9,7 @@
 		<meta name="description" content="">
 		<meta name="author" content="">
 
-		<title>Admin Banner</title>
+		<title>Admin Author</title>
 
 		<!-- Bootstrap Core CSS -->
 		<link href="public/assets/css/bootstrap.min.css" rel="stylesheet">
@@ -19,10 +17,21 @@
 		<!-- Custom CSS -->
 		<link href="public/assets/css/sb-admin.css" rel="stylesheet">
 
+
+		<script src="public/assets/js/jquery.js"></script>
+		<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+		<script src="public/ckeditor/ckeditor.js"></script>
 		<link href="public/assets/css/blog.css" rel="stylesheet">
 
 		<!-- Custom Fonts -->
 		<link href="public/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
 
 	</head>
 
@@ -31,7 +40,6 @@
 		<div id="wrapper">
 
 			<!-- Navigation -->
-			@yield('navigation')
 			<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
@@ -41,7 +49,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="index.html">SB Admin</a>
+					<span class="navbar-brand">Admin Blog</span>
 				</div>
 				<!-- Top Menu Items -->
 				<ul class="nav navbar-right top-nav">
@@ -150,41 +158,33 @@
 				<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
 				<div class="collapse navbar-collapse navbar-ex1-collapse">
 					<ul class="nav navbar-nav side-nav">
-						<li>
-							<a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+						<?php
+							$active1 = "";
+							$active2 = "";
+							$active3 = "";
+							$active4 = "";
+							if(Request::segment(1) == "sys_author")
+								$active1 = "active";
+							else if(Request::segment(1) =="sys_article")
+								$active2 = "active";
+								else	if(Request::segment(1)=="sys_banner")
+									$active3 = "active";
+									else	if(Request::segment(1) == "sys_question")
+										$active4 = "active";
+						?>
+						<li class="{{$active1}}">
+							<a href="{{asset('sys_author')}}"><i class="fa fa-fw fa-dashboard"></i> Tác giả</a>
 						</li>
-						<li>
-							<a href="charts.html"><i class="fa fa-fw fa-bar-chart-o"></i> Charts</a>
+						<li class="{{$active2}}">
+							<a href="{{asset('sys_article')}}"><i class="fa fa-fw fa-bar-chart-o"></i> Bài viết</a>
 						</li>
-						<li>
-							<a href="tables.html"><i class="fa fa-fw fa-table"></i> Tables</a>
+						<li class="{{$active3}}">
+							<a href="{{asset('sys_banner')}}"><i class="fa fa-fw fa-bar-chart-o"></i> Banner</a>
 						</li>
-						<li>
-							<a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
+						<li class="{{$active4}}">
+							<a href="{{asset('sys_question')}}"><i class="fa fa-fw fa-bar-chart-o"></i> Trả lời câu hỏi</a>
 						</li>
-						<li>
-							<a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
-						</li>
-						<li>
-							<a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
-						</li>
-						<li>
-							<a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
-							<ul id="demo" class="collapse">
-								<li>
-									<a href="#">Dropdown Item</a>
-								</li>
-								<li>
-									<a href="#">Dropdown Item</a>
-								</li>
-							</ul>
-						</li>
-						<li class="active">
-							<a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
-						</li>
-						<li>
-							<a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
-						</li>
+
 					</ul>
 				</div>
 				<!-- /.navbar-collapse -->
@@ -192,44 +192,18 @@
 
 			<div id="page-wrapper">
 
-				<div class="container-fluid">
-
-					<!-- Page Heading -->
-					<div class="row">
-						<div class="col-lg-12">
-							<h1 class="page-header">
-								Blank Page
-								<small>Subheading</small>
-							</h1>
-							<ol class="breadcrumb">
-								<li>
-									<i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
-								</li>
-								<li class="active">
-									<i class="fa fa-file"></i> Blank Page
-								</li>
-							</ol>
-						</div>
-					</div>
-					<!-- /.row -->
-
-				</div>
+				@yield('content')
 				<!-- /.container-fluid -->
 
 			</div>
 			<!-- /#page-wrapper -->
 
 		</div>
-		<!-- /#wrapper -->
-
-		<!-- jQuery -->
-		<script src="js/jquery.js"></script>
-
+		<!-- Button trigger modal -->
 		<!-- Bootstrap Core JavaScript -->
-		<script src="js/bootstrap.min.js"></script>
+		<script src="public/assets/js/bootstrap.min.js"></script>
+		<script src="public/assets/js/blog.js"></script>
 
 	</body>
 
 </html>
-
-

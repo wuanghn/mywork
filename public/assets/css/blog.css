@@ -65,17 +65,31 @@
 }
 
 .div_list_img{
-	min-height: 420px;
+	min-height: 300px;
 }
 .div_in_banner{
 	margin: 20px 0px 20px 0px;
 }
+.da_image{
+	float: left;
+	display: inline-block;
+}
 .da_image img{
 	width: 200px;
 	height: 200px;
+
 }
 .img_avatar_ar{
 	width: 370px;
-	height: 208px;;
+	height: 208px;
 }
+.sys_delete_banner{
+	position: absolute;
+	margin: 10px;
+	float: right;
+}
+.sys_delete_banner a{
+	color:red;
+}
+
 

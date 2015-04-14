@@ -99,26 +99,27 @@
 
 				</div>
 				<div class="col-md-4 " style="margin-bottom: 50px;">
-					<div class="da_question">
-						<h3>Do you have questions for</br> marketing experts?</h3>
-						<div class="wa_form_question_author_dub">
-							<h4>What fields are you interested in?</h4>
-							<select class="form-control">
-								<option value="1">Digital Marketing</option>
-								<option value="2">Content Communications</option>
-								<option value="3">Trade Marketing</option>
-								<option value="4">Account & Planner</option>
-								<option value="5">Creative & Design</option>
-								<option value="6">PR & Event</option>
-							</select>
+					<form action="{{asset('sys_store_question')}}" method="POST">
+						<div class="da_question">
+							<h3>Do you have questions for</br> marketing experts?</h3>
+							<div class="wa_form_question_author_dub">
+								<h4>What fields are you interested in?</h4>
+								<select class="form-control" name="type">
+									<option value="Digital Marketing">Digital Marketing</option>
+									<option value="Content Communications">Content Communications</option>
+									<option value="Trade Marketing">Trade Marketing</option>
+									<option value="Account & Planner">Account & Planner</option>
+									<option value="Creative & Design">Creative & Design</option>
+									<option value="PR & Event">PR & Event</option>
+								</select>
+							</div>
+							<div class="wa_form_question_author_dub">
+								<h4>Your question?</h4>
+								<textarea rows="5" class="form-control" name="question"></textarea>
+							</div>
+							<input class="btn btn-block" type="submit" value="SEND QUESTION">
 						</div>
-						<div class="wa_form_question_author_dub">
-							<h4>Your question?</h4>
-							<textarea rows="5" class="form-control"></textarea>
-						</div>
-						<button class="btn btn-block">SEND QUESTION</button>
-
-					</div>
+					</form>
 				</div>
 			</div>
 		</div>

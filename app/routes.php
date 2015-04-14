@@ -43,12 +43,18 @@ Route::get('sys_header_blog','BannerController@header_blog');
 Route::post('sys_store_header_blog','BannerController@store_header_blog');
 Route::post('upload_banner','BannerController@upload_banner');
 Route::post('store_banner','BannerController@store');
+Route::get('delete_img','BannerController@destroy');
+
+Route::get('sys_question','QuestionController@index');
+Route::post('sys_store_question','QuestionController@store');
 
 Route::get('blog','BlogController@index');
 
 Route::get('detail-blog','DetailBlogController@index');
 
 Route::get('expert-blog','ExpertBogController@index');
+
+
 
 
 
