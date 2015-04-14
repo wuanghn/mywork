@@ -27,7 +27,8 @@
 		<?php
 			function da_date($updated_at) {
 				$date = new DateTime($updated_at);
-				$t1 = $date->format("g"). ':' .$date->format("i"). ' ' .$date->format("A");
+				//				$t1 = $date->format("g"). ':' .$date->format("i"). ' ' .$date->format("A");
+				$t1 = $date->format("d"). '/' .$date->format("m"). '/' .$date->format("Y");
 				return $t1;
 			}
 
@@ -84,7 +85,7 @@
 									<p><a href="{{asset('detail-blog?id=').$val_a->id}}">{{neods(strip_tags($val_a->title),80)}}</a></p>
 									<p>
 									<span><i class="fa fa-clock-o"> </i>{{da_date($val_a->updated_at)}}</span>
-									<p>
+									<p class="p_content_description">
 										{{$val_a->article_description}}
 									</p>
 								</div>
@@ -112,7 +113,12 @@
 						<div class="wa_form_question_author_dub">
 							<h4>What fields are you interested in?</h4>
 							<select class="form-control">
-								<option></option>
+								<option value="1">Digital Marketing</option>
+								<option value="2">Content Communications</option>
+								<option value="3">Trade Marketing</option>
+								<option value="4">Account & Planner</option>
+								<option value="5">Creative & Design</option>
+								<option value="6">PR & Event</option>
 							</select>
 						</div>
 						<div class="wa_form_question_author_dub">

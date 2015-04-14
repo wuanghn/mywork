@@ -53,7 +53,7 @@
 		<?php
 			function da_date($updated_at) {
 				$date = new DateTime($updated_at);
-				$t1 = $date->format("g"). ':' .$date->format("i"). ' ' .$date->format("A");
+				$t1 = $date->format("d"). '/' .$date->format("m"). '/' .$date->format("Y");
 				return $t1;
 			}
 
@@ -128,7 +128,12 @@
 								<div class="wa_form_question_author_dub">
 									<h4>What fields are you interested in?</h4>
 									<select class="form-control">
-										<option></option>
+										<option value="1">Digital Marketing</option>
+										<option value="2">Content Communications</option>
+										<option value="3">Trade Marketing</option>
+										<option value="4">Account & Planner</option>
+										<option value="5">Creative & Design</option>
+										<option value="6">PR & Event</option>
 									</select>
 								</div>
 								<div class="wa_form_question_author_dub">
@@ -162,7 +167,7 @@
 									<p><a href="{{asset('detail-blog?id=').$key2->id}}">{{neods($key2->title,80)}}</a></p>
 									<p>
 										<span><i class="fa fa-clock-o"> </i>{{da_date($key2->updated_at)}}</span></p>
-									<p>
+									<p class="p_content_description">
 										{{$key2->article_description}}
 									</p>
 								</div>
@@ -176,7 +181,7 @@
 					</div>
 					<div class="row">
 						<div class=" col-md-12 da_other_article">
-							@if(count($others) >0)<h3>OTHERS ARTICLES OF THIS EXPERT</h3>  @endif
+							@if(count($others) >0)<h3>OTHER ARTICLES OF THIS EXPERT</h3>  @endif
 							@foreach($others as $key_o => $val_o)
 							<div class="da_content_related">
 								<a href="{{asset('detail-blog?id=').$val_o->id}}"><img src="{{$val_o->avatar_article}}"></a>
@@ -185,7 +190,7 @@
 									<p>
 										<span><i class="fa fa-clock-o" style="padding-right: 10px;"> </i>{{da_date($val_o->updated_at)}}</span>
 									</p>
-									<p>
+									<p class="p_content_description">
 										{{$val_o->article_description}}
 									</p>
 								</div>
@@ -200,5 +205,17 @@
 
 
 		@include('layouts.frontend.footer')
+		<script>
+			(function() {
+				var cx = '001497134547695371278:mjliokuthyw';
+				var gcse = document.createElement('script');
+				gcse.type = 'text/javascript';
+				gcse.async = true;
+				gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+				'//www.google.com/cse/cse.js?cx=' + cx;
+				var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(gcse, s);
+			})();
+		</script>
 	</body>
 </html>
