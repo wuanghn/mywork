@@ -89,6 +89,16 @@
   position: relative;
 }
 
+
+.btn_vnw
+{
+	border-color: #4e4ebc;
+	  color: #4e4ebc;
+	  background-color: white;
+	  text-transform: uppercase;
+	  font-weight: bold;
+}
+
 @media screen and (max-width: 750px	){
 	.wa_menu_respon{display: block; margin-bottom: 0px;}
 	.wa_menu_desktop{display: none;}

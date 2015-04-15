@@ -26,7 +26,7 @@ class UsersController extends \BaseController {
 
 
 
-	    public function getProccessLogin() {
+	    public function postProccessLogin() {
 
 	        $email = Input::get('email');
 	        $password = Input::get('password');
@@ -46,8 +46,10 @@ class UsersController extends \BaseController {
 	        $results = curl_exec($ch);
 	        $results = json_decode($results);
 
-	        if ($results->meta->code == 200 && $results->meta->message == 'OK') {
-	            echo 'true';
+	        if ($results->meta->code == 200 && $results->meta->message == 'OK') 
+	        {
+	            Session::put('user_profile', $results->data->profile);
+	            return json_encode($results->data->profile);
 	        } else {
 	// print to screen: login faile
 	            echo 'false';
@@ -69,6 +71,12 @@ class UsersController extends \BaseController {
 			} else {
 			    // print to screen: login faile
 			}
+	}
+
+	public function getLogout()
+	{
+		Session::forget('user_profile');
+		return Redirect::back();
 	}
 
 
@@ -137,9 +145,45 @@ class UsersController extends \BaseController {
 
 	public function postProRegis()
 	{
-			// proccess register
-	}
+			$urlRegister = 'https://api.vietnamworks.com/users/register';
+			$chRegister = curl_init();
+			
+			$postField = array(
+			    'email' => Input::get('email'),
+			    'password' => Input::get('password'),
+			    'firstname' => Input::get('first_name'),
+			    'lastname' => Input::get('last_name'),
+			    'lang' => 1 // Vietnamese
+			);
 
+			curl_setopt($chRegister, CURLOPT_URL, $urlRegister);
+			curl_setopt($chRegister, CURLOPT_POST, 1);
+			curl_setopt($chRegister, CURLOPT_POSTFIELDS, json_encode($postField));
+			curl_setopt($chRegister, CURLOPT_SSL_VERIFYPEER, false);
+			curl_setopt($chRegister, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($chRegister, CURLOPT_HTTPHEADER, array(
+			    'CONTENT-MD5: 4c443c7e2c515d6b4b4d693c2f63434a7773226a614846733c4c4d4348', 'Content-Type: application/JSON', 'Accept: application/JSON'));
+			curl_setopt($chRegister, CURLOPT_CONNECTTIMEOUT, 0);
+			curl_setopt($chRegister, CURLOPT_TIMEOUT, 36000); //timeout in seconds
+
+			$resultsRegister = curl_exec($chRegister);
+			curl_close($chRegister);
+			$resultsRegister = json_decode($resultsRegister);
+
+					
+			if ($resultsRegister->meta->code == 200 && $resultsRegister->meta->message == 'Success') {
+				$object = new stdClass();
+				$object->email = Input::get('email');
+				$object->first_name = Input::get('first_name');
+				$object->last_name = Input::get('last_name');
+				
+				Session::put('user_profile',$object);
+
+				return "true";
+			}else{
+				return "false";
+			}
+	}
 
 
 
