@@ -47,12 +47,13 @@ Route::get('delete_img','BannerController@destroy');
 
 Route::get('sys_question','QuestionController@index');
 Route::post('sys_store_question','QuestionController@store');
+Route::get('sys_delete_question','QuestionController@destroy');
 
 Route::get('blog','BlogController@index');
 
-Route::get('detail-blog','DetailBlogController@index');
+Route::get('detail-blog/{id}','DetailBlogController@index');
 
-Route::get('expert-blog','ExpertBogController@index');
+Route::get('expert/{id}','ExpertBogController@index');
 
 
 

@@ -8,12 +8,14 @@
 		<title>Bootstrap 101 Template</title>
 
 		<!-- Bootstrap -->
-		<link href="public/assets/css/bootstrap.min.css" rel="stylesheet">
+		<link href="{{asset('public/assets/css/bootstrap.min.css')}}" rel="stylesheet">
 
-		<link href="public/assets/css/slick.css" rel="stylesheet">
-		<link href="public/assets/css/slick-theme.css" rel="stylesheet">
-		<link href="public/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-		<link href="public/assets/css/blog2.css" rel="stylesheet">
+		<link href="{{asset('public/assets/css/slick.css')}}" rel="stylesheet">
+		<link href="{{asset('public/assets/css/slick-theme.css')}}" rel="stylesheet">
+		<link href="{{asset('public/assets/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+		<link href="{{asset('public/assets/css/blog2.css')}}" rel="stylesheet">
+
+			<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -51,7 +53,7 @@
 					<div class="da_slider autoplay">
 						@foreach($expert as $key_ex => $val_ex)
 						<div class=" da_avatar_author ">
-							<a href="{{asset('expert-blog?id=').$val_ex->id}}"  class="div_img_avatar">
+							<a href="{{asset('expert').'/'.$val_ex->name_slug}}"  class="div_img_avatar">
 								<img src="{{$val_ex->avatar}}" class="img-circle center-block" title="{{$val_ex->name}}">
 							</a>
 							<h3 class="center-block">{{$val_ex->name}}</h3>
@@ -70,7 +72,7 @@
 						@foreach($last_article as $key_l => $val_l)
 						<div class="col-md-6  da_div_article">
 							<div class="da_content_ar">
-								<a href="{{asset('detail-blog?id=').$val_l->id}}">
+								<a href="{{asset('detail-blog').'/'.$val_l->title_slug}}">
 									<img src="{{asset($val_l->avatar_article)}}">
 								</a>
 								<div class="da_content_info">
@@ -89,11 +91,35 @@
 						<div class="col-md-12 da_pagination">
 							<!--					<a href="#"><img src="public/assets/img/btn_back.png"></a>-->
 							<?php
-								echo $last_article->links();
+								$total = $last_article->getTotal();
+								$currentPage = $last_article->getCurrentPage();
+								$getLastPage = $last_article->getLastPage();
+
+								$begin = $currentPage -2;
+
+								$end = $currentPage +2;
+								if($begin < 1 )
+									$begin = 1;
+								if($begin <=5)
+									$end = $getLastPage;
+								if($end > $getLastPage )
+									$end = $getLastPage;
+								if($end <=5)
+									$begin = 1;
 							?>
-							<!--					<a href="#"><img src="public/assets/img/btn_next.png"></a>-->
 
 
+							<ul class="pagination">
+								@if($currentPage >1)
+								<li><a href="{{asset('blog').'?page='.($currentPage-1)}}" rel="prev">«</a></li>
+								@endif
+								@for($i = $begin; $i <= $end ;$i++)
+								<li @if($currentPage == $i) {{'class = "active"'}}  @endif><a href="{{asset('blog').'?page='.$i}}">{{$i}}</a></li>
+								@endfor
+								@if($currentPage != $end)
+								<li><a href="{{asset('blog').'?page='.($currentPage+1)}}" rel="prev">»</a></li>
+								@endif
+							</ul>
 						</div>
 					</div>
 
@@ -124,6 +150,32 @@
 			</div>
 		</div>
 
+
+		<!-- Button trigger modal -->
+		@if(Session::has('thanhcong'))
+		<button type="button" class="btn btn-primary btn-lg hidden" data-toggle="modal" data-target="#myModal" id="da_modal" >
+			Launch demo modal
+		</button>
+		@endif
+		<!-- Modal -->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">Thông báo</h4>
+					</div>
+					<div class="modal-body">
+						Cảm ơn bạn đã gửi câu hỏi cho chúng tôi !
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
 		@include('layouts.frontend.footer')
 
 
@@ -145,14 +197,14 @@
 		?>
 
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 		<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.0/slick.min.js"></script>
 		<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
-		<script src="public/assets/js/jquery.resizecrop-1.0.3.min.js"></script>
-		<script src="public/assets/js/slick.js"></script>
-		<script src="public/assets/js/blog_home.js"></script>
+		<script src="{{asset('public/assets/js/jquery.resizecrop-1.0.3.min.js')}}"></script>
+		<script src="{{asset('public/assets/js/slick.js')}}"></script>
+		<script src="{{asset('public/assets/js/blog_home.js')}}"></script>
 	</body>
   </html>

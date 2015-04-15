@@ -7,9 +7,9 @@
 		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 		<title>Bootstrap 101 Template</title>
 
-		<link href="public/assets/css/bootstrap.min.css" rel="stylesheet">
-		<link href="public/assets/css/blog2.css" rel="stylesheet">
-		<link href="public/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<link href="{{asset('public/assets/css/bootstrap.min.css')}}" rel="stylesheet">
+		<link href="{{asset('public/assets/css/blog2.css')}}" rel="stylesheet">
+		<link href="{{asset('public/assets/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
 		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
@@ -57,13 +57,13 @@
 					<span><i class="fa fa-briefcase"></i>{{$val->sectors}}</span>
 					<span class="da_location"><i class="fa fa-map-marker"></i>{{$val->region_name}}</span>
 					<p>
-						{{htmlspecialchars_decode($val->discription,ENT_QUOTES)}}
+						{{$val->discription}}
 					</p>
 
 				</div>
 				<div class="col-md-5 da_name_author">
 					<div class="div_img_avatar">
-						<img src="{{$val->avatar}}" class="img-circle">
+						<img src="{{asset($val->avatar)}}" class="img-circle">
 					</div>
 					<h3>{{mb_convert_case($val->name, MB_CASE_UPPER, "UTF-8");}}</h3>
 					<h4>{{$val->position}}</h4>
@@ -78,11 +78,14 @@
 					@endif
 					<div class="row">
 						@foreach($article as $key_a =>$val_a)
+						<?php
+							$title_slug = $val_a->title_slug;
+						 ?>
 						<div class="col-md-6 da_div_article">
 							<div class="da_content_ar">
-								<a href="{{asset('detail-blog?id=').$val_a->id}}"><img src="{{$val_a->avatar_article}}"> </a>
+								<a href="{{asset('detail-blog').'/'.$title_slug}}"><img src="{{asset($val_a->avatar_article)}}"> </a>
 								<div class="da_content_info">
-									<p><a href="{{asset('detail-blog?id=').$val_a->id}}">{{neods(strip_tags($val_a->title),80)}}</a></p>
+									<p><a href="{{asset('detail-blog').'/'.$title_slug}}">{{neods(strip_tags($val_a->title),80)}}</a></p>
 									<p>
 									<span><i class="fa fa-clock-o"> </i>{{da_date($val_a->updated_at)}}</span>
 									<p class="p_content_description">
@@ -91,6 +94,7 @@
 								</div>
 							</div>
 						</div>
+
 						@endforeach
 					</div>
 					<div class="row">
@@ -99,35 +103,33 @@
 							<?php
 								echo $article->appends(array('id' => $id))->links();
 							?>
-							<!--					<a href="#"><img src="public/assets/img/btn_next.png"></a>-->
-
-
 						</div>
 					</div>
 
 				</div>
 
 				<div class="col-md-4 " style="margin-bottom: 50px;">
-					<div class="da_question">
-						<h3>Do you have questions for</br> marketing experts?</h3>
-						<div class="wa_form_question_author_dub">
-							<h4>What fields are you interested in?</h4>
-							<select class="form-control">
-								<option value="1">Digital Marketing</option>
-								<option value="2">Content Communications</option>
-								<option value="3">Trade Marketing</option>
-								<option value="4">Account & Planner</option>
-								<option value="5">Creative & Design</option>
-								<option value="6">PR & Event</option>
-							</select>
+					<form action="{{asset('sys_store_question')}}" method="POST">
+						<div class="da_question">
+							<h3>Do you have questions for</br> marketing experts?</h3>
+							<div class="wa_form_question_author_dub">
+								<h4>What fields are you interested in?</h4>
+								<select class="form-control" name="type">
+									<option value="1">Digital Marketing</option>
+									<option value="2">Content Communications</option>
+									<option value="3">Trade Marketing</option>
+									<option value="4">Account & Planner</option>
+									<option value="5">Creative & Design</option>
+									<option value="6">PR & Event</option>
+								</select>
+							</div>
+							<div class="wa_form_question_author_dub">
+								<h4>Your question?</h4>
+								<textarea rows="5" class="form-control" name="question"></textarea>
+							</div>
+							<input class="btn btn-block" type="submit" value="SEND QUESTION">
 						</div>
-						<div class="wa_form_question_author_dub">
-							<h4>Your question?</h4>
-							<textarea rows="5" class="form-control"></textarea>
-						</div>
-						<button class="btn btn-block">SEND QUESTION</button>
-
-					</div>
+					</form>
 				</div>
 			</div>
 		</div>

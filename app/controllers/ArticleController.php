@@ -123,11 +123,13 @@
 			$acticle = $this->get_input();
 			$id_acticle = Input::get('id_article');
 			$acticle['content'] = Input::get('editor2');
+			$title_slug = App::make('AuthorController')->convert_vi_to_en($acticle['title']).$id_acticle;
 			if (Input::hasFile('avatar'))
 			{
 				$avatar = $this->upload();
 				if($avatar != false){
 					$acticle['avatar_article'] = $avatar;
+					$acticle['title_slug'] = $title_slug;
 					Article::where('id',$id_acticle)->update($acticle);
 					return  Redirect::to('sys_article');
 				}
@@ -136,6 +138,7 @@
 				}
 			}
 			else{//khong có chọn hình
+				$acticle['title_slug'] = $title_slug;
 				Article::where('id',$id_acticle)->update($acticle);
 				return Redirect::to('sys_article');
 			}

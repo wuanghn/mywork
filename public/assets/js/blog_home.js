@@ -27,6 +27,9 @@ $(document).ready(function(){
 	}
 
 
+	$('#da_modal').click();
+
+
 
 
 

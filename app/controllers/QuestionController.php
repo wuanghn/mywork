@@ -1,6 +1,6 @@
 <?php
 
-	class QuestionController extends \BaseController {
+	class QuestionController extends BaseController {
 
 		/**
 		* Display a listing of the resource.
@@ -9,7 +9,7 @@
 		*/
 		public function index()
 		{
-			$question = DB::table('questions')->orderBy('id','desc')->get();
+			$question = DB::table('questions')->orderBy('id','desc')->paginate(20);
 			return View::make('question', array('question' =>$question));
 		}
 
@@ -35,7 +35,7 @@
 			$question = $this->get_input();
 			DB::table('questions')->insert($question);
 
-			return Redirect::to('blog');
+			return Redirect::to('blog')->with('thanhcong','');
 		}
 
 
@@ -81,18 +81,31 @@
 		* @param  int  $id
 		* @return Response
 		*/
-		public function destroy($id)
+		public function destroy()
 		{
-			//
+			$id = Input::get('id');
+			DB::table('questions')->where('id',$id)->delete();
+			return Redirect::to('sys_question');
 		}
 		public function get_input()
 		{
+			$info_user = Session::get('user_profile');
+			//$array = array(
+			//				'first_name' => "pham",
+			//				'last_name' => "duc anh",
+			//				'email' => "ppducah@gmail.com",
+			//			);
+
+//			$info_user = (object) $array;
+			$name = $info_user->first_name.' '.$info_user->last_name;
+			$email = $info_user->email;
 			$arr = array();
 			$in = Input::all();
 			$arr = array(
-				'id_user' =>1,
+				'user' =>$name,
 				'type' => $in['type'],
 				'question' => $in['question'],
+				'email' => $email,
 			);
 
 			return $arr;

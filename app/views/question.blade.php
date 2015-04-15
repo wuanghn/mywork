@@ -13,26 +13,29 @@
 						<table class="table-hover table">
 							<tr>
 								<td style="width: 1%">STT</td>
-								<td style="width:15%">Loại</td>
-								<td style="width:15%">User</td>
+								<td style="width:15%">Tên người gửi</td>
+								<td style="width:15%">Loại câu hỏi</td>
 								<td>Câu hỏi</td>
-								<td style="width:10%">Action</td>
+								<td style="width:5%">Action</td>
 							</tr>
 							<?php
-								$i = 0;
+								$i = 1;
 							?>
 							@foreach($question as $key => $val)
 							<tr>
 								<td>{{$i++}}</td>
+								<td>{{$val->user}}</td>
 								<td>{{$val->type}}</td>
-								<td>{{$val->id_user}}</td>
 								<td>{{$val->question}}</td>
-								<td><a>Xóa</a></td>
+								<td><a style="color: red;" href="{{asset('sys_delete_question?id=').$val->id}}">Xóa</a></td>
 							</tr>
 							@endforeach
 						</table>
+						<hr>
+						<dir class="pull-right">
+						{{$question->links()}}
+						</dir>
 					</div>
-					<input id="btn_submit_ac" type="submit" value="Lưu bài viết" class="btn btn-danger center-block">
 				</form>
 			</div>
 		</div>

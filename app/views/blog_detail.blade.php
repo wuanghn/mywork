@@ -9,25 +9,25 @@
 		<!-- Schema.org markup for Google+ -->
 		<meta itemprop="name" content="{{$val1->title}}">
 		<meta itemprop="description" content="{{$val1->article_description}}">
-		<meta itemprop="image" content="{{$val1->avatar_article}}">
+		<meta itemprop="image" content="{{asset($val1->avatar_article)}}">
 
 		<!-- Open Graph data -->
 		<meta property="og:title" content="{{$val1->title}}"/>
 		<meta property="og:type" content="article" />
 		<meta property="og:url" content="{{URL::full();}}"/>
-		<meta property="og:image" content="{{$val1->avatar_article}}" />
+		<meta property="og:image" content="{{asset($val1->avatar_article)}}" />
 		<meta property="og:description" content="{{$val1->article_description}}" />
 		<meta property="og:site_name" content="Viet Nam Work" />
 
-		@endforeach
+
 
 
 		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-		<title>Bootstrap 101 Template</title>
-
-		<link href="public/assets/css/bootstrap.min.css" rel="stylesheet">
-		<link href="public/assets/css/blog2.css" rel="stylesheet">
-		<link href="public/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<title>{{$val1->title}}</title>
+		@endforeach
+		<link href="{{asset('public/assets/css/bootstrap.min.css')}}" rel="stylesheet">
+		<link href="{{asset('public/assets/css/blog2.css')}}" rel="stylesheet">
+		<link href="{{asset('public/assets/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
 		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
@@ -129,22 +129,24 @@
 								<h3 style="text-align: left;">Do you have questions for</br> marketing experts?</h3>
 							</div>
 							<div class="col-md-8">
-								<div class="wa_form_question_author_dub">
-									<h4>What fields are you interested in?</h4>
-									<select class="form-control">
-										<option value="1">Digital Marketing</option>
-										<option value="2">Content Communications</option>
-										<option value="3">Trade Marketing</option>
-										<option value="4">Account & Planner</option>
-										<option value="5">Creative & Design</option>
-										<option value="6">PR & Event</option>
-									</select>
-								</div>
-								<div class="wa_form_question_author_dub">
-									<h4>Your question?</h4>
-									<textarea rows="5" class="form-control"></textarea>
-								</div>
-								<button class="btn btn-block">SEND QUESTION</button>
+								<form action="{{asset('sys_store_question')}}" method="POST">
+									<div class="wa_form_question_author_dub">
+										<h4>What fields are you interested in?</h4>
+										<select class="form-control" name="type">
+											<option value="1">Digital Marketing</option>
+											<option value="2">Content Communications</option>
+											<option value="3">Trade Marketing</option>
+											<option value="4">Account & Planner</option>
+											<option value="5">Creative & Design</option>
+											<option value="6">PR & Event</option>
+										</select>
+									</div>
+									<div class="wa_form_question_author_dub">
+										<h4>Your question?</h4>
+										<textarea rows="5" class="form-control" name="question"></textarea>
+									</div>
+									<input class="btn btn-block" type="submit" value="SEND QUESTION">
+								</form>
 							</div>
 						</div>
 					</div>
@@ -166,9 +168,9 @@
 							@if(count($val_re) >0)
 							@foreach($val_re as $key2)
 							<div class="da_content_related">
-								<a href="{{asset('detail-blog?id=').$key2->id}}"><img src="{{asset($key2->avatar_article)}}"> </a>
+								<a href="{{asset('detail-blog').'/'.$key2->title_slug}}"><img src="{{asset($key2->avatar_article)}}"> </a>
 								<div class="da_content_info">
-									<p><a href="{{asset('detail-blog?id=').$key2->id}}">{{neods($key2->title,80)}}</a></p>
+									<p><a href="{{asset('detail-blog').'/'.$key2->title_slug}}">{{neods($key2->title,80)}}</a></p>
 									<p>
 										<span><i class="fa fa-clock-o"> </i>{{da_date($key2->updated_at)}}</span></p>
 									<p class="p_content_description">
@@ -188,9 +190,9 @@
 							@if(count($others) >0)<h3>OTHER ARTICLES OF THIS EXPERT</h3>  @endif
 							@foreach($others as $key_o => $val_o)
 							<div class="da_content_related">
-								<a href="{{asset('detail-blog?id=').$val_o->id}}"><img src="{{$val_o->avatar_article}}"></a>
+								<a href="{{asset('detail-blog').'/'.$val_o->title_slug}}"><img src="{{asset($val_o->avatar_article)}}"></a>
 								<div class="da_content_info">
-									<p><a href="{{asset('detail-blog?id=').$val_o->id}}">{{neods(strip_tags($val_o->title),80)}}</a></p>
+									<p><a href="{{asset('detail-blog').'/'.$val_o->title_slug}}">{{neods(strip_tags($val_o->title),80)}}</a></p>
 									<p>
 										<span><i class="fa fa-clock-o" style="padding-right: 10px;"> </i>{{da_date($val_o->updated_at)}}</span>
 									</p>
