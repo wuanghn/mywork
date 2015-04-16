@@ -22,6 +22,17 @@
 		<![endif]-->
 		{{ HTML::style('public/frontend/css/style.css') }}
 		{{ HTML::style('public/frontend/css/mobile.css') }}
+		<script type="">
+			$(document).ready(function(){
+				$('#da_btn_question').click(function(){
+					$('#text_error').remove();
+					$text = $(this).parent().find('textarea').val();
+					if($text == ""){
+						$(this).parent().find('textarea').after('<span id="text_error" style="color:white;">Bạn vui lòng nhập câu hỏi !</span>');
+					}
+				})
+			})
+		</script>
 	</head>
 	<body>
 		<?php
@@ -52,6 +63,7 @@
 					<?php
 						$id = $val->id;
 						$name = $val->name;
+						$name_slug = $val->name_slug;
 					?>
 					<h3>ABOUT EXPERT {{mb_convert_case($val->name, MB_CASE_UPPER, "UTF-8");}}</h3>
 					<span><i class="fa fa-briefcase"></i>{{$val->sectors}}</span>
@@ -80,7 +92,7 @@
 						@foreach($article as $key_a =>$val_a)
 						<?php
 							$title_slug = $val_a->title_slug;
-						 ?>
+						?>
 						<div class="col-md-6 da_div_article">
 							<div class="da_content_ar">
 								<a href="{{asset('detail-blog').'/'.$title_slug}}"><img src="{{asset($val_a->avatar_article)}}"> </a>
@@ -99,17 +111,43 @@
 					</div>
 					<div class="row">
 						<div class="col-md-12 da_pagination">
-							<!--					<a href="#"><img src="public/assets/img/btn_back.png"></a>-->
 							<?php
-								echo $article->appends(array('id' => $id))->links();
+								$total = $article->getTotal();
+								$currentPage = $article->getCurrentPage();
+								$getLastPage = $article->getLastPage();
+
+								$begin = $currentPage -2;
+
+								$end = $currentPage +2;
+								if($begin < 1 )
+									$begin = 1;
+								if($begin <=5)
+									$end = $getLastPage;
+								if($end > $getLastPage )
+									$end = $getLastPage;
+								if($end <=5)
+									$begin = 1;
 							?>
+
+
+							<ul class="pagination">
+								@if($currentPage >1)
+								<li><a href="{{asset('expert').'/'.$name_slug.'?id='.$id.'page='.($currentPage-1)}}" rel="prev">«</a></li>
+								@endif
+								@for($i = $begin; $i <= $end ;$i++)
+								<li @if($currentPage == $i) {{'class = "active"'}}  @endif><a href="{{asset('expert').'/'.$name_slug.'?id='.$id.'&page='.$i}}">{{$i}}</a></li>
+								@endfor
+								@if($currentPage != $end)
+								<li><a href="{{asset('expert').'/'.$name_slug.'?id='.$id.'&page='.($currentPage+1)}}" rel="prev">»</a></li>
+								@endif
+							</ul>
 						</div>
 					</div>
 
 				</div>
 
 				<div class="col-md-4 " style="margin-bottom: 50px;">
-					<form action="{{asset('sys_store_question')}}" method="POST">
+					<form action="{{asset('sys_store_question')}}" method="POST" id="da_form_question">
 						<div class="da_question">
 							<h3>Do you have questions for</br> marketing experts?</h3>
 							<div class="wa_form_question_author_dub">
@@ -127,7 +165,11 @@
 								<h4>Your question?</h4>
 								<textarea rows="5" class="form-control" name="question"></textarea>
 							</div>
-							<input class="btn btn-block" type="submit" value="SEND QUESTION">
+							@if(Session::has('user_profile'))
+							<input class="btn btn-block" type="submit" value="SEND QUESTION" id="da_btn_question">
+							@else
+							<input class="btn btn-block" data-toggle="modal" data-target="#myModal" value="SEND QUESTION" id="da_btn_question">
+							@endif
 						</div>
 					</form>
 				</div>

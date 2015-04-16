@@ -48,7 +48,18 @@
 					$(this).attr('class','img-responsive');
 					$(this).css('height','auto');
 				});
-				$('#da_content_article').children().css('width','100%')
+				$('#da_content_article').children().css('width','100%')  ;
+
+				$('#da_form_question').submit(function(){
+					$('#text_error').remove();
+					$text = $(this).parent().find('textarea').val();
+					if($text == ""){
+						$(this).parent().find('textarea').after('<span id="text_error" style="color:white;">Bạn vui lòng nhập câu hỏi !</span>');
+						return false;
+					}
+					else
+						return true;
+				})
 			})
 		</script>
 	</head>
@@ -129,7 +140,7 @@
 								<h3 style="text-align: left;">Do you have questions for</br> marketing experts?</h3>
 							</div>
 							<div class="col-md-8">
-								<form action="{{asset('sys_store_question')}}" method="POST">
+								<form action="{{asset('sys_store_question')}}" method="POST" id="da_form_question">
 									<div class="wa_form_question_author_dub">
 										<h4>What fields are you interested in?</h4>
 										<select class="form-control" name="type">
@@ -145,7 +156,11 @@
 										<h4>Your question?</h4>
 										<textarea rows="5" class="form-control" name="question"></textarea>
 									</div>
-									<input class="btn btn-block" type="submit" value="SEND QUESTION">
+									@if(Session::has('user_profile'))
+									<input class="btn btn-block" type="submit" value="SEND QUESTION" id="da_btn_question">
+									@else
+									<input class="btn btn-block" data-toggle="modal" data-target="#myModal" value="SEND QUESTION" id="da_btn_question">
+									@endif
 								</form>
 							</div>
 						</div>
@@ -223,6 +238,5 @@
 				s.parentNode.insertBefore(gcse, s);
 			})();
 		</script>
-
 	</body>
 </html>

@@ -31,6 +31,19 @@ $(document).ready(function(){
 
 
 
+	$('#da_form_question').submit(function(){
+		$('#text_error').remove();
+		$text = $(this).parent().find('textarea').val();
+		if($text == ""){
+			$(this).parent().find('textarea').after('<span id="text_error" style="color:white;">Bạn vui lòng nhập câu hỏi !</span>');
+			return false;
+		}
+		else
+			return true;
+	})
+
+
+
 
 
 

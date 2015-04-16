@@ -76,7 +76,7 @@
 									<img src="{{asset($val_l->avatar_article)}}">
 								</a>
 								<div class="da_content_info">
-									<p><a href="{{asset('detail-blog?id=').$val_l->id}}">{{neods($val_l->title, 63)}}</a></p>
+									<p><a href="{{asset('detail-blog').'/'.$val_l->title_slug}}">{{neods($val_l->title, 63)}}</a></p>
 									<p>
 										<span><i class="fa fa-clock-o"> </i>{{da_date($val_l->updated_at)}}</span>
 									</p>
@@ -125,7 +125,7 @@
 
 				</div>
 				<div class="col-md-4 " style="margin-bottom: 50px;">
-					<form action="{{asset('sys_store_question')}}" method="POST">
+					<form action="{{asset('sys_store_question')}}" method="POST" id="da_form_question">
 						<div class="da_question">
 							<h3>Do you have questions for</br> marketing experts?</h3>
 							<div class="wa_form_question_author_dub">
@@ -141,9 +141,13 @@
 							</div>
 							<div class="wa_form_question_author_dub">
 								<h4>Your question?</h4>
-								<textarea rows="5" class="form-control" name="question"></textarea>
+								<textarea rows="5" class="form-control" name="question" id="da_content_question"></textarea>
 							</div>
-							<input class="btn btn-block" type="submit" value="SEND QUESTION">
+							@if(Session::has('user_profile'))
+							<input class="btn btn-block" type="submit" value="SEND QUESTION" id="da_btn_question">
+							@else
+							<input class="btn btn-block" data-toggle="modal" data-target="#myModal" value="SEND QUESTION" id="da_btn_question">
+							@endif
 						</div>
 					</form>
 				</div>
@@ -153,12 +157,12 @@
 
 		<!-- Button trigger modal -->
 		@if(Session::has('thanhcong'))
-		<button type="button" class="btn btn-primary btn-lg hidden" data-toggle="modal" data-target="#myModal" id="da_modal" >
+		<button type="button" class="btn btn-primary btn-lg hidden" data-toggle="modal" data-target="#myModal2" id="da_modal" >
 			Launch demo modal
 		</button>
 		@endif
 		<!-- Modal -->
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
