@@ -82,22 +82,7 @@ class SearchesController extends \BaseController {
 
 					if($extension == "pdf" || $extension == "doc" || $extension == "docx")
 					{
-							$validator = Validator::make(
-							    Input::all(),
-							    array(
-							        'last_name' => 'required',
-							        'first_name' => 'required',
-							        'email' => 'required|email',
-
-							    )
-							);
-							if ($validator->fails())
-							{
-							    //
-							}else
-							{
-								// full data
-							}
+							echo "ok";
 							
 					}else
 					{

@@ -13,7 +13,7 @@
 
  										  @if(!Session::has('user_profile'))
  										  		
- 										   <li id="displayLoginForm" role="presentation"><a data-toggle="modal" data-target="#myModal">Login</a></li>
+ 										   <li id="displayLoginForm" role="presentation"><a href="#" data-toggle="modal" data-target="#myModal">Login</a></li>
  										  @else
  										  		<?php $last_name = Session::get('user_profile');
  										  				$last_name = $last_name->last_name;
@@ -43,7 +43,14 @@
 					                          <div class="col-xs-6">
 					                              <div class="well">
 					                                  <form id="loginForm" novalidate="novalidate" class="show_login">
-					                                  		<input type="hidden" id="ss_flag">
+					                                  		@if(Session::has('user_profile'))
+					                                  			<?php $ss = Session::get('user_profile');
+					                                  				$ss = json_encode($ss);
+					                                  			?>
+					                                  		@else
+					                                  			<?php $ss = "" ?>
+					                                  		@endif
+					                                  		<input type="hidden" value='{{ $ss }}' id="ss_flag">
 					                                      <div class="form-group">
 					                                          <label for="username" class="control-label">Email</label>
 					                                          <input type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter you username" placeholder="example@gmail.com">
@@ -56,7 +63,7 @@
 					                                      </div>
 					                                      <div id="loginErrorMsg" class="alert alert-error hide">Wrong username or password</div>
 					                                      
-					                                      <button type="button" onclick="submitLogin()" class="btn btn_vnw btn-block">Login</button>
+					                                      <button type="button" onclick="submitLogin()" id="da_button_login" class="btn btn_vnw btn-block">Login</button>
 					                                  </form>
 
 
@@ -94,6 +101,14 @@ $(document).ready(function(){
             {
             	$('#ss_flag').val(data);
             	data = JSON.parse(data);
+
+
+            	$('#frmSignUp input[name=first_name]').val(data.first_name)
+				$('#frmSignUp input[name=last_name]').val(data.last_name)
+				$('#frmSignUp input[name=email]').val(data.email)
+
+				$('#applyButtonLogin').hide();
+				$('#applyButton').show();  
             	
             	var urlLogout = "{{url('users/logout')}}";
             	var html = '<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false"> HI, '+data.last_name+' <span class="caret"></span></a><ul class="dropdown-menu" role="menu"><li><a href="'+urlLogout+'">Logout</a></li></ul>';
@@ -165,6 +180,14 @@ $(document).ready(function(){
 						}else
 						{
 							$('#ss_flag').val(data);
+
+							data = JSON.parse($('#ss_flag').val());
+							$('#frmSignUp input[name=first_name]').val(data.first_name)
+							$('#frmSignUp input[name=last_name]').val(data.last_name)
+							$('#frmSignUp input[name=email]').val(data.email) 
+
+							$('#applyButtonLogin').hide();
+							$('#applyButton').show();    	  	
 							var urlLogout = "{{url('users/logout')}}";
 							var html = '<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false"> HI, '+last_name+' <span class="caret"></span></a><ul class="dropdown-menu" role="menu"><li><a href="'+urlLogout+'">Logout</a></li></ul>';
 

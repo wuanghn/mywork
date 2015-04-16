@@ -162,11 +162,11 @@
 
 									                <label for="inputFirstName" class="col-sm-2 control-label">*Full name</label>
 									                <div class="col-sm-5 input-container">
-									                    <input type="text" rel="requiredField" class="form-control" id="inputFirstName" name="first_name" placeholder="First Name">
+									                    <input type="text" rel="requiredField" class="form-control" id="inputFirstName" disabled name="first_name" placeholder="First Name">
 									                    <div class="has-error"></div>
 									                </div>
 									                <div class="col-sm-5 input-container">
-									                    <input type="text" rel="requiredField" class="form-control" id="inputLastName" name="last_name" placeholder="Last Name">
+									                    <input type="text" rel="requiredField" class="form-control" id="inputLastName" disabled name="last_name" placeholder="Last Name">
 									                    <div class="has-error"></div>
 									                </div>
 
@@ -176,7 +176,7 @@
 
 									                <label for="inputEmail" class="col-sm-2 control-label">*E-mail</label>
 									                <div class="col-sm-5 input-container">
-									                                            <input type="text" rel="requiredField" class="form-control" id="inputEmail" name="email" placeholder="E-mail">
+									                                            <input type="text" rel="requiredField" disabled class="form-control" id="inputEmail" name="email" placeholder="E-mail">
 									                    <div class="has-error"></div>
 									                </div>
 									                <!--                    <div class="col-sm-5 input-container">
@@ -187,24 +187,8 @@
 
 									            </div>
 
-									            <div style="position: relative; bottom: 42px; left: 430px; margin-bottom: -21px"><img id="passLoading" style="display: none" alt="" src="http://www.japan.vietnamworks.com/static/img/ajax_loading.gif">&nbsp;</div>
 
-									            <div class="form-group " id="loadData" style="display: none">
-									                <div id="login-vnw">
-									                    <div class="tooltip-arrow"></div>
-									                    <label class="col-sm-10" id="forget-text"></label>
-									                    <div class="col-sm-12 input-container">
-									                        <div class="col-sm-6">
-									                            <input style="display:none">
-									                            <input type="password" rel="requiredField" class="form-control" onkeyup="checkPasswordVNW()" id="inputPassword" name="inputPassword" placeholder="Mật khẩu" value="">
-									                        </div>
-									                    </div>
-									                    <div class="clearfix"></div>
-									                    <input type="hidden" data-toggle="modal" data-target="#myModal" id="myButtonForgot">
-
-									                    <div id="forgotPass" style="display:none;color:blue !important;text-align: right;margin-right:20px;"><a style="color:blue !important;cursor:pointer" onclick="forgotPassword(event)">Quên mật khẩu</a></div>
-									                </div>
-									            </div>
+									            
 
 									            <div class="form-group " id="attachCV" style="">
 									                <label for="inputResume" class="col-sm-2 control-label">*Attack CV</label>
@@ -237,6 +221,7 @@
 									            <div class="form-group">
 									                <div class="col-sm-offset-2 col-sm-10">
 									                    <input type="hidden" id="isSent" name="isSent" value="OK">
+									                    <button id="applyButtonLogin" type="button" data-toggle="modal" data-target="#myModal" class="btn btn-lg" style="min-width:40%" data-original-title="">Apply</button>
 									                    <button id="applyButton" value="upload" class="btn btn-lg" style="min-width:40%" data-original-title="" title="">Apply</button>&nbsp;&nbsp;&nbsp;
 
 									                </div>
@@ -327,6 +312,26 @@
 
 	$(document).ready(function()
 	{
+
+		// button APPLY
+		if($('#ss_flag').val() == "")
+		{
+			$('#applyButtonLogin').show();
+			$('#applyButton').hide();
+		}
+		else
+		{
+			$('#applyButtonLogin').hide();
+			data = JSON.parse($('#ss_flag').val());
+			
+			$('#frmSignUp input[name=first_name]').val(data.first_name)
+			$('#frmSignUp input[name=last_name]').val(data.last_name)
+			$('#frmSignUp input[name=email]').val(data.email)
+		}
+		
+
+
+
 
 		$('.wa_content_job').hide();
 		// $('.wa_block_result_search .wa_content_job').first().show();
