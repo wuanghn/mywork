@@ -19,7 +19,7 @@
 								</a>
 								<a href="#" class="col-md-2">
 									<div class="wa_catetogary_feedback hvr-hollow">
-										<h4>Content Communications</h4>
+										<h4>Content</h4>
 										<img class="center-block" src="{{url('public/frontend/img')}}/Content-writer.png" style="width:80px; height:80px;">
 									</div>
 								</a>

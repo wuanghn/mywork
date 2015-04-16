@@ -69,6 +69,46 @@ class SearchesController extends \BaseController {
 			$job = $this->getDetailJobApi(Input::get('id_job'));
 			return View::make('searches.detail',compact('job'));
 	}
+
+
+
+
+	public function postApply()
+		{
+				if( Input::hasFile("inputFile") )
+				{
+					
+					$extension = Input::file('inputFile')->getClientOriginalExtension();
+
+					if($extension == "pdf" || $extension == "doc" || $extension == "docx")
+					{
+							$validator = Validator::make(
+							    Input::all(),
+							    array(
+							        'last_name' => 'required',
+							        'first_name' => 'required',
+							        'email' => 'required|email',
+
+							    )
+							);
+							if ($validator->fails())
+							{
+							    //
+							}else
+							{
+								// full data
+							}
+							
+					}else
+					{
+							return Redirect::back();
+					}
+				}else
+				{
+					return Redirect::back();
+				}
+				
+		}
 	
 
 
@@ -169,5 +209,8 @@ class SearchesController extends \BaseController {
 				print_r($data);
 				echo "</pre>";
 		}
+
+
+
 
 }
