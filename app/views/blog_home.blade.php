@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-		<title>Bootstrap 101 Template</title>
+		<title>Blog</title>
 
 		<!-- Bootstrap -->
 		<link href="{{asset('public/assets/css/bootstrap.min.css')}}" rel="stylesheet">
@@ -139,7 +139,7 @@
 									<option value="PR & Event">PR & Event</option>
 								</select>
 							</div>
-							<div class="wa_form_question_author_dub">
+							<div class="wa_form_question_author_dub" id="da_your_ques">
 								<h4>Your question?</h4>
 								<textarea rows="5" class="form-control" name="question" id="da_content_question"></textarea>
 							</div>

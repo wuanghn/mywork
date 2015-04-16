@@ -28,12 +28,9 @@ $(document).ready(function(){
 
 
 	$('#da_modal').click();
-
-
-
 	$('#da_form_question').submit(function(){
 		$('#text_error').remove();
-		$text = $(this).parent().find('textarea').val();
+		$text = $(this).parent().find('textarea').val().trim();
 		if($text == ""){
 			$(this).parent().find('textarea').after('<span id="text_error" style="color:white;">Bạn vui lòng nhập câu hỏi !</span>');
 			return false;
@@ -41,6 +38,19 @@ $(document).ready(function(){
 		else
 			return true;
 	})
+
+	$('#da_button_login').click(function(){
+		//kiểm tra đăng nhập duoc hay chưa
+		var val = setInterval(function(){
+			$info = $('#ss_flag').val();
+			if($info != ""){
+				location.reload();
+				clearInterval(val);
+			}
+			}, 500);
+
+	})
+
 
 
 

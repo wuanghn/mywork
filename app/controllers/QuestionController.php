@@ -35,7 +35,7 @@
 			$question = $this->get_input();
 			DB::table('questions')->insert($question);
 
-			return Redirect::to('blog')->with('thanhcong','');
+			return Redirect::back()->with('thanhcong','');
 		}
 
 

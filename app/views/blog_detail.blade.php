@@ -52,7 +52,7 @@
 
 				$('#da_form_question').submit(function(){
 					$('#text_error').remove();
-					$text = $(this).parent().find('textarea').val();
+					$text = $(this).parent().find('textarea').val().trim();
 					if($text == ""){
 						$(this).parent().find('textarea').after('<span id="text_error" style="color:white;">Bạn vui lòng nhập câu hỏi !</span>');
 						return false;
@@ -60,6 +60,20 @@
 					else
 						return true;
 				})
+
+				$('#da_button_login').click(function(){
+					//kiểm tra đăng nhập duoc hay chưa
+					var val = setInterval(function(){
+						$info = $('#ss_flag').val();
+						if($info != ""){
+							location.reload();
+							clearInterval(val);
+						}
+						}, 500);
+
+				})
+
+				$('#da_modal').click();
 			})
 		</script>
 	</head>
@@ -105,7 +119,7 @@
 						<div class=" row da_div_view">
 							<div class="col-md-7">
 								<span><i class="fa fa-clock-o"> </i>{{da_date($val_a->updated_at)}}</span><span> | </span>
-								<span><a href="{{asset('expert-blog?id=').$val_a->id_author}}" style="color:#989898">{{$val_a->name}}</a></span>
+								<span><a href="{{asset('expert').'/'.$val_a->name_slug}}" style="color:#989898">{{$val_a->name}}</a></span>
 							</div>
 							<div class="col-md-5 da_icon_share">
 								<div class="g-plus" data-action="share" data-annotation="bubble"></div>
@@ -144,12 +158,12 @@
 									<div class="wa_form_question_author_dub">
 										<h4>What fields are you interested in?</h4>
 										<select class="form-control" name="type">
-											<option value="1">Digital Marketing</option>
-											<option value="2">Content Communications</option>
-											<option value="3">Trade Marketing</option>
-											<option value="4">Account & Planner</option>
-											<option value="5">Creative & Design</option>
-											<option value="6">PR & Event</option>
+											<option value="Digital Marketing">Digital Marketing</option>
+											<option value="Content Communications">Content Communications</option>
+											<option value="Trade Marketing">Trade Marketing</option>
+											<option value="Account & Planner">Account & Planner</option>
+											<option value="Creative & Design">Creative & Design</option>
+											<option value="PR & Event">PR & Event</option>
 										</select>
 									</div>
 									<div class="wa_form_question_author_dub">
@@ -223,6 +237,30 @@
 			</div>
 		</div>
 		<div style="clear: both"></div>
+
+		<!-- Button trigger modal -->
+		@if(Session::has('thanhcong'))
+		<button type="button" class="btn btn-primary btn-lg hidden" data-toggle="modal" data-target="#myModal2" id="da_modal" >
+			Launch demo modal
+		</button>
+		@endif
+		<!-- Modal -->
+		<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title" id="myModalLabel">Thông báo</h4>
+					</div>
+					<div class="modal-body">
+						Cảm ơn bạn đã gửi câu hỏi cho chúng tôi !
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
 
 
 		@include('layouts.frontend.footer')
