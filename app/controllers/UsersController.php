@@ -179,7 +179,7 @@ class UsersController extends \BaseController {
 				
 				Session::put('user_profile',$object);
 
-				return "true";
+				return json_encode($object);
 			}else{
 				return "false";
 			}

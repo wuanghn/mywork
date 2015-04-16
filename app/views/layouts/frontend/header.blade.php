@@ -1,64 +1,4 @@
 <div class="container wa_menu_desktop wa_header">
-<<<<<<< Updated upstream
-						<div class="row">
-								<div class="col-md-6 left">
-
-										<ul class="nav nav-pills">
-										  <li role="presentation">
-												<a class="wa_fix_bkg_logo" style="padding-top:0px" href="{{url('/')}}">
-														<img src="{{url('public/frontend/img/logo-vnw2.png')}}">
-												</a>
-										  </li>
-										  <li role="presentation"><a href="{{url('/')}}">Search</a></li>
-										  <li role="presentation"><a href="{{ url('blog') }}">Blog</a></li>
-
-										  @if(!Session::has('user_profile'))
-
-										   <li id="displayLoginForm" role="presentation"><a data-toggle="modal" data-target="#myModal">Login</a></li>
-										  @else
-												<?php $last_name = Session::get('user_profile');
-														$last_name = $last_name->last_name;
-												 ?>
-											 <li id="displayUser" role="presentation" class="dropdown">
-											   <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false">
-												 HI, {{ $last_name }}<span class="caret"></span>
-											   </a>
-											   <ul class="dropdown-menu" role="menu">
-													<li><a href="{{url('users/logout')}}">Logout</a></li>
-											   </ul>
-											 </li>
-										   @endif
-										</ul>
-								</div>
-
-								<!-- Modal -->
-								<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-								  <div class="modal-dialog">
-									<div class="modal-content">
-									  <div class="modal-header">
-										<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-										<h4 class="modal-title" id="myModalLabel">Authentication</h4>
-									  </div>
-									  <div class="modal-body">
-										<div class="row">
-											  <div class="col-xs-6">
-												  <div class="well">
-													  <form id="loginForm" novalidate="novalidate" class="show_login">
-														  <div class="form-group">
-															  <label for="username" class="control-label">Email</label>
-															  <input type="text" class="form-control" id="username" name="username" value="" required="" title="Please enter you username" placeholder="example@gmail.com">
-															  <span class="help-block"></span>
-														  </div>
-														  <div class="form-group">
-															  <label for="password" class="control-label">Password</label>
-															  <input type="password" class="form-control" id="password" name="password" value="" required="" title="Please enter your password">
-															  <span class="help-block"></span>
-														  </div>
-														  <div id="loginErrorMsg" class="alert alert-error hide">Wrong username or password</div>
-
-														  <button type="button" onclick="submitLogin()" class="btn btn_vnw btn-block">Login</button>
-													  </form>
-=======
  						<div class="row">
  								<div class="col-md-6 left">
  										
@@ -118,7 +58,6 @@
 					                                      
 					                                      <button type="button" onclick="submitLogin()" class="btn btn_vnw btn-block">Login</button>
 					                                  </form>
->>>>>>> Stashed changes
 
 
 
@@ -142,28 +81,7 @@ $(document).ready(function(){
 
 		// sent ajax login
 		$.post("{{url('users/proccess-login')}}",
-<<<<<<< Updated upstream
-		{
-			email: email,
-			password: password
-		},
-		function(data,status){
-			if(data == "false")
-			{
-				$('#loginErrorMsg').removeClass('hide');
-			}else
-			{
-				data = JSON.parse(data);
 
-				var urlLogout = "{{url('users/logout')}}";
-				var html = '<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false"> HI, '+data.last_name+' <span class="caret"></span></a><ul class="dropdown-menu" role="menu"><li><a href="'+urlLogout+'">Logout</a></li></ul>';
-
-				$('#displayLoginForm').html(html);
-				$('#myModal').modal('toggle')
-
-			}
-		});
-=======
         {
          	email: email,
          	password: password
@@ -185,7 +103,6 @@ $(document).ready(function(){
 
             }
         });
->>>>>>> Stashed changes
 	}
 
 	function validateEmail(email) {
@@ -247,6 +164,7 @@ $(document).ready(function(){
 							alert('Not Complete');
 						}else
 						{
+							$('#ss_flag').val(data);
 							var urlLogout = "{{url('users/logout')}}";
 							var html = '<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-expanded="false"> HI, '+last_name+' <span class="caret"></span></a><ul class="dropdown-menu" role="menu"><li><a href="'+urlLogout+'">Logout</a></li></ul>';
 
