@@ -48,8 +48,10 @@ class UsersController extends \BaseController {
 
 	        if ($results->meta->code == 200 && $results->meta->message == 'OK') 
 	        {
-	            Session::put('user_profile', $results->data->profile);
-	            return json_encode($results->data->profile);
+	        	$info = $results->data->profile;
+	        	$info->password = $password;
+	            Session::put('user_profile', $info);
+	            return json_encode($info);
 	        } else {
 	// print to screen: login faile
 	            echo 'false';
@@ -176,6 +178,7 @@ class UsersController extends \BaseController {
 				$object->email = Input::get('email');
 				$object->first_name = Input::get('first_name');
 				$object->last_name = Input::get('last_name');
+				$object->password = Input::get('password');
 				
 				Session::put('user_profile',$object);
 

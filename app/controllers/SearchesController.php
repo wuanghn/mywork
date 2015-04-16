@@ -82,7 +82,24 @@ class SearchesController extends \BaseController {
 
 					if($extension == "pdf" || $extension == "doc" || $extension == "docx")
 					{
-							echo "ok";
+							$data = $this->uploadCV();
+							$file_name_with_full_path = realpath($data);
+							return $file_name_with_full_path;
+
+
+
+
+							// $post = array(
+			    //                 'file_contents' => '@' . $file_name_with_full_path,
+			    //                 'job_id' => $jobId,
+			    //                 'application_subject' => 'Application for ' . $job->data->job_detail->job_title,
+			    //                 'cover_letter' => '',
+			    //                 'email' => $this->input->post('inputEmail'),
+			    //                 'password' => $passWord,
+			    //                 'first_name' => $this->input->post('inputFirstName'),
+			    //                 'last_name' => $this->input->post('inputLastName'),
+			    //                 'lang' => '1'
+			    //             );
 							
 					}else
 					{
@@ -185,6 +202,25 @@ class SearchesController extends \BaseController {
 				return json_decode($results);
 				
 		}
+
+
+
+
+		function uploadCV()
+		{
+		            $file = Input::file('inputFile');
+		            $type_file = $file->getClientOriginalExtension();
+		            $file_name = substr(number_format(time() * mt_rand(),0,'',''),0,8);
+
+
+		            $upload_success = $file->move('uploads/CV/', $file_name.'.'.$type_file);
+		            if($upload_success){
+		                $avatar = 'uploads/CV/'.$file_name.'.'.$type_file;
+		                return  $avatar;
+		            }else
+		                return false;
+		}
+
 
 
 

@@ -106,7 +106,8 @@
 														<img src="{{$job->job_logo_url}}" width="100%">
 													</div>
 													<div class="col-md-8">
-														<h4>{{ $job->job_title }}</h4>
+														<input type="hidden" name="id_apply" value="{{$job->job_id}}">
+														<h4 class="title_apply">{{ $job->job_title }}</h4>
 														<p>{{ $job->job_company }}</p>
 														@foreach($locations as $local)
 															@if($local->location_id == $job->job_location)
@@ -152,12 +153,16 @@
 
 									    <!-- Form -->
 									    <a name="applyForm" id="applyForm"></a>
-									    <div class="panel-heading"><h2>Apply to VietNamWork!</h2></div>
+									    <div class="panel-heading"><h2>Apply Form!</h2></div>
 									    <div class="panel-body">
 									        <div align="right" class="img-vnw"><span class="small">Supported by </span><img src="http://www.japan.vietnamworks.com/static/img/vnw_logo_small.png" width="36%" alt=""></div>
 									        <div class="clear"></div>
+									        @if(!Session::has('user_profile'))
+									        	<p style="text-align:center"><a style="color:red" href="#" data-toggle="modal" data-target="#myModal"> LOGIN</a> to apply by account VietNamWork</p>
+									        @endif
 									        <br>
 									        <form id="frmSignUp" class="form-horizontal" role="form" method="post" action="{{url('apply')}}" onsubmit="return vaidateBeforeSubmit(event)" novalidate="novalidate" enctype="multipart/form-data">
+									           	
 									            <div class="form-group ">
 
 									                <label for="inputFirstName" class="col-sm-2 control-label">*Full name</label>
@@ -177,6 +182,9 @@
 									                <label for="inputEmail" class="col-sm-2 control-label">*E-mail</label>
 									                <div class="col-sm-5 input-container">
 									                                            <input type="text" rel="requiredField" disabled class="form-control" id="inputEmail" name="email" placeholder="E-mail">
+									                    			<input type="hidden" name="password">
+									                    			<input type="hidden" name="job_id">
+									                    			<input type="hidden" name="job_title">
 									                    <div class="has-error"></div>
 									                </div>
 									                <!--                    <div class="col-sm-5 input-container">
@@ -215,9 +223,7 @@
 
 
 
-									            <input type="hidden" id="checkPassword" name="checkPassword" value="0">
-									            <input type="hidden" name="checkOption" class="check-option" value="false">
-									            <input type="hidden" name="checkActiveEmail" id="checkActiveEmail" value="">
+									            
 									            <div class="form-group">
 									                <div class="col-sm-offset-2 col-sm-10">
 									                    <input type="hidden" id="isSent" name="isSent" value="OK">
@@ -327,6 +333,7 @@
 			$('#frmSignUp input[name=first_name]').val(data.first_name)
 			$('#frmSignUp input[name=last_name]').val(data.last_name)
 			$('#frmSignUp input[name=email]').val(data.email)
+			$('#frmSignUp input[name=password]').val(data.password)
 		}
 		
 
@@ -336,6 +343,13 @@
 		$('.wa_content_job').hide();
 		// $('.wa_block_result_search .wa_content_job').first().show();
 		var job_id_first = $('.wa_parent_job .wa_click_need').first().attr('id');
+
+		apply_first_job = $('.wa_parent_job .wa_click_need').first();
+
+		$('#frmSignUp input[name=job_id]').val($(apply_first_job).find('input[name=id_apply]').val());
+		$('#frmSignUp input[name=job_title]').val($(apply_first_job).find('.title_apply').html());
+
+
 		job_id_first = job_id_first.split('_');
 		job_id_first = job_id_first[2];
 
@@ -346,6 +360,9 @@
 
 		$('.wa_click_need').click(function()
 		{
+			$('#frmSignUp input[name=job_id]').val($(this).find('input[name=id_apply]').val());
+			$('#frmSignUp input[name=job_title]').val($(this).find('.title_apply').html());
+
 			$(this).children('.wa_box_title_job').css({
 				'border':'1px solid #4e4ebc',
 			})
