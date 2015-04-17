@@ -168,10 +168,12 @@
 									                <label for="inputFirstName" class="col-sm-2 control-label">*Full name</label>
 									                <div class="col-sm-5 input-container">
 									                    <input type="text" rel="requiredField" class="form-control" id="inputFirstName" disabled name="first_name" placeholder="First Name">
+									                    <input type="hidden" name="first_name">
 									                    <div class="has-error"></div>
 									                </div>
 									                <div class="col-sm-5 input-container">
 									                    <input type="text" rel="requiredField" class="form-control" id="inputLastName" disabled name="last_name" placeholder="Last Name">
+									                    <input type="hidden" name="last_name">
 									                    <div class="has-error"></div>
 									                </div>
 
@@ -182,6 +184,7 @@
 									                <label for="inputEmail" class="col-sm-2 control-label">*E-mail</label>
 									                <div class="col-sm-5 input-container">
 									                                            <input type="text" rel="requiredField" disabled class="form-control" id="inputEmail" name="email" placeholder="E-mail">
+									                    						<input type="hidden" name="email">
 									                    			<input type="hidden" name="password">
 									                    			<input type="hidden" name="job_id">
 									                    			<input type="hidden" name="job_title">
