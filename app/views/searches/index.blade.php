@@ -11,37 +11,38 @@
 
 						<div class="container">
 							<div class="row">
-								<a href="#" class="col-md-2">
+								
+								<a href="{{url('store')}}?job_category=27&page_number=1&job_title=Digital Marketing&job_location=&min_salary=&job_level=" class="col-md-2">
 									<div class="wa_catetogary_feedback hvr-hollow">
 										<h4>Digital Marketing</h4>
 										<img class="center-block" src="{{url('public/frontend/img')}}/digital-marketing.png" style="width:80px; height:80px;">
 									</div>
 								</a>
-								<a href="#" class="col-md-2">
+								<a href="{{url('store')}}?job_category=27&page_number=1&job_title=Content&job_location=&min_salary=&job_level=" class="col-md-2">
 									<div class="wa_catetogary_feedback hvr-hollow">
 										<h4>Content</h4>
 										<img class="center-block" src="{{url('public/frontend/img')}}/Content-writer.png" style="width:80px; height:80px;">
 									</div>
 								</a>
-								<a href="#" class="col-md-2">
+								<a href="{{url('store')}}?job_category=27&page_number=1&job_title=Trade Marketing&job_location=&min_salary=&job_level=" class="col-md-2">
 									<div class="wa_catetogary_feedback hvr-hollow">
 										<h4>Trade Marketing</h4>
 										<img class="center-block" src="{{url('public/frontend/img')}}/trade-marketing.png" style="width:80px; height:80px;">
 									</div>
 								</a>
-								<a href="#" class="col-md-2">
+								<a href="{{url('store')}}?job_category=27&page_number=1&job_title=Account Planner=&min_salary=&job_level=" class="col-md-2">
 									<div class="wa_catetogary_feedback hvr-hollow">
 										<h4>Account & Planner</h4>
 										<img class="center-block" src="{{url('public/frontend/img')}}/account-marketing.png" style="width:80px; height:80px;">
 									</div>
 								</a>
-								<a href="#" class="col-md-2">
+								<a href="{{url('store')}}?job_category=27&page_number=1&job_title=Creative Design&job_location=&min_salary=&job_level=" class="col-md-2">
 									<div class="wa_catetogary_feedback hvr-hollow">
 										<h4>Creative & Design</h4>
 										<img class="center-block" src="{{url('public/frontend/img')}}/creative (1).png" style="width:60px; height:80px;">
 									</div>
 								</a>
-								<a href="#" class="col-md-2">
+								<a href="{{url('store')}}?job_category=27&page_number=1&job_title=PR Event&job_location=&min_salary=&job_level=" class="col-md-2">
 									<div class="wa_catetogary_feedback hvr-hollow">
 										<h4>PR & Event</h4>
 										<img class="center-block" src="{{url('public/frontend/img')}}/event.png" style="width:60px; height:80px;">

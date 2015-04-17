@@ -48,7 +48,7 @@
  							</div>
  							<div class="col-md-6">
  								<a href="#" class="box_social">
- 									<i class="fa fa-twitter fa-lg"></i>
+ 									<i class="fa fa-youtube-play"></i>
  								</a>
  							</div>
  						</div>
