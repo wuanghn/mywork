@@ -66,6 +66,7 @@
 							$active2 = "";
 							$active3 = "";
 							$active4 = "";
+							$active5 = "";
 							$in ="";
 							$in2 ="";
 
@@ -86,13 +87,17 @@
 									$active4 = "active";
 									$in = "in";
 									break;
+								case "sys_hot_story":
+									$active5 = "active";
+									$in2 = "in";
+									break;
 							}
 						?>
 
 
 
 						<li>
-							<a href="javascript:0;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Search <i class="fa fa-fw fa-caret-down"></i></a>
+							<a href="javascript:0;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i>Trang Blog <i class="fa fa-fw fa-caret-down"></i></a>
 							<ul id="demo" class="collapse {{$in}}">
 								<li class="{{$active1}}">
 									<a href="{{asset('sys_author')}}"><i class="fa fa-fw fa-dashboard"></i> Tác giả</a>
@@ -106,10 +111,13 @@
 							</ul>
 						</li>
 						<li>
-							<a class="collapsed" href="javascript:0;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-fw fa-arrows-v"></i> Blog <i class="fa fa-fw fa-caret-down"></i></a>
+							<a class="collapsed" href="javascript:0;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-fw fa-arrows-v"></i>Trang Search <i class="fa fa-fw fa-caret-down"></i></a>
 							<ul id="demo2" class="collapse {{$in2}}" >
 								<li class="{{$active3}}">
-									<a href="{{asset('sys_banner')}}"><i class="fa fa-fw fa-bar-chart-o"></i> Banner</a>
+									<a href="{{asset('sys_banner')}}"><i class="fa fa-fw fa-bar-chart-o"></i> Hình banner</a>
+								</li>
+								<li class="{{$active5}}">
+									<a href="{{asset('sys_hot_story')}}"><i class="fa fa-fw fa-bar-chart-o"></i> Bài viết Hot của tuần</a>
 								</li>
 							</ul>
 						</li>

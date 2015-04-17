@@ -40,6 +40,9 @@
 		Route::post('sys_store_question','QuestionController@store');
 		Route::get('sys_delete_question','QuestionController@destroy');
 
+		Route::get('sys_hot_story','HotStoryController@index');
+		Route::post('sys_store_hot','HotStoryController@store');
+
 		Route::get('logout','LoginController@logout');
 
 	});
