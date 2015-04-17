@@ -153,7 +153,7 @@
 
 									    <!-- Form -->
 									    <a name="applyForm" id="applyForm"></a>
-									    <div class="panel-heading"><h2>Apply Form!</h2></div>
+									    <div class="panel-heading"><h2>Apply Form</h2></div>
 									    <div class="panel-body">
 									        <div align="right" class="img-vnw"><span class="small">Supported by </span><img src="http://www.japan.vietnamworks.com/static/img/vnw_logo_small.png" width="36%" alt=""></div>
 									        <div class="clear"></div>
@@ -269,7 +269,47 @@
 									@endforeach
 									
 									<nav class="wa_pagination" style="text-align:center">
-									  <ul class="pagination">
+
+<!-- CUSTOM PAGINATION -->
+<?php
+		$total = $result->data->total; //total 
+		$currentPage = Input::get('page_number');//trang hien tai
+		$getLastPage = $total/19;//so trang (tong so bai / so bai tren 1 trang)
+
+		$begin = $currentPage -2;
+
+		$end = $currentPage +2;
+		if($begin < 1 )
+			$begin = 1;
+		if($begin <=5)
+			$end = $getLastPage;
+		if($end > $getLastPage )
+			$end = $getLastPage;
+		if($end <=5)
+			$begin = 1;
+
+
+
+		$url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+
+
+?>
+<!-- \ CUSTOM PAGINATION -->
+									
+										<ul class="pagination">
+											@if($currentPage >1)
+											<li><a href="{{asset('blog').'?page='.($currentPage-1)}}" rel="prev">«</a></li>
+											@endif
+											@for($i = $begin; $i <= $end ;$i++)
+											<li @if($currentPage == $i) {{'class = "active"'}}  @endif><a href="{{asset('blog').'?page='.$i}}">{{$i}}</a></li>
+											@endfor
+											@if($currentPage != $end)
+											<li><a href="{{asset('blog').'?page='.($currentPage+1)}}" rel="prev">»</a></li>
+											@endif
+										</ul>
+
+									  <!-- <ul class="pagination">
 									    <li>
 									      <a href="#" aria-label="Previous">
 									        <span aria-hidden="true">&laquo;</span>
@@ -285,7 +325,7 @@
 									        <span aria-hidden="true">&raquo;</span>
 									      </a>
 									    </li>
-									  </ul>
+									  </ul> -->
 									</nav>
 									
 
