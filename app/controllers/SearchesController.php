@@ -84,22 +84,24 @@ class SearchesController extends \BaseController {
 					{
 							$data = $this->uploadCV();
 							$file_name_with_full_path = realpath($data);
-							return $file_name_with_full_path;
 
 
+							$post = array(
+			                    'file_contents' => '@' . $file_name_with_full_path,
+			                    'job_id' => Input::get('job_id'),
+			                    'application_subject' => 'Application for ' . Input::get('job_title'),
+			                    'cover_letter' => '',
+			                    'email' => Input::get('email'),
+			                    'password' => Input::get('password'),
+			                    'first_name' => Input::get('first_name'),
+			                    'last_name' => Input::get('last_name'),
+			                    'lang' => '1'
+			                );
 
 
-							// $post = array(
-			    //                 'file_contents' => '@' . $file_name_with_full_path,
-			    //                 'job_id' => $jobId,
-			    //                 'application_subject' => 'Application for ' . $job->data->job_detail->job_title,
-			    //                 'cover_letter' => '',
-			    //                 'email' => $this->input->post('inputEmail'),
-			    //                 'password' => $passWord,
-			    //                 'first_name' => $this->input->post('inputFirstName'),
-			    //                 'last_name' => $this->input->post('inputLastName'),
-			    //                 'lang' => '1'
-			    //             );
+			                $result = $this->applyJob($post);
+			                
+			                $this->viewStructure($result);
 							
 					}else
 					{
@@ -137,6 +139,33 @@ class SearchesController extends \BaseController {
 				curl_close($ch);
 
 				return $results->data;
+		}
+
+
+
+
+
+
+		protected function applyJob($data) 
+		{
+		       $url = 'https://api.vietnamworks.com/jobs/applyAttach';
+		       $apiKey = '8982065e30ea02cf02e93a83824cf65b7de1e69545ce8bed4f2bb3c98a862b70';
+
+		       $ch = curl_init();
+		       curl_setopt($ch, CURLOPT_URL, $url);
+		       curl_setopt($ch, CURLOPT_POST, 1);
+		       curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+		       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		       curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+		           'CONTENT-MD5: ' . $apiKey,
+		           'Content-Type: multipart/form-data'
+		       ));
+		       $result = curl_exec($ch);
+		       $results = json_decode($result);
+		       $info = curl_getinfo($ch);
+
+		       curl_close($ch);
+		       return $results;
 		}
 
 
