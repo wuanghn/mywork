@@ -43,13 +43,7 @@
 			<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<span class="navbar-brand">Admin Blog</span>
+					<span class="navbar-brand">Admin</span>
 				</div>
 				<!-- Top Menu Items -->
 				<ul class="nav navbar-right top-nav">
@@ -72,26 +66,52 @@
 							$active2 = "";
 							$active3 = "";
 							$active4 = "";
-							if(Request::segment(1) == "sys_author")
-								$active1 = "active";
-							else if(Request::segment(1) =="sys_article")
-								$active2 = "active";
-								else	if(Request::segment(1)=="sys_banner")
+							$in ="";
+							$in2 ="";
+
+							switch (Request::segment(1)) {
+								case "sys_author":
+									$active1 = "active";
+									$in = "in";
+									break;
+								case "sys_article":
+									$active2 = "active";
+									$in = "in";
+									break;
+								case "sys_banner":
 									$active3 = "active";
-									else	if(Request::segment(1) == "sys_question")
-										$active4 = "active";
+									$in2 = "in";
+									break;
+								case "sys_question":
+									$active4 = "active";
+									$in = "in";
+									break;
+							}
 						?>
-						<li class="{{$active1}}">
-							<a href="{{asset('sys_author')}}"><i class="fa fa-fw fa-dashboard"></i> Tác giả</a>
+
+
+
+						<li>
+							<a href="javascript:0;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Search <i class="fa fa-fw fa-caret-down"></i></a>
+							<ul id="demo" class="collapse {{$in}}">
+								<li class="{{$active1}}">
+									<a href="{{asset('sys_author')}}"><i class="fa fa-fw fa-dashboard"></i> Tác giả</a>
+								</li>
+								<li class="{{$active2}}">
+									<a href="{{asset('sys_article')}}"><i class="fa fa-fw fa-bar-chart-o"></i> Bài viết</a>
+								</li>
+								<li class="{{$active4}}">
+									<a href="{{asset('sys_question')}}"><i class="fa fa-fw fa-bar-chart-o"></i> Câu hỏi</a>
+								</li>
+							</ul>
 						</li>
-						<li class="{{$active2}}">
-							<a href="{{asset('sys_article')}}"><i class="fa fa-fw fa-bar-chart-o"></i> Bài viết</a>
-						</li>
-						<li class="{{$active3}}">
-							<a href="{{asset('sys_banner')}}"><i class="fa fa-fw fa-bar-chart-o"></i> Banner</a>
-						</li>
-						<li class="{{$active4}}">
-							<a href="{{asset('sys_question')}}"><i class="fa fa-fw fa-bar-chart-o"></i> Trả lời câu hỏi</a>
+						<li>
+							<a class="collapsed" href="javascript:0;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-fw fa-arrows-v"></i> Blog <i class="fa fa-fw fa-caret-down"></i></a>
+							<ul id="demo2" class="collapse {{$in2}}" >
+								<li class="{{$active3}}">
+									<a href="{{asset('sys_banner')}}"><i class="fa fa-fw fa-bar-chart-o"></i> Banner</a>
+								</li>
+							</ul>
 						</li>
 
 					</ul>
