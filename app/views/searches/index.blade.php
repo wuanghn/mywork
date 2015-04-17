@@ -231,6 +231,7 @@
 							<img src="{{$job->job_logo_url}}" style="width:100%">
 							<!-- <img src="{{url('public/frontend/img/urgent-badge.png')}}" style="position:absolute;top:-30px;left:-15px; width:100px; height:100px;"> -->
 						</div>
+<<<<<<< HEAD
 						<div class="col-md-8 wa_info col-md-offset-1">
 							<h4>{{ $job->job_title }}</h4>
 							<p>{{ $job->job_company }}</p>
@@ -246,6 +247,107 @@
 					</div>
 					<div class="col-md-2 wa_apply">
 						<a href="#" class="btn">Click to view salary</a>
+=======
+				</div><!-- block search -->
+
+
+
+
+
+
+
+				<div class="wa_wrap_tab_menu">
+
+				<div role="tabpanel" class="container wa_tab_menu">
+
+					  <!-- Nav tabs -->
+					  <ul class="nav nav-tabs wa_fix_big_table_home" role="tablist">
+					    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab"><h3>HOT JOBS OF THE WEEK</h3><span class="wa_tab_respo">Hot jobs of the week</span></a></li>
+					    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"><h3>THIS WEEK'S MARKETING STORY</h3><span class="wa_tab_respo">This week's marketing story</span></a></li>
+					  </ul>
+
+				  
+
+					<div class="tab-content">
+							<div role="tabpanel" id="profile" class="container wa_author_block tab-pane">
+									<div class="row">
+											<div class="col-md-6">
+												<div class="wa_box_author">
+													<img  src="https://scontent-sea.xx.fbcdn.net/hphotos-xpf1/v/t1.0-9/10991202_10152515940881377_2906181066353481572_n.jpg?oh=a728cbb8f227cda4ad2dcd3429d4806a&oe=55AA639A">
+													<h2>Smile Nick</h2>
+													<h4>Director of Marketing, VietnamWorks</h4>
+												</div>
+												<div class="wa_post_author">
+													<h3>Biggest reasons why employees in Vietnam leave</h3>
+													<h4>I was a little bit nervous when we launched this survey back in January to 12,000 professionals here in Vietnam.Partly because I knew that after Lunar New Year, staff turn-over is expected to rise and my team members are no exception. Furthermore, that this research might expose my team to other reasons why people decide. Partly because I knew that after Lunar New Year <a href="#">Read more...</a></h4>
+												</div>
+											</div>
+											<div class="col-md-5 col-md-offset-1 wa_form_question_author" style="background-color:#4e4ebc">
+													<h3>Do you have questions for marketing experts?</h3>
+
+													<div class="wa_form_question_author_dub">
+														<h4>What fields are you interested in?</h4>
+														<select class="form-control">
+																<option></option>
+														</select>
+													</div>
+
+													<div class="wa_form_question_author_dub">
+														<h4>Your question</h4>
+														<textarea rows="5" class="form-control"></textarea>
+													</div>
+													<button class="btn btn-block">SEND QUESTION</button>
+													
+
+
+											</div>
+									</div>
+							</div><!-- END AUTHOR -->
+
+
+
+							<div role="tabpanel" id="home" class="tab-pane active container wa_content_tab">
+									@foreach($new_job->data->jobs as $job)
+									<div style="position:relative" class="row">
+											<div class="col-md-8">
+												<div class="col-md-3" >
+													<img src="{{$job->job_logo_url}}" style="width:100%">
+													<!-- <img src="{{url('public/frontend/img/urgent-badge.png')}}" style="position:absolute;top:-30px;left:-15px; width:100px; height:100px;"> -->
+												</div>
+												<div class="col-md-8 wa_info col-md-offset-1">
+													<h4>{{ $job->job_title }}</h4>
+													<p>{{ $job->job_company }}</p>
+													<!-- <img src="{{url('public/frontend/img/urgent.png')}}" height="92" width="93"> -->
+												</div>
+											</div>
+											<div class="col-md-2 wa_location">
+												@foreach($locations as $local)
+													@if($local->location_id == $job->job_location)
+														<h4><i class="fa fa-map-marker"></i> {{$local->lang_vn}}</h4>
+													@endif
+												@endforeach
+											</div>
+											<div class="col-md-2 wa_apply">
+												<a href="{{url('store')}}?job_category=27&page_number=1&job_title={{ $job->job_title }} {{ $job->job_company }}&job_location=&min_salary=&job_level=" class="btn">Click to view salary</a>
+											</div>
+											<div class="col-md-12" style="padding-right:15px; margin-top:30px">
+												<div style="border-top:1px solid #dedede;"></div>
+											</div>
+
+									</div>
+									@endforeach
+
+
+									<!-- <div style="text-align:center; padding:10px;">
+											<a style="color:#4e4ebc" href="#">Xem thêm</a>
+									</div> -->
+
+									
+									
+
+									
+							</div><!-- block content tab -->
+>>>>>>> 79124b8c7fa4558c3c227f6202a5266d093eb931
 					</div>
 					<div class="col-md-12" style="padding-right:15px; margin-top:30px">
 						<div style="border-top:1px solid #dedede;"></div>
