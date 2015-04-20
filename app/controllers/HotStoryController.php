@@ -13,7 +13,7 @@
 			$rs = DB::table('articles as ar')
 			->leftjoin('authors as au', 'au.id' ,'=', 'ar.id_author')
 			->select('ar.id as id', 'au.name as name', 'ar.title as title')
-			->orderBy('ar.id', 'desc')->limit(10)->get();
+			->orderBy('ar.id', 'desc')->paginate(10);
 
 			//lấy ra bài viết chọn hiện tại
 
@@ -30,9 +30,20 @@
 		*
 		* @return Response
 		*/
-		public function create()
+		public function search()
 		{
-			//
+			$key = Input::get('key');
+			$rs = DB::table('articles as ar')
+			->leftjoin('authors as au', 'au.id' ,'=', 'ar.id_author')
+			->select('ar.id as id', 'au.name as name', 'ar.title as title')
+			->where('ar.title','LIKE', '%'.$key.'%')
+			->orderBy('ar.id', 'desc')->paginate(10);
+
+			$now = DB::table('hot_story as hot')
+			->leftjoin('articles as ar', 'ar.id' ,'=', 'hot.id_article')
+			->select('ar.id as id','ar.title as title')
+			->get();
+			return View::make('hot_story', array('article' => $rs, 'now' => $now));
 		}
 
 

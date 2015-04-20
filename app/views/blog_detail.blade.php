@@ -50,15 +50,19 @@
 				});
 				$('#da_content_article').children().css('width','100%')  ;
 
+				$('#da_modal').click();
 				$('#da_form_question').submit(function(){
 					$('#text_error').remove();
 					$text = $(this).parent().find('textarea').val().trim();
 					if($text == ""){
-						$(this).parent().find('textarea').after('<span id="text_error" style="color:white;">Bạn vui lòng nhập câu hỏi !</span>');
+						$(this).parent().find('textarea').after('<span id="text_error" style="color:white;">Insert your question, please!</span>');
 						return false;
 					}
-					else
+					else{
+						$('#da_btn_question').attr('disabled','disabled');
 						return true;
+					}
+
 				})
 
 				$('#da_button_login').click(function(){
@@ -66,14 +70,20 @@
 					var val = setInterval(function(){
 						$info = $('#ss_flag').val();
 						if($info != ""){
-							location.reload();
-							clearInterval(val);
+							//nếu có dữ liệu trong box question
+							$text = $('#da_content_question').val().trim();
+							if($text != ""){//nếu có dữ liệu->luu vào db
+								clearInterval(val);//dừng chạy
+								$('#da_form_question').submit();
+							}
+							else{
+								clearInterval(val);//dừng chạy
+								location.reload();//refesh lại trangs
+							}
 						}
 						}, 500);
 
 				})
-
-				$('#da_modal').click();
 			})
 		</script>
 	</head>
@@ -159,7 +169,7 @@
 										<h4>What fields are you interested in?</h4>
 										<select class="form-control" name="type">
 											<option value="Digital Marketing">Digital Marketing</option>
-											<option value="Content Communications">Content Communications</option>
+											<option value="Content">Content</option>
 											<option value="Trade Marketing">Trade Marketing</option>
 											<option value="Account & Planner">Account & Planner</option>
 											<option value="Creative & Design">Creative & Design</option>
@@ -168,7 +178,7 @@
 									</div>
 									<div class="wa_form_question_author_dub">
 										<h4>Your question?</h4>
-										<textarea rows="5" class="form-control" name="question"></textarea>
+										<textarea rows="5" class="form-control" name="question" id="da_content_question"></textarea>
 									</div>
 									@if(Session::has('user_profile'))
 									<input class="btn btn-block" type="submit" value="SEND QUESTION" id="da_btn_question">
@@ -250,10 +260,10 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title" id="myModalLabel">Thông báo</h4>
+						<h4 class="modal-title" id="myModalLabel">Notify</h4>
 					</div>
 					<div class="modal-body">
-						Cảm ơn bạn đã gửi câu hỏi cho chúng tôi !
+						Thanks for submitting your question!
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

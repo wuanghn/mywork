@@ -42,12 +42,12 @@
 						</form>
 						</td>
 						<td>
-							<form action="#" method="get">
+							<form action="{{asset('sys_search_hot')}}" method="get">
 								<label>Tìm bài viết</label>
 								<div class="form-group">
 
-									<input class="form-control" type="text" style="width: 70%;float: left;">
-									<input type="submit" value="Tìm bài viết" class="btn btn-primary" style="margin-left: 20px;">
+									<input class="form-control" type="text" style="width: 70%;float: left;" name="key">
+									<input type="submit" value="Tìm" class="btn btn-primary" style="margin-left: 20px;">
 								</div>
 
 							</form>
@@ -76,7 +76,9 @@
 
 				</table>
 
-
+				<div class="pull-right">
+					{{$article->links()}}
+				</div>
 
 			</div>
 

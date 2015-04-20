@@ -32,11 +32,14 @@ $(document).ready(function(){
 		$('#text_error').remove();
 		$text = $(this).parent().find('textarea').val().trim();
 		if($text == ""){
-			$(this).parent().find('textarea').after('<span id="text_error" style="color:white;">Bạn vui lòng nhập câu hỏi !</span>');
+			$(this).parent().find('textarea').after('<span id="text_error" style="color:white;">Insert your question, please!</span>');
 			return false;
 		}
-		else
+		else{
+			$('#da_btn_question').attr('disabled','disabled');
 			return true;
+		}
+
 	})
 
 	$('#da_button_login').click(function(){
@@ -44,8 +47,16 @@ $(document).ready(function(){
 		var val = setInterval(function(){
 			$info = $('#ss_flag').val();
 			if($info != ""){
-				location.reload();
-				clearInterval(val);
+				//nếu có dữ liệu trong box question
+				$text = $('#da_content_question').val().trim();
+				if($text != ""){//nếu có dữ liệu->luu vào db
+					clearInterval(val);//dừng chạy
+					$('#da_form_question').submit();
+				}
+				else{
+					clearInterval(val);//dừng chạy
+					location.reload();//refesh lại trangs
+				}
 			}
 			}, 500);
 

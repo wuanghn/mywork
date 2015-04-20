@@ -15,7 +15,7 @@
 		<link href="{{asset('public/assets/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
 		<link href="{{asset('public/assets/css/blog2.css')}}" rel="stylesheet">
 
-			<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 
 		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -49,7 +49,7 @@
 			</div>
 			<div class="row da_expert_in">
 				<div class="col-md-12 ">
-					<h3>EXPERTS IN MAKETINGS</h3>
+					<h3>EXPERTS IN MAKETING</h3>
 					<div class="da_slider autoplay">
 						@foreach($expert as $key_ex => $val_ex)
 						<div class=" da_avatar_author ">
@@ -95,17 +95,28 @@
 								$currentPage = $last_article->getCurrentPage();
 								$getLastPage = $last_article->getLastPage();
 
-								$begin = $currentPage -2;
+								if($getLastPage >=5){
+									$begin = $currentPage -2;
+									$end = $currentPage +2;
 
-								$end = $currentPage +2;
+									if($currentPage ==1 || $currentPage ==2)
+										$end = 5;
+
+									if($end > $getLastPage )
+										$end = $getLastPage;
+									if($end <=5)
+										$begin = 1;
+								}
+								else{//nhỏ hơn 5
+									$begin = 1;
+									$end = $getLastPage;
+								}
+
+
 								if($begin < 1 )
 									$begin = 1;
-								if($begin <=5)
-									$end = $getLastPage;
-								if($end > $getLastPage )
-									$end = $getLastPage;
-								if($end <=5)
-									$begin = 1;
+
+
 							?>
 
 
@@ -132,7 +143,7 @@
 								<h4>What fields are you interested in?</h4>
 								<select class="form-control" name="type">
 									<option value="Digital Marketing">Digital Marketing</option>
-									<option value="Content Communications">Content Communications</option>
+									<option value="Content">Content</option>
 									<option value="Trade Marketing">Trade Marketing</option>
 									<option value="Account & Planner">Account & Planner</option>
 									<option value="Creative & Design">Creative & Design</option>
@@ -167,10 +178,10 @@
 				<div class="modal-content">
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title" id="myModalLabel">Thông báo</h4>
+						<h4 class="modal-title" id="myModalLabel">Notify</h4>
 					</div>
 					<div class="modal-body">
-						Cảm ơn bạn đã gửi câu hỏi cho chúng tôi !
+						Thanks for submitting your question!
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -204,7 +215,6 @@
 
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
-		<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.5.0/slick.min.js"></script>
 		<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
 		<script src="{{asset('public/assets/js/jquery.resizecrop-1.0.3.min.js')}}"></script>

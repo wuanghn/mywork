@@ -97,27 +97,27 @@
 
 
 						<li>
-							<a href="javascript:0;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i>Trang Blog <i class="fa fa-fw fa-caret-down"></i></a>
+							<a href="javascript:0;" data-toggle="collapse" data-target="#demo"><i class="fa fa-book"></i> Blog <i class="fa fa-fw fa-caret-down"></i></a>
 							<ul id="demo" class="collapse {{$in}}">
 								<li class="{{$active1}}">
-									<a href="{{asset('sys_author')}}"><i class="fa fa-fw fa-dashboard"></i> Tác giả</a>
+									<a href="{{asset('sys_author')}}"><i class="fa fa-users"></i> Tác giả</a>
 								</li>
 								<li class="{{$active2}}">
-									<a href="{{asset('sys_article')}}"><i class="fa fa-fw fa-bar-chart-o"></i> Bài viết</a>
+									<a href="{{asset('sys_article')}}"><i class="fa fa-newspaper-o"></i> Bài viết</a>
 								</li>
 								<li class="{{$active4}}">
-									<a href="{{asset('sys_question')}}"><i class="fa fa-fw fa-bar-chart-o"></i> Câu hỏi</a>
+									<a href="{{asset('sys_question')}}"><i class="fa fa-comment"></i> Câu hỏi</a>
 								</li>
 							</ul>
 						</li>
 						<li>
-							<a class="collapsed" href="javascript:0;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-fw fa-arrows-v"></i>Trang Search <i class="fa fa-fw fa-caret-down"></i></a>
+							<a class="collapsed" href="javascript:0;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-search"></i> Search <i class="fa fa-fw fa-caret-down"></i></a>
 							<ul id="demo2" class="collapse {{$in2}}" >
 								<li class="{{$active3}}">
-									<a href="{{asset('sys_banner')}}"><i class="fa fa-fw fa-bar-chart-o"></i> Hình banner</a>
+									<a href="{{asset('sys_banner')}}"><i class="fa fa-picture-o"></i> Hình banner</a>
 								</li>
 								<li class="{{$active5}}">
-									<a href="{{asset('sys_hot_story')}}"><i class="fa fa-fw fa-bar-chart-o"></i> Bài viết Hot của tuần</a>
+									<a href="{{asset('sys_hot_story')}}"><i class="fa fa-rocket"></i> Bài viết Hot của tuần</a>
 								</li>
 							</ul>
 						</li>

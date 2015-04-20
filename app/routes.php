@@ -37,11 +37,12 @@
 		Route::get('delete_img','BannerController@destroy');
 
 		Route::get('sys_question','QuestionController@index');
-		
+
 		Route::get('sys_delete_question','QuestionController@destroy');
 
 		Route::get('sys_hot_story','HotStoryController@index');
 		Route::post('sys_store_hot','HotStoryController@store');
+		Route::get('sys_search_hot','HotStoryController@search');
 
 		Route::get('logout','LoginController@logout');
 

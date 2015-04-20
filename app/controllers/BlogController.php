@@ -20,7 +20,7 @@
 			$expert = DB::table('authors')->orderBy('id','desc')->get();
 
 			//lấy ra 4 bài viết mới nhất
-			$last_article = DB::table('articles')->orderBy('id', 'desc')->paginate(1);
+			$last_article = DB::table('articles')->orderBy('id', 'desc')->paginate(4);
 
 			return View::make('blog_home',array('last_article' =>$last_article, 'author' =>$author, 'expert' =>$expert));
 		}
