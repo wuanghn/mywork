@@ -37,7 +37,7 @@
 		Route::get('delete_img','BannerController@destroy');
 
 		Route::get('sys_question','QuestionController@index');
-		Route::post('sys_store_question','QuestionController@store');
+		
 		Route::get('sys_delete_question','QuestionController@destroy');
 
 		Route::get('sys_hot_story','HotStoryController@index');
@@ -46,6 +46,9 @@
 		Route::get('logout','LoginController@logout');
 
 	});
+
+
+	Route::post('sys_store_question','QuestionController@store');
 
 	Route::get('blog','BlogController@index');
 

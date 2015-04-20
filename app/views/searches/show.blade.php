@@ -294,18 +294,19 @@
 
 
 
+
 ?>
 <!-- \ CUSTOM PAGINATION -->
 									
 										<ul class="pagination">
 											@if($currentPage >1)
-											<li><a href="{{asset('blog').'?page='.($currentPage-1)}}" rel="prev">«</a></li>
+											<li><a href="{{ $url }}&page_nuber={{$currentPage-1}}" rel="prev">«</a></li>
 											@endif
 											@for($i = $begin; $i <= $end ;$i++)
-											<li @if($currentPage == $i) {{'class = "active"'}}  @endif><a href="{{asset('blog').'?page='.$i}}">{{$i}}</a></li>
+											<li @if($currentPage == $i) {{'class = "active"'}}  @endif><a href="{{ $url }}&page_nuber={{$i}}">{{$i}}</a></li>
 											@endfor
 											@if($currentPage != $end)
-											<li><a href="{{asset('blog').'?page='.($currentPage+1)}}" rel="prev">»</a></li>
+											<li><a href="{{ $url }}&page_nuber={{$currentPage+1}}" rel="prev">»</a></li>
 											@endif
 										</ul>
 
