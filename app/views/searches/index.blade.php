@@ -8,11 +8,14 @@
 			$('#text_error').remove();
 			$text = $(this).parent().find('textarea').val().trim();
 			if($text == ""){
-				$(this).parent().find('textarea').after('<span id="text_error" style="color:white;">Bạn vui lòng nhập câu hỏi !</span>');
+				$(this).parent().find('textarea').after('<span id="text_error" style="color:white;">Insert your question, please!</span>');
 				return false;
 			}
-			else
+			else{
+				$('#da_btn_question').attr('disabled','disabled');
 				return true;
+			}
+
 		})
 
 		$('#da_button_login').click(function(){
@@ -20,8 +23,16 @@
 			var val = setInterval(function(){
 				$info = $('#ss_flag').val();
 				if($info != ""){
-					location.reload();
-					clearInterval(val);
+					//nếu có dữ liệu trong box question
+					$text = $('#da_content_question').val().trim();
+					if($text != ""){//nếu có dữ liệu->luu vào db
+						clearInterval(val);//dừng chạy
+						$('#da_form_question').submit();
+					}
+					else{
+						clearInterval(val);//dừng chạy
+						location.reload();//refesh lại trangs
+					}
 				}
 				}, 500);
 
@@ -198,11 +209,11 @@
 									                        <h4>What fields are you interested in?</h4>
 									                        <select class="form-control" name="type">
 									                            <option value="Digital Marketing">Digital Marketing</option>
-									                            <option value="Content Communications">Content Communications</option>
-									                            <option value="Trade Marketing">Trade Marketing</option>
-									                            <option value="Account & Planner">Account & Planner</option>
-									                            <option value="Creative & Design">Creative & Design</option>
-									                            <option value="PR & Event">PR & Event</option>
+                            									<option value="Content">Content</option>
+                            									<option value="Trade Marketing">Trade Marketing</option>
+                            									<option value="Account & Planner">Account & Planner</option>
+                            									<option value="Creative & Design">Creative & Design</option>
+                            									<option value="PR & Event">PR & Event</option>
 									                        </select>
 									                    </div>
 
@@ -273,27 +284,27 @@
 
 
 		@if(Session::has('thanhcong'))
-		<button type="button" class="btn btn-primary btn-lg hidden" data-toggle="modal" data-target="#myModal2" id="da_modal" >
-			Launch demo modal
-		</button>
-		@endif
-		<!-- Modal -->
-		<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-						<h4 class="modal-title" id="myModalLabel">Thông báo</h4>
-					</div>
-					<div class="modal-body">
-						Cảm ơn bạn đã gửi câu hỏi cho chúng tôi !
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					</div>
-				</div>
-			</div>
-		</div>
+		        <button type="button" class="btn btn-primary btn-lg hidden" data-toggle="modal" data-target="#myModal2" id="da_modal" >
+		            Launch demo modal
+		        </button>
+		        @endif
+		        <!-- Modal -->
+		        <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		            <div class="modal-dialog">
+		                <div class="modal-content">
+		                    <div class="modal-header">
+		                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		                        <h4 class="modal-title" id="myModalLabel">Notify</h4>
+		                    </div>
+		                    <div class="modal-body">
+		                        Thanks for submitting your question!
+		                    </div>
+		                    <div class="modal-footer">
+		                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		                    </div>
+		                </div>
+		            </div>
+		        </div>
 @stop
 
 @section('script')

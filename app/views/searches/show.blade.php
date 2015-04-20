@@ -80,7 +80,7 @@
 							<h3>Featured jobs</h3>
 							<div class="container">
 								<a href="#">
-									<img src="{{url('public/frontend/img/banner-jobs.png')}}" height="300px" width="100%">
+									<img src="{{ $banner->link }}" height="300px" width="100%">
 								</a>
 							</div>
 						</div>
@@ -237,7 +237,7 @@
 									            
 
 									            <div class="form-group " id="attachCV" style="">
-									                <label for="inputResume" class="col-sm-2 control-label">*Attack CV</label>
+									                <label for="inputResume" class="col-sm-2 control-label">*Attach CV</label>
 
 									                <div class="col-sm-10 input-container">
 

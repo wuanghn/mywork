@@ -60,11 +60,14 @@ class SearchesController extends \BaseController {
 
 			$result = $this->getResultSearch(Input::except('_token'));
 
+
+			$banner = DB::table('banners')->first();
+
 			//$details = $this->getDetailJobByJobId($result);
 
 			//$this->viewStructure($details);
 
-			return View::make('searches.show',compact('result','locations','ganeral_configurations'));
+			return View::make('searches.show',compact('result','locations','ganeral_configurations','banner'));
 
 			//return $this->viewStructure($result->data->jobs);
 	}
@@ -110,7 +113,16 @@ class SearchesController extends \BaseController {
 
 							$result = $this->applyJob($post);
 
-							$this->viewStructure($result);
+							//$this->viewStructure($result);
+
+							if ($result->meta->code == 200 && $result->meta->message == 'Applied')
+							{
+								// apply completed
+								Apply::create($post);
+							}else{
+								// apply fail
+								return Redirect::back();
+							}
 
 					}else
 					{
