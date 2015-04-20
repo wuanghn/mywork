@@ -8,9 +8,10 @@ class AppliesController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function getIndex()
 	{
-		return View::make('applies.index');;
+		$applies = Apply::all();
+		return View::make('applies.index',compact('applies'));
 	}
 
 	/**

@@ -82,6 +82,7 @@
 	});
 
 
+	Route::controller('applies', 'AppliesController');
 	Route::controller('users', 'UsersController');
 	Route::controller('/','SearchesController');
 

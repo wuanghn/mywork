@@ -119,6 +119,9 @@
 								<li class="{{$active5}}">
 									<a href="{{asset('sys_hot_story')}}"><i class="fa fa-rocket"></i> Bài viết Hot của tuần</a>
 								</li>
+								<li class="{{$active5}}">
+									<a href="{{url('applies')}}"><i class="fa fa-rocket"></i> Applies</a>
+								</li>
 							</ul>
 						</li>
 
