@@ -119,24 +119,59 @@
 											</a>
 											@endforeach
 									</div>
+
+
+<!-- CUSTOM PAGINATION -->
+<?php
+		$total = $result->data->total; //total 
+		$currentPage = $_GET['page_number'];//trang hien tai
+		$getLastPage = ceil($total/19);//so trang (tong so bai / so bai tren 1 trang)
+
+		$begin = $currentPage -2;
+		$end = $currentPage +2;
+
+		
+
+
+
+		$url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+
+		if($getLastPage >=5){
+			$begin = $currentPage -2;
+			$end = $currentPage +2;
+
+			if($currentPage ==1 || $currentPage ==2)
+				$end = 5;
+
+			if($end > $getLastPage )
+				$end = $getLastPage;
+			if($end <=5)
+				$begin = 1;
+		}
+		else{//nhỏ hơn 5
+			$begin = 1;
+			$end = $getLastPage;
+		}
+
+
+		if($begin < 1 )
+			$begin = 1;
+
+?>
+<!-- \ CUSTOM PAGINATION -->
 									
 									<nav class="wa_pagination" style="text-align:center">
 									  <ul class="pagination">
-									    <li>
-									      <a href="#" aria-label="Previous">
-									        <span aria-hidden="true">&laquo;</span>
-									      </a>
-									    </li>
-									    <li><a href="#">1</a></li>
-									    <li><a href="#">2</a></li>
-									    <li><a href="#">3</a></li>
-									    <li><a href="#">4</a></li>
-									    <li><a href="#">5</a></li>
-									    <li>
-									      <a href="#" aria-label="Next">
-									        <span aria-hidden="true">&raquo;</span>
-									      </a>
-									    </li>
+									  	@if($currentPage >1)
+									  	<li><a href="{{ $url }}&page_number={{$currentPage-1}}" rel="prev">«</a></li>
+									  	@endif
+									  	@for($i = $begin; $i <= $end ;$i++)
+									  	<li @if($currentPage == $i) {{'class = "active"'}}  @endif><a href="{{ $url }}&page_number={{$i}}">{{$i}}</a></li>
+									  	@endfor
+									  	@if($currentPage != $end)
+									  	<li><a href="{{ $url }}&page_number={{$currentPage+1}}" rel="prev">»</a></li>
+									  	@endif
 									  </ul>
 									</nav>
 									
@@ -270,33 +305,7 @@
 									
 									<nav class="wa_pagination" style="text-align:center">
 
-<!-- CUSTOM PAGINATION -->
-<?php
-		$total = $result->data->total; //total 
-		$currentPage = Input::get('page_number');//trang hien tai
-		$getLastPage = $total/19;//so trang (tong so bai / so bai tren 1 trang)
 
-		$begin = $currentPage -2;
-
-		$end = $currentPage +2;
-		if($begin < 1 )
-			$begin = 1;
-		if($begin <=5)
-			$end = $getLastPage;
-		if($end > $getLastPage )
-			$end = $getLastPage;
-		if($end <=5)
-			$begin = 1;
-
-
-
-		$url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-
-
-
-
-?>
-<!-- \ CUSTOM PAGINATION -->
 									
 										<ul class="pagination">
 											@if($currentPage >1)
