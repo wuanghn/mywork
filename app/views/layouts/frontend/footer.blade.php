@@ -32,22 +32,22 @@
  						<div class="col-md-3 col-md-offset-1 wa_social wa_hide_footer_respo">
  							<h3>Subscribe to Us</h3>
  							<div class="col-md-6">
- 								<a href="#" class="box_social">
+ 								<a href="https://www.facebook.com/VietnamWorksFanpage" class="box_social">
  									<i class="fa fa-facebook fa-lg"></i>
  								</a>
  							</div>
  							<div class="col-md-6">
- 								<a href="#" class="box_social">
+ 								<a href="https://www.linkedin.com/company/vietnamworks" class="box_social">
  									<i class="fa fa-linkedin-square fa-lg"></i>
  								</a>
  							</div>
  							<div class="col-md-6">
- 								<a href="#" class="box_social">
+ 								<a href="google.com/+vietnamworks" class="box_social">
  									<i class="fa fa-google-plus fa-lg"></i>
  								</a>
  							</div>
  							<div class="col-md-6">
- 								<a href="#" class="box_social">
+ 								<a href="https://www.youtube.com/user/VietnamWorks2002" class="box_social">
  									<i class="fa fa-youtube-play"></i>
  								</a>
  							</div>

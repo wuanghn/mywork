@@ -120,7 +120,7 @@ class SearchesController extends \BaseController {
 								// apply completed
 								Apply::create($post);
 
-								$mess = "Applied";
+								$mess = "You have successfully applied for this position. Please check your mailbox in a few minutes for confirmation";
 								Session::flash('done', $mess);
 								return Redirect::back();
 							}else{
@@ -161,7 +161,7 @@ class SearchesController extends \BaseController {
 				curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 				curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 				curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-					'CONTENT-MD5: 8982065e30ea02cf02e93a83824cf65b7de1e69545ce8bed4f2bb3c98a862b70',
+					'CONTENT-MD5: 675c89d562cec4f8de5b22ab5fdf86d4dcf4a7bb9cc68de9fb9187c2cbdab0f1',
 					'Content-Type: application/JSON', 'Accept: application/JSON'));
 				curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 0);
 				curl_setopt($ch, CURLOPT_TIMEOUT, 36000); //timeout in seconds
@@ -180,7 +180,7 @@ class SearchesController extends \BaseController {
 		protected function applyJob($data)
 		{
 			   $url = 'https://api.vietnamworks.com/jobs/applyAttach';
-			   $apiKey = '8982065e30ea02cf02e93a83824cf65b7de1e69545ce8bed4f2bb3c98a862b70';
+			   $apiKey = '675c89d562cec4f8de5b22ab5fdf86d4dcf4a7bb9cc68de9fb9187c2cbdab0f1';
 
 			   $ch = curl_init();
 			   curl_setopt($ch, CURLOPT_URL, $url);
