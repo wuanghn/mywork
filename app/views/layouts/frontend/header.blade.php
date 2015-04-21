@@ -273,7 +273,7 @@ $(document).ready(function(){
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							  </button>
-							  <a class="navbar-brand" href="#"><img src="{{url('public/frontend/img/logo.png')}}" class="img-responsive"></a>
+							  <a class="navbar-brand" href="{{url('/')}}"><img src="{{url('public/frontend/img/logo.png')}}" class="img-responsive"></a>
 							</div>
 
 							<!-- Collect the nav links, forms, and other content for toggling -->
@@ -281,10 +281,16 @@ $(document).ready(function(){
 							  <ul class="nav navbar-nav">
 								<li ><a href="{{ url('blog') }}">Blog <span class="sr-only">(current)</span></a></li>
 								<li><a href="#">Digital Marketing</a></li>
-								<li><a href="#">Content, PR & Marketing Communications</a></li>
+								<li><a href="#">Content</a></li>
 								<li><a href="#">Trade Marketing</a></li>
 								<li><a href="#">Account & Planner</a></li>
 								<li><a href="#">Creative & Design</a></li>
+								<li><a href="#">PR & Event</a></li>
+								@if(Session::has('user_profile'))
+									<li><a href="{{url('users/logout')}}">Logout {{Session::get('user_profile')->last_name}}</a></li>
+								@else
+								<li><a href="{{url('users/login-mobile')}}">Login</a></li>
+								@endif
 								<!-- <li class="dropdown">
 								  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
 								  <ul class="dropdown-menu" role="menu">

@@ -85,6 +85,15 @@ class SearchesController extends \BaseController {
 
 
 
+
+	public function getDetailMobile()
+	{
+			$job = $this->getDetailJobApi(Input::get('id_job'));
+			return View::make('searches.detail_mobile',compact('job'));
+	}
+
+
+
 	public function postApply()
 		{
 				if( Input::hasFile("inputFile") )

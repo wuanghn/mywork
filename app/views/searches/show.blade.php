@@ -301,7 +301,7 @@
 							<div class="row wa_result_mobile">
 								<div class="col-md-4 wa_parent_job">
 									@foreach($result->data->jobs as $job)
-									<a href="{{url('detail')}}?id_job={{$job->job_id}}">
+									<a href="{{url('detail-mobile')}}?id_job={{$job->job_id}}">
 										<div class="row wa_box_title_job">
 											<div class="col-md-4">
 												<img src="{{$job->job_logo_url}}" width="100%">
