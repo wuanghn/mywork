@@ -259,7 +259,8 @@
 												@endforeach
 											</div>
 											<div class="col-md-2 wa_apply">
-												<a href="{{url('store')}}?job_category=27&page_number=1&job_title={{ $job->job_title }} {{ $job->job_company }}&job_location=&min_salary=&job_level=" class="btn">Click to view salary</a>
+												<a href="{{url('store')}}?job_category=27&page_number=1&job_title={{ $job->job_title }} {{ $job->job_company }}&job_location=&min_salary=&job_level=" class="btn apply_desktop">Click to view salary</a>
+												<a href="{{url('detail-mobile')}}?id_job={{$job->job_id}}" class="btn apply_mobile">Click to view salary</a>
 											</div>
 											<div class="col-md-12" style="padding-right:15px; margin-top:30px">
 												<div style="border-top:1px solid #dedede;"></div>

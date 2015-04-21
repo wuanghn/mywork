@@ -98,8 +98,15 @@
 	  text-transform: uppercase;
 	  font-weight: bold;
 }
+.apply_mobile{
+	display: none;
+}
 
 @media screen and (max-width: 750px	){
+	.apply_desktop{display: none;}
+	.apply_mobile{
+		display: block;
+	}
 	.wa_menu_respon{display: block; margin-bottom: 0px;}
 	.wa_menu_desktop{display: none;}
 		.wa_menu_respon .img-responsive{height: 100%;}

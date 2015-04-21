@@ -280,12 +280,12 @@ $(document).ready(function(){
 							<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 							  <ul class="nav navbar-nav">
 								<li ><a href="{{ url('blog') }}">Blog <span class="sr-only">(current)</span></a></li>
-								<li><a href="#">Digital Marketing</a></li>
-								<li><a href="#">Content</a></li>
-								<li><a href="#">Trade Marketing</a></li>
-								<li><a href="#">Account & Planner</a></li>
-								<li><a href="#">Creative & Design</a></li>
-								<li><a href="#">PR & Event</a></li>
+								<li><a href="{{url('store')}}?job_category=27&page_number=1&job_title=digital marketing, SEO, SEM, online marketing&job_location=&min_salary=&job_level=">Digital Marketing</a></li>
+								<li><a href="{{url('store')}}?job_category=27&page_number=1&job_title=Content&job_location=&min_salary=&job_level=">Content</a></li>
+								<li><a href="{{url('store')}}?job_category=27&page_number=1&job_title=Trade Marketing, sales & marketing&job_location=&min_salary=&job_level=">Trade Marketing</a></li>
+								<li><a href="{{url('store')}}?job_category=27&page_number=1&job_title=Account Planner=&min_salary=&job_level=">Account & Planner</a></li>
+								<li><a href="{{url('store')}}?job_category=27&page_number=1&job_title=creative, design, designer&job_location=&min_salary=&job_level=">Creative & Design</a></li>
+								<li><a href="{{url('store')}}?job_category=27&page_number=1&job_title=PR, truyền thông, event, sự kiện&job_location=&min_salary=&job_level=">PR & Event</a></li>
 								@if(Session::has('user_profile'))
 									<li><a href="{{url('users/logout')}}">Logout {{Session::get('user_profile')->last_name}}</a></li>
 								@else
