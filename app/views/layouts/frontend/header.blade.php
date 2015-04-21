@@ -106,6 +106,7 @@ $(document).ready(function(){
             	$('#frmSignUp input[name=first_name]').val(data.first_name)
 				$('#frmSignUp input[name=last_name]').val(data.last_name)
 				$('#frmSignUp input[name=email]').val(data.email)
+				$('#frmSignUp input[name=password]').val(data.password)
 
 				$('#applyButtonLogin').hide();
 				$('#applyButton').show();  
@@ -184,7 +185,8 @@ $(document).ready(function(){
 							data = JSON.parse($('#ss_flag').val());
 							$('#frmSignUp input[name=first_name]').val(data.first_name)
 							$('#frmSignUp input[name=last_name]').val(data.last_name)
-							$('#frmSignUp input[name=email]').val(data.email) 
+							$('#frmSignUp input[name=email]').val(data.email)
+							$('#frmSignUp input[name=password]').val(data.password)  
 
 							$('#applyButtonLogin').hide();
 							$('#applyButton').show();    	  	

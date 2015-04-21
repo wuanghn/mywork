@@ -114,23 +114,33 @@ class SearchesController extends \BaseController {
 							$result = $this->applyJob($post);
 
 							//$this->viewStructure($result);
-
+							
 							if ($result->meta->code == 200 && $result->meta->message == 'Applied')
 							{
 								// apply completed
 								Apply::create($post);
+
+								$mess = "Applied";
+								Session::flash('done', $mess);
+								return Redirect::back();
 							}else{
 								// apply fail
-								return Redirect::back();
+								$mess = "Error occurred, please apply again";
+								Session::flash('err', $mess);
+								return Redirect::back()->withInput();
 							}
 
 					}else
 					{
-							return Redirect::back();
+							$mess = "Error occurred, please apply again";
+							Session::flash('err', $mess);
+							return Redirect::back()->withInput();
 					}
 				}else
 				{
-					return Redirect::back();
+					$mess = "Error occurred, please apply again";
+					Session::flash('err', $mess);
+					return Redirect::back()->withInput();
 				}
 
 		}

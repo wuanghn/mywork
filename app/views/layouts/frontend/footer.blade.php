@@ -21,12 +21,12 @@
  						<div class="col-md-3 col-md-offset-1 wa_hide_footer_respo">
  							<h3>Introduction</h3>
  							<ul class="nav nav-pills nav-stacked">
- 							  	<li><a href="#">About Us</a></li>
-								<li><a href="#">Contact Us</a></li>
-								<li><a href="#">Press Corner</a></li>
-								<li><a href="#">FAQ</a></li>
-								<li><a href="#">Terms of Use</a></li>
-								<li><a href="#">Privacy Statement</a></li>
+ 							  	<li><a href="http://www.vietnamworks.com/ve-vietnamworks">About Us</a></li>
+								<li><a href="http://www.vietnamworks.com/lien-he">Contact Us</a></li>
+								<li><a href="http://hrinsider.vietnamworks.com/press/">Press Corner</a></li>
+								<li><a href="http://www.vietnamworks.com/tro-giup/viec-lam">FAQ</a></li>
+								<li><a href="http://www.vietnamworks.com/thoa-thuan-su-dung">Terms of Use</a></li>
+								<li><a href="http://www.vietnamworks.com/quy-dinh-bao-mat">Privacy Statement</a></li>
  							</ul>
  						</div>
  						<div class="col-md-3 col-md-offset-1 wa_social wa_hide_footer_respo">

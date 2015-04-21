@@ -52,7 +52,7 @@
 						<div class="container">
 							<div class="row">
 								
-								<a href="{{url('store')}}?job_category=27&page_number=1&job_title=Digital Marketing&job_location=&min_salary=&job_level=" class="col-md-2">
+								<a href="{{url('store')}}?job_category=27&page_number=1&job_title=digital marketing, SEO, SEM, online marketing&job_location=&min_salary=&job_level=" class="col-md-2">
 									<div class="wa_catetogary_feedback hvr-hollow">
 										<h4>Digital Marketing</h4>
 										<img class="center-block" src="{{url('public/frontend/img')}}/digital-marketing.png" style="width:80px; height:80px;">
@@ -64,7 +64,7 @@
 										<img class="center-block" src="{{url('public/frontend/img')}}/Content-writer.png" style="width:80px; height:80px;">
 									</div>
 								</a>
-								<a href="{{url('store')}}?job_category=27&page_number=1&job_title=Trade Marketing&job_location=&min_salary=&job_level=" class="col-md-2">
+								<a href="{{url('store')}}?job_category=27&page_number=1&job_title=Trade Marketing, sales & marketing&job_location=&min_salary=&job_level=" class="col-md-2">
 									<div class="wa_catetogary_feedback hvr-hollow">
 										<h4>Trade Marketing</h4>
 										<img class="center-block" src="{{url('public/frontend/img')}}/trade-marketing.png" style="width:80px; height:80px;">
@@ -76,13 +76,13 @@
 										<img class="center-block" src="{{url('public/frontend/img')}}/account-marketing.png" style="width:80px; height:80px;">
 									</div>
 								</a>
-								<a href="{{url('store')}}?job_category=27&page_number=1&job_title=Creative Design&job_location=&min_salary=&job_level=" class="col-md-2">
+								<a href="{{url('store')}}?job_category=27&page_number=1&job_title=creative, design, designer&job_location=&min_salary=&job_level=" class="col-md-2">
 									<div class="wa_catetogary_feedback hvr-hollow">
 										<h4>Creative & Design</h4>
 										<img class="center-block" src="{{url('public/frontend/img')}}/creative (1).png" style="width:60px; height:80px;">
 									</div>
 								</a>
-								<a href="{{url('store')}}?job_category=27&page_number=1&job_title=PR Event&job_location=&min_salary=&job_level=" class="col-md-2">
+								<a href="{{url('store')}}?job_category=27&page_number=1&job_title=PR, truyền thông, event, sự kiện&job_location=&min_salary=&job_level=" class="col-md-2">
 									<div class="wa_catetogary_feedback hvr-hollow">
 										<h4>PR & Event</h4>
 										<img class="center-block" src="{{url('public/frontend/img')}}/event.png" style="width:60px; height:80px;">
@@ -240,11 +240,13 @@
 									<div style="position:relative" class="row">
 											<div class="col-md-8">
 												<div class="col-md-3" >
-													<img src="{{$job->job_logo_url}}" style="width:100%">
+													<a href="{{url('store')}}?job_category=27&page_number=1&job_title={{ $job->job_title }} {{ $job->job_company }}&job_location=&min_salary=&job_level=">
+														<img src="{{$job->job_logo_url}}" style="width:100%">
+													</a>
 													<!-- <img src="{{url('public/frontend/img/urgent-badge.png')}}" style="position:absolute;top:-30px;left:-15px; width:100px; height:100px;"> -->
 												</div>
 												<div class="col-md-8 wa_info col-md-offset-1">
-													<h4>{{ $job->job_title }}</h4>
+													<h4><a style="color:#333" href="{{url('store')}}?job_category=27&page_number=1&job_title={{ $job->job_title }} {{ $job->job_company }}&job_location=&min_salary=&job_level=">{{ $job->job_title }}</a></h4>
 													<p>{{ $job->job_company }}</p>
 													<!-- <img src="{{url('public/frontend/img/urgent.png')}}" height="92" width="93"> -->
 												</div>
