@@ -93,7 +93,7 @@
 						$name_slug = $val->name_slug;
 					?>
 					<h3>ABOUT EXPERT {{mb_convert_case($val->name, MB_CASE_UPPER, "UTF-8");}}</h3>
-					<span><i class="fa fa-briefcase"></i>{{$val->sectors}}</span>
+					<span><i class="fa fa-briefcase"></i>{{$val->sectors}}</span><br>
 					<span class="da_location"><i class="fa fa-map-marker"></i>{{$val->region_name}}</span>
 					<p>
 						{{$val->discription}}
@@ -164,8 +164,9 @@
 									$begin = 1;
 							?>
 
-
+							@if($getLastPage != 1)
 							<ul class="pagination">
+
 								@if($currentPage >1)
 								<li><a href="{{asset('expert').'/'.$name_slug.'?id='.$id.'page='.($currentPage-1)}}" rel="prev">«</a></li>
 								@endif
@@ -175,7 +176,9 @@
 								@if($currentPage != $end)
 								<li><a href="{{asset('expert').'/'.$name_slug.'?id='.$id.'&page='.($currentPage+1)}}" rel="prev">»</a></li>
 								@endif
+
 							</ul>
+							@endif
 						</div>
 					</div>
 

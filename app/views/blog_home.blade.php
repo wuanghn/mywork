@@ -49,7 +49,7 @@
 			</div>
 			<div class="row da_expert_in">
 				<div class="col-md-12 ">
-					<h3>EXPERTS IN MAKETING</h3>
+					<h3>EXPERTS IN MARKETING</h3>
 					<div class="da_slider autoplay">
 						@foreach($expert as $key_ex => $val_ex)
 						<div class=" da_avatar_author ">
@@ -67,7 +67,7 @@
 
 			<div class="row">
 				<div class="col-md-8 da_article_of">
-					<h3>LASTES ARTICLES</h3>
+					<h3>LATEST ARTICLES</h3>
 					<div class="row">
 						@foreach($last_article as $key_l => $val_l)
 						<div class="col-md-6  da_div_article">
@@ -119,8 +119,9 @@
 
 							?>
 
-
+							@if($getLastPage != 1)
 							<ul class="pagination">
+
 								@if($currentPage >1)
 								<li><a href="{{asset('blog').'?page='.($currentPage-1)}}" rel="prev">«</a></li>
 								@endif
@@ -130,7 +131,9 @@
 								@if($currentPage != $end)
 								<li><a href="{{asset('blog').'?page='.($currentPage+1)}}" rel="prev">»</a></li>
 								@endif
+
 							</ul>
+							@endif
 						</div>
 					</div>
 
