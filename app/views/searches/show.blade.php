@@ -79,7 +79,7 @@
 
 							<h3>Featured jobs</h3>
 							<div class="container">
-								<a href="#">
+								<a href="{{$banner->url}}">
 									<img src="{{ $banner->link }}" height="300px" width="100%">
 								</a>
 							</div>
@@ -387,6 +387,30 @@
 
 	$(document).ready(function()
 	{
+
+
+
+
+
+		$(".wa_iframe_content_job").load(function(){
+
+		   $(this).contents().find(".btn_apply").click(function(){
+		   		//wa_fix_panel
+		   		$('html,body').animate({
+		   		        scrollTop: $(".wa_fix_panel").offset().top},
+		   		        'slow');
+		   });
+
+		});
+
+
+		// croll to detail job
+		$('html,body').animate({
+		        scrollTop: $(".wa_block_result_search").offset().top},
+		        'slow');
+
+
+
 
 		// button APPLY
 		if($('#ss_flag').val() == "")

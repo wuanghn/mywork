@@ -20,6 +20,14 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
 
+	<script type="text/javascript">
+
+		$(window).load(function() {
+			$(".loader").fadeOut("slow");
+		})
+	</script>
+
+
 
 	<style type="text/css">
 		.btn_apply{
@@ -30,10 +38,20 @@
 			text-transform: uppercase;
 			font-weight: bold;
 		}
+		.loader {
+			position: fixed;
+			left: 0px;
+			top: 0px;
+			width: 100%;
+			height: 100%;
+			z-index: 9999;
+			background: url('http://bradsknutson.com/wp-content/uploads/2013/04/page-loader.gif') 50% 50% no-repeat rgb(249,249,249);
+		}
 	</style>
 
 </head>
 <body>
+	<div class="loader"></div>
 
 	<div class="container">
 
