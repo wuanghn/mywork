@@ -8,12 +8,12 @@
  										  				<img src="{{url('public/frontend/img/logo-vnw2.png')}}">
  										  		</a>
  										  </li>
- 										  <li role="presentation"><a href="{{url('/')}}">Search</a></li>
- 										  <li role="presentation"><a href="{{ url('blog') }}">Blog</a></li>
+ 										  <li role="presentation"><a href="{{url('/')}}">SEARCH</a></li>
+ 										  <li role="presentation"><a href="{{ url('blog') }}">BLOG</a></li>
 
  										  @if(!Session::has('user_profile'))
  										  		
- 										   <li id="displayLoginForm" role="presentation"><a href="#" data-toggle="modal" data-target="#myModal">Login</a></li>
+ 										   <li id="displayLoginForm" role="presentation"><a href="#" data-toggle="modal" data-target="#myModal">LOGIN</a></li>
  										  @else
  										  		<?php $last_name = Session::get('user_profile');
  										  				$last_name = $last_name->last_name;
@@ -23,7 +23,7 @@
 										         Hi, {{ $last_name }}<span class="caret"></span>
 										       </a>
 										       <ul class="dropdown-menu" role="menu">
-										         	<li><a href="{{url('users/logout')}}">Logout</a></li>
+										         	<li><a href="{{url('users/logout')}}">LOGOUT</a></li>
 										       </ul>
 										     </li>
 										   @endif
@@ -254,7 +254,7 @@ $(document).ready(function(){
 
 								<div class="col-md-6">
 										<a href="http://www.vietnamworks.com/">
-												<img src="{{url('public/frontend/img/vnw_logo.png')}}">
+												<img style="width:200px" src="{{url('public/frontend/img/vnw_logo.png')}}">
 										</a>
 								</div>
 						</div>
@@ -281,11 +281,11 @@ $(document).ready(function(){
 							  <ul class="nav navbar-nav">
 								<li ><a href="{{ url('blog') }}">Blog <span class="sr-only">(current)</span></a></li>
 								<li><a href="{{url('store')}}?job_category=27&page_number=1&job_title=digital marketing, SEO, SEM, online marketing&job_location=&min_salary=&job_level=">Digital Marketing</a></li>
-								<li><a href="{{url('store')}}?job_category=27&page_number=1&job_title=Content&job_location=&min_salary=&job_level=">Content</a></li>
+								<li><a href="{{url('store')}}?job_category=27&page_number=1&job_title=Content&job_location=&min_salary=&job_level=">Content & PR</a></li>
 								<li><a href="{{url('store')}}?job_category=27&page_number=1&job_title=Trade Marketing, sales & marketing&job_location=&min_salary=&job_level=">Trade Marketing</a></li>
-								<li><a href="{{url('store')}}?job_category=27&page_number=1&job_title=Account Planner=&min_salary=&job_level=">Account & Planner</a></li>
+								<li><a href="{{url('store')}}?job_category=27&page_number=1&job_title=Account Planner=&min_salary=&job_level=">Account</a></li>
 								<li><a href="{{url('store')}}?job_category=27&page_number=1&job_title=creative, design, designer&job_location=&min_salary=&job_level=">Creative & Design</a></li>
-								<li><a href="{{url('store')}}?job_category=27&page_number=1&job_title=PR, truyền thông, event, sự kiện&job_location=&min_salary=&job_level=">PR & Event</a></li>
+								<li><a href="{{url('store')}}?job_category=27&page_number=1&job_title=PR, truyền thông, event, sự kiện&job_location=&min_salary=&job_level=">Event</a></li>
 								@if(Session::has('user_profile'))
 									<li><a href="{{url('users/logout')}}">Logout {{Session::get('user_profile')->last_name}}</a></li>
 								@else

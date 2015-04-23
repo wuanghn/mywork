@@ -60,7 +60,7 @@
 								</a>
 								<a href="{{url('store')}}?job_category=27&page_number=1&job_title=Content&job_location=&min_salary=&job_level=" class="col-md-2">
 									<div class="wa_catetogary_feedback hvr-hollow">
-										<h4>Content</h4>
+										<h4>Content & PR</h4>
 										<img class="center-block" src="{{url('public/frontend/img')}}/Content-writer.png" style="width:80px; height:80px;">
 									</div>
 								</a>
@@ -72,20 +72,20 @@
 								</a>
 								<a href="{{url('store')}}?job_category=27&page_number=1&job_title=Account Planner=&min_salary=&job_level=" class="col-md-2">
 									<div class="wa_catetogary_feedback hvr-hollow">
-										<h4>Account & Planner</h4>
+										<h4>Account</h4>
 										<img class="center-block" src="{{url('public/frontend/img')}}/account-marketing.png" style="width:80px; height:80px;">
 									</div>
 								</a>
 								<a href="{{url('store')}}?job_category=27&page_number=1&job_title=creative, design, designer&job_location=&min_salary=&job_level=" class="col-md-2">
 									<div class="wa_catetogary_feedback hvr-hollow">
 										<h4>Creative & Design</h4>
-										<img class="center-block" src="{{url('public/frontend/img')}}/creative (1).png" style="width:60px; height:80px;">
+										<img class="center-block" src="{{url('public/frontend/img')}}/creative (1).png" style="width:80px; height:80px;">
 									</div>
 								</a>
 								<a href="{{url('store')}}?job_category=27&page_number=1&job_title=PR, truyền thông, event, sự kiện&job_location=&min_salary=&job_level=" class="col-md-2">
 									<div class="wa_catetogary_feedback hvr-hollow">
-										<h4>PR & Event</h4>
-										<img class="center-block" src="{{url('public/frontend/img')}}/event.png" style="width:60px; height:80px;">
+										<h4>Event</h4>
+										<img class="center-block" src="{{url('public/frontend/img')}}/event.png" style="width:80px; height:80px;">
 									</div>
 								</a>
 							</div>
@@ -202,18 +202,18 @@
 									            </div>
 									            @endforeach
 									            <form action="{{asset('sys_store_question')}}" method="POST" id="da_form_question">
-									                <div class="col-md-5 col-md-offset-1 wa_form_question_author" style="background-color:#4e4ebc ">
+									                <div class="col-md-5 col-md-offset-1 wa_form_question_author" style="background-color:#4e56a5 ">
 									                    <h3>Do you have questions for marketing experts?</h3>
 
 									                    <div class="wa_form_question_author_dub">
 									                        <h4>What fields are you interested in?</h4>
 									                        <select class="form-control" name="type">
 									                            <option value="Digital Marketing">Digital Marketing</option>
-                            									<option value="Content">Content</option>
+                            									<option value="Content & PR">Content & PR</option>
                             									<option value="Trade Marketing">Trade Marketing</option>
-                            									<option value="Account & Planner">Account & Planner</option>
+                            									<option value="Account">Account</option>
                             									<option value="Creative & Design">Creative & Design</option>
-                            									<option value="PR & Event">PR & Event</option>
+                            									<option value="Event">Event</option>
 									                        </select>
 									                    </div>
 
@@ -271,7 +271,7 @@
 
 
 									<!-- <div style="text-align:center; padding:10px;">
-											<a style="color:#4e4ebc" href="#">Xem thêm</a>
+											<a style="color:#4e56a5" href="#">Xem thêm</a>
 									</div> -->
 
 									

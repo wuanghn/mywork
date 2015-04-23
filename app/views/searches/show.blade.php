@@ -433,7 +433,7 @@
 			$('#frmSignUp input[name=job_title]').val($(this).find('.title_apply').html());
 
 			$(this).children('.wa_box_title_job').css({
-				'border':'1px solid #4e4ebc',
+				'border':'1px solid #4e56a5',
 			})
 
 			$(this).siblings().children('.wa_box_title_job').attr('style','');
