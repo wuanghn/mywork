@@ -169,11 +169,11 @@
 										<h4>What fields are you interested in?</h4>
 										<select class="form-control" name="type">
 											<option value="Digital Marketing">Digital Marketing</option>
-											<option value="Content">Content</option>
+											<option value="Content & PR">Content & PR</option>
 											<option value="Trade Marketing">Trade Marketing</option>
-											<option value="Account & Planner">Account & Planner</option>
+											<option value="Account">Account</option>
 											<option value="Creative & Design">Creative & Design</option>
-											<option value="PR & Event">PR & Event</option>
+											<option value="Event">Event</option>
 										</select>
 									</div>
 									<div class="wa_form_question_author_dub">
