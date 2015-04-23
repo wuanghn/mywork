@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 15, 2015 at 12:40 PM
+-- Generation Time: Apr 23, 2015 at 10:39 AM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -19,6 +19,50 @@ SET time_zone = "+00:00";
 --
 -- Database: `vietnam`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `admin`
+--
+
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE IF NOT EXISTS `admin` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1112 ;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`id`, `user`, `password`) VALUES
+(1111, 'admin', 'd7c434a54279ebea8e531c18fe0d2703');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `applies`
+--
+
+DROP TABLE IF EXISTS `applies`;
+CREATE TABLE IF NOT EXISTS `applies` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `job_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `file_contents` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `application_subject` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `cover_letter` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `first_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `last_name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `lang` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -39,7 +83,7 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `articles`
@@ -50,7 +94,9 @@ INSERT INTO `articles` (`id`, `id_author`, `title`, `title_slug`, `article_descr
 (3, '8', 'Túi giấy Kraft giá rẻ, túi giấy tái chế', 'tui-giay-kraft-gia-re,-tui-giay-tai-che-3', 'Túi giấy tái chế hay túi giấy kraft là một phần quan trọng trong hệ thống nhận diện thương hiệu. Nó đóng vai trò quan trọng và được xem là bao bì sản phẩm dịch vụ, được xem là tài liệu quảng cáo dịch vụ, cũng được xem như một phương tiện', 'http://www.marketingvietnam.net/images/stories/inan/kraft_solid3_3.jpg', '<table style="width:525px">\r\n	<tbody>\r\n		<tr>\r\n			<td colspan="2">\r\n			<p>&nbsp;</p>\r\n\r\n			<p><img alt="" src="http://www.marketingvietnam.net/images/stories/inan/kraft_solid3_3.jpg" style="float:left; height:266px; width:284px" /><strong>T&uacute;i giấy t&aacute;i chế hay t&uacute;i giấy kraft&nbsp;</strong>l&agrave; một phần quan trọng trong hệ thống nhận diện thương hiệu. N&oacute; đ&oacute;ng vai tr&ograve; quan trọng v&agrave; được xem l&agrave; bao b&igrave; sản phẩm dịch vụ, được xem l&agrave; t&agrave;i liệu quảng c&aacute;o dịch vụ, cũng được xem như một phương tiện x&acirc;y dựng h&igrave;nh ảnh thương hiệu.&nbsp;</p>\r\n\r\n			<p>Trong khi m&ocirc;i trường đang bị đe dọa nghiệm trọng bởi c&aacute;c sản phẩm nylon, nhựa, c&aacute;c loại giấy nguy&ecirc;n liệu 100% bột giấy, th&igrave; đang c&oacute; một xu hướng sử dụng nguy&ecirc;n liệu th&acirc;n thiện m&ocirc;i trường, t&aacute;i sử dụng, t&aacute;i chế, sử dụng lại.</p>\r\n\r\n			<p>Đ&oacute; l&agrave; l&yacute; do tại sao ch&uacute;ng t&ocirc;i tập trung v&agrave;o việc sản xuất c&aacute;c sản phẩm t&uacute;i giấy l&agrave;m từ nguy&ecirc;n liệu t&aacute;i chế gi&aacute; rẻ v&agrave; th&acirc;n thiện với mội trường. cụ thể l&agrave; c&aacute;c sản phẩm&nbsp;<strong>t&uacute;i giấy kraft</strong>&nbsp;nội địa v&agrave; nhập khẩu.</p>\r\n\r\n			<p>Ch&uacute;ng t&ocirc;i nhắm đến sản phẩm gi&aacute; rẻ, thẩm mỹ, đơn giản , , v&agrave; chất lượng đ&aacute;p ứng đ&uacute;ng nhu cầu của kh&aacute;ch h&agrave;ng từ h&agrave;ng.</p>\r\n\r\n			<p>Ch&uacute;ng t&ocirc;i giới thiệu đến qu&yacute; vị dịch vụ sản xuất t&uacute;i giấy kraft như sau:</p>\r\n\r\n			<p><strong>Th&ocirc;ng số kỹ thuật in</strong>:Sử dụng kỹ thuật in offset th&ocirc;ng thương in từ 1 m&agrave;u đến 4 m&agrave;u. . .tuy nhi&ecirc;n ch&uacute;ng t&ocirc;i lu&ocirc;n khuyến kh&iacute;ch kh&aacute;ch h&agrave;ng in tối đa 2 m&agrave;u để giảm chi ph&iacute; m&agrave; vẫn giữ được đặc t&iacute;nh của thương hiệu. Trong một một số trường hợp ch&uacute;ng t&ocirc;i sẽ in lụa để giảm bớt chi ph&iacute; in.</p>\r\n\r\n			<p><strong>Th&ocirc;ng số về giấy:</strong>&nbsp;Hiện tại ch&uacute;ng t&ocirc;i đang sử dụng c&aacute;c loại giấy kraft định lượng từ 70 gsm - 250 gsm nhập từ indo, Thailand m&agrave;u v&agrave;ng, căn cứ v&agrave;o k&iacute;ch thước v&agrave; trọng lượng t&uacute;i giấy đựng m&agrave; lựa chọn định lượng giấy cho ph&ugrave; hợp. th&ocirc;ng thường ch&uacute;ng t&ocirc;i tư vấn kh&aacute;ch h&agrave;ng sử dụng loại giấy từ&nbsp;&nbsp;130 gsm - 160 gsm. Trong một số trường hợp c&oacute; thể sử dụng 250 gsm để đảm bảo an to&agrave;n khi mang.</p>\r\n\r\n			<p>Sau đ&acirc;y l&agrave; một số loại t&uacute;i giấy v&agrave; gi&aacute; t&uacute;i giấy đ&iacute;nh k&egrave;m</p>\r\n\r\n			<p>Bảng gi&aacute; t&uacute;i giấy:</p>\r\n\r\n			<p><img alt="" src="http://www.marketingvietnam.net/images/stories/inan/TuigiayKraft01.jpg" style="height:377px; width:500px" /></p>\r\n			</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n', '7', '2015-03-31 20:51:36', '2015-04-15 04:37:04'),
 (7, '5', 'CHỈ MUỐN VỀ NHÀ', 'chi-muon-ve-nha-7', 'Chỉ muốn về nhà gọi hai tiếng "Mẹ ơi!"\r\nBon chen ngoài kia con mệt rồi mẹ ạ\r\nMuốn mẹ xoa đầu, nói đừng lo gì cả\r\nNhắm mắt ngủ ngoan, đã có mẹ đây rồi', 'uploads/Arti60325125.jpg', '<p>Chỉ muốn về nh&agrave; ngủ một giấc thật say<br />\r\nMẹ cha ở đ&acirc;y, dang v&ograve;ng tay che chở<br />\r\nChẳng c&ograve;n nghĩ suy hay nhọc nhằn g&igrave; nữa<br />\r\nMỗi sớm ban mai đều rạng rỡ nụ cười.&nbsp;<br />\r\n<br />\r\nChỉ muốn về nh&agrave; gọi hai tiếng &quot;Mẹ ơi!&quot;<br />\r\nBon chen ngo&agrave;i kia con mệt rồi mẹ ạ<br />\r\nMuốn mẹ xoa đầu, n&oacute;i đừng lo g&igrave; cả<br />\r\nNhắm mắt ngủ ngoan, đ&atilde; c&oacute; mẹ đ&acirc;y rồi.<br />\r\n<br />\r\nChỉ muốn về nh&agrave;, ăn b&aacute;t canh m&ugrave;ng tơi<br />\r\nRau h&aacute;i bờ ao, những ng&agrave;y trời nắng gắt<br />\r\nC&agrave; ph&aacute;o chua chua ăn k&egrave;m l&agrave; ngon nhất<br />\r\nM&acirc;m cơm giản đơn nhưng thật sự ấm l&ograve;ng.<br />\r\n<br />\r\nChỉ muốn về nh&agrave; để qu&ecirc;n hết long đong<br />\r\nTr&aacute;nh những gi&oacute; gi&ocirc;ng cho l&ograve;ng y&ecirc;n b&igrave;nh lại<br />\r\nCon đ&atilde; lớn rồi nhưng muốn m&igrave;nh b&eacute; m&atilde;i<br />\r\nSợ những bon chen sợ phải lớn, mẹ &agrave;.</p>\r\n', '7,6', '2015-04-01 20:35:45', '2015-04-15 04:36:55'),
 (8, '5', 'ANH VÀ THÁNG TƯ VẪN ĐỢI', 'anh-va-thang-tu-van-doi-8', 'Ngôi nhà vắng bóng em từ lúc biệt ly\r\nLoa Kèn nở chỉ mỗi mình anh ngắm\r\nTháng Tư giao mùa với mọi người vui lắm\r\nChỉ riêng anh quạnh quẽ một nỗi niềm', 'uploads/Arti21406540.jpg', '<p>Em về đi th&aacute;ng Tư vẫn đợi<br />\r\nHoa cỏ giờ đ&acirc;y mọc k&iacute;n lối m&ograve;n<br />\r\nL&ograve;ng anh- c&aacute;nh cửa xưa bỏ ngỏ<br />\r\nĐ&atilde; bạc m&agrave;u...b&aacute;m bụi...sắp... h&eacute;o hon</p>\r\n\r\n<p>Em về đi điểm phấn t&ocirc; son<br />\r\nL&agrave;m mới lại ch&iacute;nh em tưởng l&acirc;u rồi đ&atilde; cũ<br />\r\nTh&aacute;ng Tư- anh với nắng v&agrave;ng ấp ủ<br />\r\nH&aacute;t kh&uacute;c t&igrave;nh ca ng&agrave;y ấy...đ&oacute;n em về</p>\r\n\r\n<p>Th&aacute;ng Tư rồi<br />\r\nEm ạ!<br />\r\nVề đi</p>\r\n\r\n<p>Ng&ocirc;i nh&agrave; vắng b&oacute;ng em từ l&uacute;c biệt ly<br />\r\nLoa K&egrave;n nở chỉ mỗi m&igrave;nh anh ngắm<br />\r\nTh&aacute;ng Tư giao m&ugrave;a với mọi người vui lắm<br />\r\nChỉ ri&ecirc;ng anh quạnh quẽ một nỗi niềm</p>\r\n\r\n<p>Em về đi cho anh hết chung chi&ecirc;ng<br />\r\nNg&ocirc;i nh&agrave; nhỏ vang tiếng cười con trẻ<br />\r\nHạnh ph&uacute;c giản đơn đ&acirc;u cần g&igrave; hơn thế<br />\r\nAnh c&oacute; em, ch&uacute;ng m&igrave;nh lại c&oacute; nhau</p>\r\n\r\n<p>Rồi nỗi đau sẽ h&agrave;n gắn nỗi đau<br />\r\nHai nửa cuộc đời t&aacute;i sinh sau đổ vỡ<br />\r\nD&igrave;u nhau đi... nốt qu&atilde;ng đường dang dở<br />\r\nTrao y&ecirc;u dấu nồng n&agrave;n b&ugrave; đắp những m&ugrave;a qua</p>\r\n\r\n<p>Về đi em trước khi th&aacute;ng Tư xa</p>\r\n', '1,7', '2015-04-05 19:18:02', '2015-04-15 04:36:47'),
-(9, '5', 'ANH BIẾT SAI RỒI ĐỪNG GIẬN ANH NỮA ĐƯỢC KHÔNG', 'anh-biet-sai-roi-dung-gian-anh-nua-duoc-khong-9', 'Em cứ giận anh hoài cho mưa nắng đan xen\r\nMột mảng trời đen ướt nhèm lên đôi mắt\r\nPhố nhỏ đã lên đèn mà lòng mình ngỡ tắt\r\nEm giận anh rồi hiu hắt quá em ơi', 'uploads/Arti15251615.png', '<p>Em cứ giận anh ho&agrave;i cho mưa nắng đan xen<br />\r\nMột mảng trời đen ướt nh&egrave;m l&ecirc;n đ&ocirc;i mắt<br />\r\nPhố nhỏ đ&atilde; l&ecirc;n đ&egrave;n m&agrave; l&ograve;ng m&igrave;nh ngỡ tắt<br />\r\nEm giận anh rồi hiu hắt qu&aacute; em ơi</p>\r\n\r\n<p>Th&ocirc;i đừng giận anh nữa để v&ocirc; t&igrave;nh nụ cười lại đ&aacute;nh rơi<br />\r\nNg&agrave;y kh&ocirc;ng em anh chẳng c&oacute; ai c&ugrave;ng đ&ugrave;a chơi nữa<br />\r\nPhố cũng buồn khi kh&ocirc;ng c&oacute; bước ch&acirc;n hai đứa<br />\r\nLối nhỏ đi về thiếu cả tiếng chim ca</p>\r\n\r\n<p>Đừng giận anh nữa ngo&agrave;i kia c&oacute; bao đ&ocirc;i trẻ hoan ca<br />\r\nXin đừng c&agrave;i then nhốt m&igrave;nh sau song cửa<br />\r\nHứa một lần n&agrave;y kh&ocirc;ng để em buồn nữa<br />\r\nAnh sẽ đưa em đi đến những con đường</p>\r\n\r\n<p>C&oacute; hoa tươi với mu&ocirc;n v&agrave;n những y&ecirc;u thương&nbsp;<br />\r\nC&oacute; những nỗi nhớ vấn vương với cầu vồng bảy sắc&nbsp;<br />\r\nC&oacute; con bướm v&agrave;ng vươn m&igrave;nh bay trong nắng<br />\r\nAnh biết sai rồi, anh sẽ sửa đừng buồn anh nữa được kh&ocirc;ng ..!</p>\r\n\r\n<p><img alt="" src="/vietnam/public/uploads/images/images/hot-boy-han-quoc-2.jpg" style="height:235px; width:200px" /></p>\r\n', '7,3,1', '2015-04-05 19:35:07', '2015-04-15 04:36:40');
+(9, '5', 'ANH BIẾT SAI RỒI ĐỪNG GIẬN ANH NỮA ĐƯỢC KHÔNG', 'anh-biet-sai-roi-dung-gian-anh-nua-duoc-khong-9', 'Em cứ giận anh hoài cho mưa nắng đan xen\r\nMột mảng trời đen ướt nhèm lên đôi mắt\r\nPhố nhỏ đã lên đèn mà lòng mình ngỡ tắt\r\nEm giận anh rồi hiu hắt quá em ơi', 'uploads/Arti15251615.png', '<p>Em cứ giận anh ho&agrave;i cho mưa nắng đan xen<br />\r\nMột mảng trời đen ướt nh&egrave;m l&ecirc;n đ&ocirc;i mắt<br />\r\nPhố nhỏ đ&atilde; l&ecirc;n đ&egrave;n m&agrave; l&ograve;ng m&igrave;nh ngỡ tắt<br />\r\nEm giận anh rồi hiu hắt qu&aacute; em ơi</p>\r\n\r\n<p>Th&ocirc;i đừng giận anh nữa để v&ocirc; t&igrave;nh nụ cười lại đ&aacute;nh rơi<br />\r\nNg&agrave;y kh&ocirc;ng em anh chẳng c&oacute; ai c&ugrave;ng đ&ugrave;a chơi nữa<br />\r\nPhố cũng buồn khi kh&ocirc;ng c&oacute; bước ch&acirc;n hai đứa<br />\r\nLối nhỏ đi về thiếu cả tiếng chim ca</p>\r\n\r\n<p>Đừng giận anh nữa ngo&agrave;i kia c&oacute; bao đ&ocirc;i trẻ hoan ca<br />\r\nXin đừng c&agrave;i then nhốt m&igrave;nh sau song cửa<br />\r\nHứa một lần n&agrave;y kh&ocirc;ng để em buồn nữa<br />\r\nAnh sẽ đưa em đi đến những con đường</p>\r\n\r\n<p>C&oacute; hoa tươi với mu&ocirc;n v&agrave;n những y&ecirc;u thương&nbsp;<br />\r\nC&oacute; những nỗi nhớ vấn vương với cầu vồng bảy sắc&nbsp;<br />\r\nC&oacute; con bướm v&agrave;ng vươn m&igrave;nh bay trong nắng<br />\r\nAnh biết sai rồi, anh sẽ sửa đừng buồn anh nữa được kh&ocirc;ng ..!</p>\r\n\r\n<p><img alt="" src="/vietnam/public/uploads/images/images/hot-boy-han-quoc-2.jpg" style="height:235px; width:200px" /></p>\r\n', '7,3,1', '2015-04-05 19:35:07', '2015-04-15 04:36:40'),
+(10, '', 'test1', NULL, '', NULL, '', '', '2015-04-20 04:02:57', '2015-04-20 04:02:57'),
+(11, '', 'test2', NULL, '', NULL, '', '', '2015-04-20 04:03:05', '2015-04-20 04:03:05');
 
 -- --------------------------------------------------------
 
@@ -98,6 +144,7 @@ DROP TABLE IF EXISTS `banners`;
 CREATE TABLE IF NOT EXISTS `banners` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `link` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
@@ -107,8 +154,8 @@ CREATE TABLE IF NOT EXISTS `banners` (
 -- Dumping data for table `banners`
 --
 
-INSERT INTO `banners` (`id`, `link`, `created_at`, `updated_at`) VALUES
-(1, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO `banners` (`id`, `link`, `url`, `created_at`, `updated_at`) VALUES
+(1, 'http://localhost/mywork/mywork/public/uploads/banner/Banner23511047.jpg', 'xxx', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -218,6 +265,26 @@ INSERT INTO `header_blog_home` (`id`, `id_article`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `hot_story`
+--
+
+DROP TABLE IF EXISTS `hot_story`;
+CREATE TABLE IF NOT EXISTS `hot_story` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `id_article` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `hot_story`
+--
+
+INSERT INTO `hot_story` (`id`, `id_article`) VALUES
+(1, '3');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -252,23 +319,7 @@ CREATE TABLE IF NOT EXISTS `questions` (
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=19 ;
-
---
--- Dumping data for table `questions`
---
-
-INSERT INTO `questions` (`id`, `user`, `email`, `type`, `question`, `answer`, `status`, `created_at`, `updated_at`) VALUES
-(7, 'pham duc anh', 'ppducah@gmail.com', 'Digital Marketing', 'hỏi làm gì', '', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(8, 'pham duc anh', 'ppducah@gmail.com', 'Account & Planner', 'test lần 2', '', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(9, 'pham duc anh', 'ppducah@gmail.com', 'Digital Marketing', 'test 2', '', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(10, 'pham duc anh', 'ppducah@gmail.com', 'Digital Marketing', 'tôi không biêt đâu à', '', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(11, 'pham duc anh', 'ppducah@gmail.com', 'Account & Planner', 'bùn quá người ơi', '', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(12, 'pham duc anh', 'ppducah@gmail.com', 'Digital Marketing', 'hehehe', '', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(13, 'pham duc anh', 'ppducah@gmail.com', 'Digital Marketing', 'đà', '', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(14, 'pham duc anh', 'ppducah@gmail.com', 'Digital Marketing', 'dfasf', '', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(15, 'pham duc anh', 'ppducah@gmail.com', 'Digital Marketing', 'ádfsdfsf', '', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00'),
-(16, 'pham duc anh', 'ppducah@gmail.com', 'Digital Marketing', 'dfasfdaf', '', '0', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
