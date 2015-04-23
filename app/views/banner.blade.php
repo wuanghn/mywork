@@ -48,12 +48,22 @@
 							</div>
 							<div class="row">
 								<form action="{{asset('store_banner')}}" method="POST">
+									@foreach($ban as $key =>$val)
 									<div class="col-lg-6">
 										<div class="form-group div_in_banner">
-											<input type="text" class="form-control" id="input_url" name="link">
+											<label>URL hình</label>
+											<input type="text" class="form-control" id="input_url" name="link" value="{{$val->link}}">
 										</div>
+
 										<input type="submit" value="Lưu banner" class="btn btn-danger">
 									</div>
+									<div class="col-lg-6">
+										<div class="form-group div_in_banner">
+											<label>URL link</label>
+											<input type="text" class="form-control" id="input_link" name="url" value="{{$val->url}}">
+										</div>
+									</div>
+									@endforeach
 								</form>
 							</div>
 						</div>

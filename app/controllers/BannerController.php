@@ -9,7 +9,9 @@
 		*/
 		public function index()
 		{
-			return View::make('banner');
+
+			$rs = DB::table('banners')->get();
+			return View::make('banner', array('ban'=>$rs));
 		}
 
 
@@ -34,7 +36,7 @@
 		public function store()
 		{
 			DB::table('banners')->truncate();
-			DB::table('banners')->insert(array('link'=>Input::get('link')));
+			DB::table('banners')->insert(array('link'=>Input::get('link'),'url'=>Input::get('url')));
 			return Redirect::to('sys_banner');
 		}
 
