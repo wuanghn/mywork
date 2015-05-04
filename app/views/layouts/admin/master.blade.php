@@ -67,6 +67,8 @@
 							$active3 = "";
 							$active4 = "";
 							$active5 = "";
+							$active6 = "";
+							$active7 = "";
 							$in ="";
 							$in2 ="";
 
@@ -89,6 +91,14 @@
 									break;
 								case "sys_hot_story":
 									$active5 = "active";
+									$in2 = "in";
+									break;
+								case "sys_banner_home":
+									$active6 = "active";
+									$in2 = "in";
+									break;
+								case "applies":
+									$active7 = "active";
 									$in2 = "in";
 									break;
 							}
@@ -114,13 +124,16 @@
 							<a class="collapsed" href="javascript:0;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-search"></i> Search <i class="fa fa-fw fa-caret-down"></i></a>
 							<ul id="demo2" class="collapse {{$in2}}" >
 								<li class="{{$active3}}">
-									<a href="{{asset('sys_banner')}}"><i class="fa fa-picture-o"></i> Hình banner</a>
+									<a href="{{asset('sys_banner')}}"><i class="fa fa-picture-o"></i> Banner trang search</a>
+								</li>
+								<li class="{{$active6}}">
+									<a href="{{asset('sys_banner_home')}}"><i class="fa fa-file-image-o"></i> Banner trang chủ</a>
 								</li>
 								<li class="{{$active5}}">
 									<a href="{{asset('sys_hot_story')}}"><i class="fa fa-rocket"></i> Bài viết Hot của tuần</a>
 								</li>
-								<li class="{{$active5}}">
-									<a href="{{url('applies')}}"><i class="fa fa-rocket"></i> Applies</a>
+								<li class="{{$active7}}">
+									<a href="{{url('applies')}}"><i class="fa fa-envelope"></i> Applies</a>
 								</li>
 							</ul>
 						</li>

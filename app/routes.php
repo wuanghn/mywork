@@ -44,6 +44,11 @@
 		Route::post('sys_store_hot','HotStoryController@store');
 		Route::get('sys_search_hot','HotStoryController@search');
 
+		Route::get('sys_banner_home','BannerHomeController@index');
+		Route::post('sys_store_banner_home','BannerHomeController@store');
+		Route::post('sys_upload_banner','BannerHomeController@upload_banner');
+		Route::get('sys_destroy_banner','BannerHomeController@destroy');
+
 		Route::get('logout','LoginController@logout');
 
 	});

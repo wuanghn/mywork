@@ -85,7 +85,8 @@
 	margin-left: 15px;
 }
 .da_expert_in h3{
-	margin: 30px auto 30px 20px;
+	margin: 30px auto 30px auto;
+	text-align: center;
 
 }
 .da_avatar_author img{

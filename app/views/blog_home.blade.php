@@ -40,9 +40,9 @@
 				</div>
 				<div class="col-md-5 da_name_author">
 					<div class="div_img_avatar">
-						<img src="{{$val_au->avatar}}" class="img-circle">
+						<a href="{{asset('expert').'/'.$val_au->name_slug}}"><img src="{{$val_au->avatar}}" class="img-circle"></a>
 					</div>
-					<h3>{{mb_convert_case($val_au->name, MB_CASE_UPPER, "UTF-8");}}</h3>
+					<a href="{{asset('expert').'/'.$val_au->name_slug}}"><h3>{{mb_convert_case($val_au->name, MB_CASE_UPPER, "UTF-8");}}</h3></a>
 					<h4>{{$val_au->position}}</h4>
 				</div>
 				@endforeach
@@ -56,7 +56,7 @@
 							<a href="{{asset('expert').'/'.$val_ex->name_slug}}"  class="div_img_avatar">
 								<img src="{{$val_ex->avatar}}" class="img-circle center-block" title="{{$val_ex->name}}">
 							</a>
-							<h3 class="center-block">{{$val_ex->name}}</h3>
+							<a href="{{asset('expert').'/'.$val_ex->name_slug}}"><h3 class="center-block">{{$val_ex->name}}</h3></a>
 							<h4>{{$val_ex->position}}</h4>
 						</div>
 						@endforeach

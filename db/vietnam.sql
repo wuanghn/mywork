@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 23, 2015 at 10:39 AM
+-- Generation Time: May 04, 2015 at 09:55 PM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -156,6 +156,26 @@ CREATE TABLE IF NOT EXISTS `banners` (
 
 INSERT INTO `banners` (`id`, `link`, `url`, `created_at`, `updated_at`) VALUES
 (1, 'http://localhost/mywork/mywork/public/uploads/banner/Banner23511047.jpg', 'xxx', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `banner_home`
+--
+
+DROP TABLE IF EXISTS `banner_home`;
+CREATE TABLE IF NOT EXISTS `banner_home` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `link` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `banner_home`
+--
+
+INSERT INTO `banner_home` (`id`, `link`) VALUES
+(1, 'http://localhost/mywork/mywork/public/uploads/banner/Banner_home62370053.png');
 
 -- --------------------------------------------------------
 
