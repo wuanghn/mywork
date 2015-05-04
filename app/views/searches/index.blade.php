@@ -190,13 +190,13 @@
 									            @foreach($article as $key_a => $val_a)
 									            <div class="col-md-6">
 									                <div class="wa_box_author">
-									                    <img  src="{{$val_a->avatar}}">
+									                    <a href="{{url('expert')}}/{{$val_a->name_slug}}"><img  src="{{$val_a->avatar}}"></a>
 									                    <a href="{{url('expert')}}/{{$val_a->name_slug}}"><h2>{{$val_a->name}}</h2></a>
 									                    <h4>{{$val_a->position}}</h4>
 									                </div>
 									                <div class="wa_post_author">
 									                    <a style="color:black" href="{{asset('detail-blog').'/'.$val_a->title_slug}}"><h3>{{$val_a->title}}</h3></a>
-									                    <h4>{{neods(strip_tags($val_a->content), 900)}} <span><a style="font-size: 14px;" href="{{asset('detail-blog').'/'.$val_a->title_slug}}"><i>  &nbsp;read more>></i></a></span></h4>
+									                    <h4>{{neods(strip_tags($val_a->content), 750)}} <span><a style="font-size: 14px;" href="{{asset('detail-blog').'/'.$val_a->title_slug}}"><i>  &nbsp;read more>></i></a></span></h4>
 
 									                </div>
 									            </div>
