@@ -44,7 +44,7 @@
 
 
 				<div class="wa_wrap_banner">
-						<img src="{{url('public/frontend/img/background.png')}}" width="100%">
+						<img src="{{ $banner->link }}" width="100%">
 						<div class="wa_opic"></div>
 						
 

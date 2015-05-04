@@ -44,7 +44,10 @@ class SearchesController extends \BaseController {
 			->get();
 
 
-			return View::make('searches.index',compact('ganeral_configurations','new_job','locations','article'));
+			$banner = DB::table('banner_home')->first();
+
+
+			return View::make('searches.index',compact('ganeral_configurations','new_job','locations','article','banner'));
 	}
 
 
