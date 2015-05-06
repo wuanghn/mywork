@@ -22,8 +22,10 @@
 
 
 
+
 		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 		<title>{{$val1->title}}</title>
+		<link rel="shortcut icon" href="http://advice.vietnamworks.com/misc/favicon.ico" type="image/x-icon"/>
 		@endforeach
 		<link href="{{asset('public/assets/css/bootstrap.min.css')}}" rel="stylesheet">
 		<link href="{{asset('public/assets/css/blog2.css')}}" rel="stylesheet">
@@ -195,6 +197,18 @@
 				<div class="col-md-4">
 					<div class="row">
 						<div class="col-md-12 da_search">  <!--search  -->
+							<script>
+								(function() {
+									var cx = '017341108073439579548:0jnhiafya7y';
+									var gcse = document.createElement('script');
+									gcse.type = 'text/javascript';
+									gcse.async = true;
+									gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+									'//cse.google.com/cse.js?cx=' + cx;
+									var s = document.getElementsByTagName('script')[0];
+									s.parentNode.insertBefore(gcse, s);
+								})();
+							</script>
 							<gcse:search></gcse:search>
 						</div>
 					</div>
@@ -274,17 +288,6 @@
 
 
 		@include('layouts.frontend.footer')
-		<script>
-			(function() {
-				var cx = '001497134547695371278:mjliokuthyw';
-				var gcse = document.createElement('script');
-				gcse.type = 'text/javascript';
-				gcse.async = true;
-				gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-				'//www.google.com/cse/cse.js?cx=' + cx;
-				var s = document.getElementsByTagName('script')[0];
-				s.parentNode.insertBefore(gcse, s);
-			})();
-		</script>
+
 	</body>
 </html>
