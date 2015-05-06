@@ -36,7 +36,7 @@
 					<p>
 						{{neods(strip_tags($val_au->content), 1000)}}
 					</p>
-					<span><a href="{{asset('detail-blog?id=').$val_au->id_ar}}"><i>see more >></i></a></span>
+					<span><a href="{{asset('detail-blog').'/'.$val_au->title_slug}}"><i>see more >></i></a></span>
 				</div>
 				<div class="col-md-5 da_name_author">
 					<div class="div_img_avatar">
